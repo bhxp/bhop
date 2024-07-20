@@ -6,7 +6,7 @@ title: Page List
 <h1>All Pages</h1>
 <ul>
   {% for page in site.pages %}
-    {% if page.url != '/pages.html' %}
+    {% if page.url != '/pages.html' and page.url contains '.html' %}
       <li><a href="{{ page.url }}">{{ page.title | default: page.name }}</a></li>
     {% endif %}
   {% endfor %}

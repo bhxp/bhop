@@ -137,6 +137,8 @@ body {
   margin: 0px;
   background-image: url("/images/bio_blurred.png");
   z-index: 9998;
+  
+  background-size: cover;
 }
 
 #cover-title {

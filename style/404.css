@@ -1,11 +1,104 @@
-html, body {
-    margin: 0px;
-    height: 100vw;
-    width: 100vh;
+@font-face {
+  font-family: SamsungOne;
+  src: url(../fonts/SamsungOne-400.ttf);
 }
+
+@font-face {
+  font-family: SamsungSharpSans;
+  src: url(../fonts/samsungsharpsans.otf);
+}
+
+html,
+body {
+  margin: 0px;
+  height: 100vh;
+  width: 100vw;
+}
+
 /*poop*/
 body {
-    background-image: url("../images/404_background.png") !important;
-    background-size: auto 100vh;
-    background-repeat: no-repeat;
+  background-image: url("../images/404_background.png") !important;
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-color: #2d4b76;
+}
+
+
+
+#container {
+  backdrop-filter: blur(6px);
+  position: fixed;
+  left: 50vw;
+  top: 50%;
+  transform: TranslateX(-50%) TranslateY(-50%);
+  height: 70vh;
+  width: 70vw;
+  border-radius: 24px;
+  border: solid 1px #ffffff40;
+  box-shadow: 0px 0px 48px 0px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  user-select: none;
+}
+
+#number {
+  position: absolute;
+  top: 13%;
+  left: 50%;
+  transform: TranslateX(-50%);
+  height: 20vh;
+}
+
+#text {
+  font-size: 4vh;
+  font-family: SamsungSharpSans;
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.6);
+}
+
+#button {
+  font-size: 3vh;
+  font-family: SamsungSharpSans;
+  position: absolute;
+  bottom: 20%;
+  transform: TranslateX(-50%);
+  left: 50%;
+  font-weight: 600;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 9999px;
+  padding: 16px;
+  padding-left: 24px;
+  padding-right: calc(36px + 2vh);
+  color: white;
+  border: solid 1px #ffffff40;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+#button:hover {
+  padding: 20px;
+  padding-left: 28px;
+  padding-right: calc(40px + 2vh);
+  transform: TranslateX(-50%) TranslateY(+4px);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+#button:hover #arrow {
+  right: 22px;
+}
+
+#arrow {
+  height: 2vh;
+  width: 2vh;
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: TranslateY(-50%);
+  transition: all 0.2s ease-in-out
 }

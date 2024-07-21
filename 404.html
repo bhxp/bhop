@@ -5,15 +5,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-  <title>bhop</title>
+  <title>404 - Bhoppings</title>
   <link rel="stylesheet" href="/style/404.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <div id="container">
-      404 - Not Found
-    </div>
+  <div id="container">
+    <img id="number" src="images/404.png" />
+    <div id="text">Look's like this page doesn't exist.<br /> Don't worry, let's go back.</div>
+    <button id="button" onclick="window.location.href = '/';">
+      Return
+      <img src="images/right_arrow.png" id="arrow" />
+    </button>
+  </div>
 </body>
 
 </html>

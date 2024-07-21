@@ -228,3 +228,7 @@ body {
   font-weight: bold;
   display: inline-block;
 }
+
+.char {
+  transition: all 0.2s ease-in-out;
+}

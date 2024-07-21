@@ -86,4 +86,4 @@ function render() {
   requestAnimationFrame(render);
 }
 
-//requestAnimationFrame(render)
+requestAnimationFrame(render)

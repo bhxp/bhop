@@ -21,6 +21,8 @@ $(document).ready(e => {
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        data.forEach(item => appendItem);
+        data.forEach(item => {
+            appendItem(item);
+        });
     });
 });

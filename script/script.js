@@ -27,7 +27,7 @@ $(document).ready(function() {
       // Apply CSS to animate each letter
       $('.char').each(function(index) {
           $(this).delay(interval * index).queue(function(next) {
-              $(this).css('text-shadow', 'text-shadow: 0px 0px 6px rgba(255, 0, 0, 0.88)');
+              $(this).css('text-shadow', '0px 0px 6px rgba(255, 0, 0, 0.88)');
               next();
           });
       });

@@ -12,7 +12,7 @@ var localStorage = window.localStorage;
 
 $(document).ready(function() {
 
-  let views = localStorage.getItem("views") || 0;
+  let views = parseInt(localStorage.getItem("views"), 10) || 0;
   views += 1;
   localStorage.setItem("views", views);
   $("#view-count").text(views);

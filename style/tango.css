@@ -19,4 +19,6 @@ body {
     backdrop-filter: blur(12px);
     border: 5px solid #403771;
     border-radius: 20px;
+    height: 252px;
+    width: 48px;
 }

@@ -8,7 +8,15 @@ var mouseX = 0;
 var mouseY = 0;
 var catX = 0;
 
+var localStorage = window.localStorage;
+
 $(document).ready(function() {
+
+  let views = localStorage.getItem("views") || 0;
+  views += 1;
+  localStorage.setItem("views", views);
+  $("#view-count").text(views);
+
   var text = "Click to enter...";
   var textLength = text.length;
   var currentIndex = 0;

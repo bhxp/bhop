@@ -74,7 +74,7 @@ body {
 }
 
 .item-img {
-    width: calc(100% - 4px);
+    width: calc(100% - 28px);
     aspect-ratio: 1 / 1;
     border-radius: 8px;
     border: solid 2px #fff;

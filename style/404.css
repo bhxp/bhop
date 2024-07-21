@@ -6,5 +6,6 @@ html, body {
 /*f*/
 body {
     background-image: url("../images/404_background.png") !important;
-    background-size: 100%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
 }

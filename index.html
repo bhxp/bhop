@@ -49,17 +49,17 @@
 <script src="script.js"></script>
 
 
-      <script>
+    <script>
         // Create an audio element and set its source
         var audio = new Audio('/assets/audio/xtac.mp3');
 
         // Add an event listener to the document body to play the audio on click
-        document.body.addEventListener('click', function() {
+        document.body.onclick = function() {
             console.log('Body clicked'); // Debug log
             audio.play().catch(function(error) {
                 console.error('Error playing audio:', error); // Log any playback errors
             });
-        });
+        };
     </script>
 
 </html>

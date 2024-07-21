@@ -8,6 +8,42 @@ var mouseX = 0;
 var mouseY = 0;
 var catX = 0;
 
+$(document).ready(function() {
+  var text = "Click to enter...";
+  var textLength = text.length;
+  var currentIndex = 0;
+  var interval = 1000; // Interval between letter changes in milliseconds
+
+  function animateText() {
+      // Clear previous letter
+      $('#animatedText').empty();
+
+      // Loop through each letter
+      for (var i = 0; i < textLength; i++) {
+          var letter = $('<span>').addClass('char').text(text.charAt(i));
+          $('#animatedText').append(letter);
+      }
+
+      // Apply CSS to animate each letter
+      $('.char').each(function(index) {
+          $(this).delay(interval * index).queue(function(next) {
+              $(this).css('opacity', '1');
+              next();
+          });
+      });
+
+      // Move to the next letter sequence
+      currentIndex = (currentIndex + 1) % textLength;
+
+      // Repeat the animation
+      setTimeout(animateText, interval * textLength);
+  }
+
+  // Start the animation
+  animateText();
+});
+
+
 
 
 document.addEventListener("keydown", e => {

@@ -220,5 +220,5 @@ body {
 }
 
 #effect {
-  z-index: 1;
+  z-index: 9999;
 }

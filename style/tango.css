@@ -9,3 +9,13 @@ body {
     background-size: cover;
     backdrop-filter: blur(36px);
 }
+
+#sidebar {
+    position: fixed;
+    left: 24px;
+    top: 50%;
+    transform: TranslateX(-50%);
+    background-color: #201949aa;
+    backdrop-filter: blur(12px);
+    border-top: 5px solid #403771
+}

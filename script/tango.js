@@ -21,6 +21,7 @@ $(document).ready(e => {
     fetch("/tango_store.json")
     .then(response => response.json())
     .then(data => {
+        items = data;
         console.log(data);
         data.forEach(item => {
             appendItem(item);

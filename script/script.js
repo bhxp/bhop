@@ -86,7 +86,7 @@ class Particle {
 }
 function randomAngleDownwards() {
   // Generate a random number between Math.PI * 0.25 and Math.PI * 0.75
-  return Math.random() * (Math.PI * 0.5) + Math.PI * 0.25;
+  return Math.random() * (Math.PI * 0.4) + Math.PI * 0.35;
 }
 
 

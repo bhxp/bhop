@@ -5,5 +5,5 @@ html, body {
 }
 
 body {
-    background-image: url("/images/tango_background.png");
+    background-image: url("/images/tango_background.png") !important;
 }

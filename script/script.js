@@ -12,7 +12,7 @@ $(document).ready(function() {
   var text = "Click to enter...";
   var textLength = text.length;
   var currentIndex = 0;
-  var interval = 10; // Interval between letter changes in milliseconds
+  var interval = 100; // Interval between letter changes in milliseconds
 
   function animateText() {
       // Clear previous letter
@@ -27,7 +27,7 @@ $(document).ready(function() {
       // Apply CSS to animate each letter
       $('.char').each(function(index) {
           $(this).delay(interval * index).queue(function(next) {
-              $(this).css('text-shadow', '0px 0px 6px rgba(255, 0, 0, 0.88)');
+              $(this).css('text-shadow', '0px 0px 6px rgba(255, 255, 255, 0.88)');
               next();
           });
       });

@@ -230,5 +230,5 @@ body {
 }
 
 .char {
-  transition: all 0.2s ease-in-out;
+  transition: text-shadow 0.2s ease-in-out;
 }

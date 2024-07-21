@@ -24,7 +24,7 @@ body {
   width: 100vw;
   backdrop-filter: blue(var(--background-blur));
   background-color: #0d0d0d;
-  background-image: url("background.png");
+  background-image: url("images/background.png");
   background-size: cover;
   margin: 0px;
   padding: 0px;

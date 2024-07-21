@@ -1,15 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Bhoppings</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <style>
-        
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <title>Bio - Bhoppings</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
+
 <body>
-    
+
+  <canvas id="effect"></canvas>
+
+  <div id="container">
+    <div id="name-container">
+      <img src="images/pfp.png" id="pfp" />
+      <img id="sparkles" src="images/sparkle_white.gif" />
+      <h1 id="name">Bhop</h1>
+      <div id="bio">professional skid</div>
+    </div>
+  </div>
+
+  <div id="links">
+    <a class="link-button" onclick="javascript: window.open('https://youtube.com/@Bhoppings', '_blank');">
+      <img class="link-img" src="images/youtube.png" />
+    </a>
+    <a class="link-button" onclick="javascript: window.open('https://www.tiktok.com/@bhoppingz', '_blank');">
+      <img class="link-img" src="images/tiktok.png" />
+    </a>
+    <a class="link-button" onclick="javascript: window.open('https://github.com/bhxp', '_blank');">
+      <img class="link-img" src="images/github.png" />
+    </a>
+    <a class="link-button" onclick="javascript: window.open('https://open.spotify.com/user/31zvux3kw6otgrc6czgj5544ddkm?si=70e7ce28ac034cc2', '_blank');">
+      <img class="link-img" src="images/spotify.png" />
+    </a>
+  </div>
+
+  <div id="cover">
+    <div id="cover-title">
+      Click to enter...
+    </div>
+  </div>
+
+  <img class="custom-cursor" src="images/cursor.png" />
 </body>
+<script src="script.js"></script>
+
 </html>

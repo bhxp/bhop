@@ -47,8 +47,12 @@ body {
     width: calc(100vw - 336px);
     height: calc(100vh - 192px);
     padding: 48px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .item {
-    width: calc(100% / 6 - 24px)
+    width: calc(100% / 6 - 24px);
 }

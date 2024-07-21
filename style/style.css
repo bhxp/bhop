@@ -41,6 +41,7 @@ body {
   padding: 0px;
   overflow: hidden;
   cursor: none !important;
+  user-select: none;
 }
 
 .custom-cursor {

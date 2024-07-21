@@ -12,7 +12,7 @@ $(document).ready(function() {
   var text = "Click to enter...";
   var textLength = text.length;
   var currentIndex = 0;
-  var interval = 1000; // Interval between letter changes in milliseconds
+  var interval = 10; // Interval between letter changes in milliseconds
 
   function animateText() {
       // Clear previous letter

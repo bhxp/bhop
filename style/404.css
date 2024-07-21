@@ -6,5 +6,5 @@ html, body {
 /*g*/
 body {
     background-image: url("../images/404_background.png") !important;
-    background-size: cover;
+    background-size: fill;
 }

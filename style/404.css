@@ -5,5 +5,5 @@ html, body {
 }
 /*f*/
 body {
-    background-image: url("../images/404_background.png");
+    background-image: url("../images/404_background.png") !important;
 }

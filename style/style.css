@@ -1,6 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
+
+@font-face {
+  font-family: SamsungOne;
+  src: url(../fonts/SamsungOne-400.ttf);
+}
+
+@font-face {
+  font-family: SamsungSharpSans;
+  src: url(../fonts/samsungsharpsans.otf);
+}
+
+
 :root {
   --background-blur: 12px;
   --corner-radius: 24px;
@@ -238,7 +250,7 @@ body {
   bottom: 24px;
   left: 24px;
   opacity: 0.6;
-  font-family: Mulish;
+  font-family: SamsungOne;
   height: 16px;
   width: fit-content;
   font-size: 16px;
@@ -247,4 +259,8 @@ body {
 #views img {
   height: 16px;
   margin-right: 12px;
+}
+
+#view-count {
+  transform: TranslateY(-50%);
 }

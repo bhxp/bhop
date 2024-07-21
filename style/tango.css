@@ -74,11 +74,10 @@ body {
 }
 
 .item-img {
-    width: 100%;
+    width: calc(100% - 4px);
     aspect-ratio: 1 / 1;
     border-radius: 8px;
     border: solid 2px #fff;
-    box-sizing: border-box;
 }
 
 .item-name {

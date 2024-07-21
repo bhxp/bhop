@@ -2,4 +2,5 @@ html, body {
     margin: 0px;
     height: 100vw;
     width: 100vh;
+    background-image: url("images/404_background.png");
 }

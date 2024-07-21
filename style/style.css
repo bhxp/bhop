@@ -160,7 +160,7 @@ body {
   height: 60px;
   float: left;
   margin-right: 12px;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.3s ease-in-out;
   bottom: 0px;
   backdrop-filter: blur(6px);
 }

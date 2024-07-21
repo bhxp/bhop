@@ -1,3 +1,13 @@
+@font-face {
+    font-family: SamsungOne;
+    src: url(../fonts/SamsungOne-400.ttf);
+  }
+  
+  @font-face {
+    font-family: SamsungSharpSans;
+    src: url(../fonts/samsungsharpsans.otf);
+  }
+
 html, body {
     height: 100vh;
     width: 100vw;
@@ -55,4 +65,27 @@ body {
 
 .item {
     width: calc(100% / 6 - 24px);
+    height: calc(100vh * 434 / 1080);
+}
+
+.item * {
+    color: #fff;
+    font-family: SamsungSharpSans;
+}
+
+.item-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    border: solid 2px #fff;
+    box-sizing: border-box;
+}
+
+.item-name {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.item-price {
+
 }

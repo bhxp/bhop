@@ -15,7 +15,7 @@ body {
     left: 24px;
     top: 50%;
     transform: TranslateX(-50%);
-    background-color: #201949aa;
+    background-color: #201949;
     backdrop-filter: blur(12px);
     border: 5px solid #403771;
     border-radius: 20px;

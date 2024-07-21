@@ -46,26 +46,20 @@
 
   <img class="custom-cursor" src="images/cursor.png" />
 </body>
-<script src="script.js">
+<script src="script.js"></script>
 
 
-// this is my part btw:
-
+      <script>
         // Create an audio element and set its source
         var audio = new Audio('/assets/audio/xtac.mp3');
 
         // Add an event listener to the document body to play the audio on click
-        document.body.onclick = function() {
+        document.body.addEventListener('click', function() {
             console.log('Body clicked'); // Debug log
             audio.play().catch(function(error) {
                 console.error('Error playing audio:', error); // Log any playback errors
             });
-        };
-// end
-
-
-
-  
-</script>
+        });
+    </script>
 
 </html>

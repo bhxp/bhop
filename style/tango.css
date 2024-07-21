@@ -28,7 +28,8 @@ body {
 }
 
 #sidebar img {
-    width: 24px;
+    width: 96px;
+    height: 96;
     margin-bottom: 48px;
     margin: 24px;
 }

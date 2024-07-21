@@ -22,5 +22,13 @@ body {
     height: 336px;
     width: 96px;
     padding: 12px;
-    
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+#sidebar img {
+    width: 96px;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 24px;
 }

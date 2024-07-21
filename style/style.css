@@ -135,7 +135,7 @@ body {
   left: 0px;
   top: 0px;
   margin: 0px;
-  background-color: var(--accent-background);
+  background-image: url("/images/bio_blurred.png");
   z-index: 9998;
 }
 

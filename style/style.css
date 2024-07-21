@@ -263,4 +263,7 @@ body {
 
 #view-count {
   transform: TranslateY(-50%);
+  position: absolute;
+  top: 50%;
+  left: 38px;
 }

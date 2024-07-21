@@ -1,7 +1,8 @@
 function createItemElem(item) {
+
     return
     `<div class="item">
-        <img src="/images/tango/${item.img}" />
+        <img src="/images/tango/${item.image}" />
         <div class="item-name">${item.name}</div>
         <div class="item-price"${item.price}</div>
         <button class="add-to-cart" onclick="addToCart("${item.name}")">Add to Cart</button>

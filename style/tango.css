@@ -14,11 +14,13 @@ body {
     position: fixed;
     left: 24px;
     top: 50%;
-    transform: TranslateX(-50%);
+    transform: TranslateY(-50%);
     background-color: #201949;
     backdrop-filter: blur(12px);
     border: 5px solid #403771;
     border-radius: 20px;
-    height: 252px;
-    width: 48px;
+    height: 336px;
+    width: 96px;
+    padding: 12px;
+    
 }

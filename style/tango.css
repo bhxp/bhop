@@ -28,6 +28,12 @@ body {
 }
 
 #sidebar img {
-    width: 96px;
-    height: 96;
+    width: 72px;
+    height: 72px;
+    margin: 12px;
+    transition: all 0.17s ease-in-out;
+}
+
+#sidebar img:hover {
+    backdrop-filter: brightness(120%);
 }

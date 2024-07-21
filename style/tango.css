@@ -30,11 +30,10 @@ body {
 #sidebar img {
     width: 96px;
     height: 96px;
-    margin: 12px;
-    transition: all 0.17s ease-in-out;
+    transition: all 0.3s ease-in-out;
     border-radius: 16px;
 }
 
 #sidebar img:hover {
-    backdrop-filter: brightness(120%);
+    backdrop-filter: brightness(130%);
 }

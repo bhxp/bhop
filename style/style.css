@@ -238,4 +238,13 @@ body {
   bottom: 24px;
   left: 24px;
   opacity: 0.6;
+  font-family: Mulish;
+  height: 48px;
+  width: fit-content;
+}
+
+#views img {
+  height: 48px;
+  width: 48px;
+  margin-right: 12px;
 }

@@ -135,9 +135,8 @@ body {
   left: 0px;
   top: 0px;
   margin: 0px;
-  background-image: url("/images/bio_blurred.png");
   z-index: 9998;
-  
+  backdrop-filter: blur(24px);
   background-size: cover;
 }
 

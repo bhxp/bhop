@@ -1,7 +1,6 @@
 function createItemElem(item) {
 
-    return
-    `<div class="item">
+    return `<div class="item">
         <img src="/images/tango/${item.image}" />
         <div class="item-name">${item.name}</div>
         <div class="item-price">${item.price}</div>

@@ -99,11 +99,16 @@ body {
 }
 
 .add-to-cart {
-    font-size: 20;
+    font-size: 20px;
     border-radius: 9999px;
     padding: 12px;
     color: black;
     background-color: rgba(255,255,255,0.47);
     margin-top: 12px;
     border: solid 2px #fff;
+}
+
+.add-to-cart > img {
+    height: 20px;
+    width: 20px;
 }

@@ -102,6 +102,6 @@ body {
     background-color: rgba(255,255,255,0.47);
     position: absolute;
     left: 0px;
-    top: calc(100vh * 434 / 1080 - 25% + 32px);
+    top: calc(100vh * 434 / 1080 - 20%);
     border: solid 2px #fff;
 }

@@ -1,116 +1,116 @@
 @font-face {
-    font-family: SamsungOne;
-    src: url(../fonts/SamsungOne-400.ttf);
-  }
-  
-  @font-face {
-    font-family: SamsungSharpSans;
-    src: url(../fonts/samsungsharpsans.otf);
-  }
-  
-  html,
-  body {
-    height: 100vh;
-    width: 100vw;
-    margin: 0px;
-    overflow: hidden;
-  }
-  
-  body {
-    background-image: url("/images/tango_background.png") !important;
-    background-size: cover;
-    backdrop-filter: blur(36px);
-  }
-  
-  #sidebar {
-    position: fixed;
-    left: 36px;
-    top: 50%;
-    transform: TranslateY(-50%);
-    background-color: #201949;
-    backdrop-filter: blur(12px);
-    border: 5px solid #403771;
-    border-radius: 20px;
-    height: 216px;
-    width: 72px;
-    padding: 12px;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-  }
-  
-  #sidebar img {
-    width: 72px;
-    height: 72px;
-    transition: all 0.3s ease-in-out;
-    border-radius: 16px;
-    cursor: pointer;
-  }
-  
-  #sidebar img:hover {
-    backdrop-filter: brightness(130%);
-  }
-  
-  #store {
-    position: absolute;
-    left: 144px;
-    top: 240px;
-    width: calc(100vw - 336px);
-    height: calc(100vh - 192px);
-    padding: 48px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
-  
-  .item {
-    width: calc(100% / 6 - 24px);
-    height: calc(100vh * 0.2);
-    position: relative;
-  }
-  
-  .item * {
-    color: #fff;
-    font-family: SamsungSharpSans;
-  }
-  
-  .item-img {
-    width: calc(100% - 28px);
-    aspect-ratio: 1 / 1;
-    border-radius: 8px;
-    border: solid 2px #fff;
-  }
-  
-  .item-name {
-    margin-top: 12px;
-    width: 75%;
-    font-size: 2vh;
-    font-weight: 500;
-  }
-  
-  .item-price {
-    font-size: 16px;
-    margin-top: 6px;
-    opacity: 0.7;
-  }
-  
-  .add-to-cart {
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    font-size: 16px;
-    border-radius: 9999px;
-    padding: 12px;
-    color: black;
-    background-color: rgba(255, 255, 255, 0.47);
-    margin-top: 12px;
-    border: solid 2px #fff;
-  }
-  
-  .add-to-cart>img {
-    height: 16px;
-    width: 16px;
-    transform: TranslateY(+2px);
-    margin-right: 12px;
-  }
+  font-family: SamsungOne;
+  src: url(../fonts/SamsungOne-400.ttf);
+}
+
+@font-face {
+  font-family: SamsungSharpSans;
+  src: url(../fonts/samsungsharpsans.otf);
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+  overflow: hidden;
+}
+
+body {
+  background-image: url("/images/tango_background.png") !important;
+  background-size: cover;
+  backdrop-filter: blur(36px);
+}
+
+#sidebar {
+  position: fixed;
+  left: 36px;
+  top: 50%;
+  transform: TranslateY(-50%);
+  background-color: #201949;
+  backdrop-filter: blur(12px);
+  border: 5px solid #403771;
+  border-radius: 20px;
+  height: 216px;
+  width: 72px;
+  padding: 12px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+#sidebar img {
+  width: 72px;
+  height: 72px;
+  transition: all 0.3s ease-in-out;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+#sidebar img:hover {
+  backdrop-filter: brightness(130%);
+}
+
+#store {
+  position: absolute;
+  left: 144px;
+  top: 240px;
+  width: calc(100vw - 336px);
+  height: calc(100vh - 192px);
+  padding: 48px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.item {
+  width: calc(100% / 6 - 24px);
+  height: calc(100vh * 0.2);
+  position: relative;
+}
+
+.item * {
+  color: #fff;
+  font-family: SamsungSharpSans;
+}
+
+.item-img {
+  width: calc(100% - 28px);
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  border: solid 2px #fff;
+}
+
+.item-name {
+  margin-top: 12px;
+  width: 75%;
+  font-size: 2vh;
+  font-weight: 500;
+}
+
+.item-price {
+  font-size: 16px;
+  margin-top: 6px;
+  opacity: 0.7;
+}
+
+.add-to-cart {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  font-size: 16px;
+  border-radius: 9999px;
+  padding: 12px;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.47);
+  margin-top: 12px;
+  border: solid 2px #fff;
+}
+
+.add-to-cart>img {
+  height: 16px;
+  width: 16px;
+  transform: TranslateY(+2px);
+  margin-right: 12px;
+}

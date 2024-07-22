@@ -40,7 +40,7 @@ button:hover {
     background-color: #0056b3;
 }
 
-textarea {
+textarea, input[type="text"], input[type="number"], input[type="color"], input[type="range"] {
     display: block;
     margin-bottom: 10px;
 }
@@ -53,4 +53,37 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+img {
+    margin: 10px;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
 }

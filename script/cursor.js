@@ -16,8 +16,8 @@ styleElem.innerHTML = `
   z-index: 9999;
 }`
 
-document.getElementsByTagName("head").appendChild(styleElem);
-document.getElementsByTagName("body").appendChild(cursor);
+document.getElementsByTagName("head")[0].appendChild(styleElem);
+document.getElementsByTagName("body")[0].appendChild(cursor);
 
 document.addEventListener('mousemove', e => {
     cursor.style.left = e.pageX + 'px';

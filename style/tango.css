@@ -84,7 +84,7 @@ body {
 .item-name {
     margin-top: 12px;
     width: 75%;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 500;
     height: 75px;
 }
@@ -95,13 +95,13 @@ body {
     left: 0px;
     top: calc(100vh * 434 / 1080 - 25%);
     */
-    font-size: 20px;
+    font-size: 16px;
     margin-top: 6px;
     opacity: 0.7;
 }
 
 .add-to-cart {
-    font-size: 20px;
+    font-size: 16px;
     border-radius: 9999px;
     padding: 12px;
     color: black;
@@ -111,8 +111,8 @@ body {
 }
 
 .add-to-cart > img {
-    height: 20px;
-    width: 20px;
-    transform: TranslateY(+3px);
+    height: 16px;
+    width: 16px;
+    transform: TranslateY(+2px);
     margin-right: 12px;
 }

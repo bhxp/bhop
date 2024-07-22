@@ -88,9 +88,11 @@ body {
 }
 
 .item-price {
+    /*
     position: absolute;
     left: 0px;
     top: calc(100vh * 434 / 1080 - 25%);
+    */
     font-size: 20px;
 }
 

@@ -84,7 +84,7 @@ body {
 .item-name {
     margin-top: 12px;
     width: 75%;
-    font-size: calc(100% * 25 / 530px);
+    font-size: calc(4.7%);
     font-weight: 500;
     height: 75px;
 }

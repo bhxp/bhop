@@ -114,3 +114,14 @@ body {
   transform: TranslateY(+2px);
   margin-right: 12px;
 }
+
+#checkout {
+  position: fixed;
+  right: 48px;
+  top: 48px;
+  height: calc(100vh - 144px);
+  width: calc(30vw - 72px);
+  padding: 24px;
+  backdrop-filter: blur(48px);
+  border-radius: 32px;
+}

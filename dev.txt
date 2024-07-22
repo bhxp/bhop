@@ -1,0 +1,2 @@
+Custom Cursor Code (only JS):
+<script type="text/javascript" src="/script/cursor.js"></script>

@@ -270,8 +270,8 @@ body {
   transition: all 0.17s ease-in-out;
   backdrop-filter: blur(6px);
   position: fixed;
-  right: 48px;
-  bottom: 48px;
+  right: 36px;
+  bottom: 36px;
 }
 
 #home-button:hover {

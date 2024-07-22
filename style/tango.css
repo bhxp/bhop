@@ -111,4 +111,6 @@ body {
 .add-to-cart > img {
     height: 20px;
     width: 20px;
+    transform: TranslateY(+3px);
+    margin-right: 12px;
 }

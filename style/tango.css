@@ -82,6 +82,7 @@ body {
 }
 
 .item-name {
+    width: 75%;
     font-size: 30px;
     font-weight: 500;
 }
@@ -102,4 +103,5 @@ body {
     position: absolute;
     left: 0px;
     top: calc(100vh * 434 / 1080 - 25% + 32px);
+    border: solid 2px #fff;
 }

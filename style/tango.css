@@ -23,7 +23,7 @@ body {
 
 #sidebar {
     position: fixed;
-    left: 24px;
+    left: 48px;
     top: 50%;
     transform: TranslateY(-50%);
     background-color: #201949;

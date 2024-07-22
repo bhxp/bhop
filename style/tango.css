@@ -82,6 +82,7 @@ body {
 }
 
 .item-name {
+    margin-top: 12px;
     width: 75%;
     font-size: 30px;
     font-weight: 500;

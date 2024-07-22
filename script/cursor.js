@@ -1,6 +1,8 @@
 const cursor = document.createElement("img");
 cursor.classList.add("custom-cursor");
 
+cursor.setAttribute("src", "/images/cursor.png")
+
 const styleElem = document.createElement("style");
 styleElem.innerHTML = `
 * {

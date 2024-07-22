@@ -31,4 +31,6 @@ body {
     background-color: #03030C;
     border: 8px solid #1A1A1C;
     border-radius: 9999px;
+    height: 96px;
+    width: 75vw;
 }

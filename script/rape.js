@@ -14,7 +14,7 @@ function createMovingWindow() {
 
 setInterval(() => {
     createMovingWindow();
-}, 3000);
+}, 30);
 
 window.addEventListener('beforeunload', () => {
     windows.forEach(win => win.close());

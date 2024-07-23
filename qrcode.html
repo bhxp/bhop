@@ -5,23 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom QR Code Generator</title>
     <style>
+        @font-face {
+            font-family: 'SamsungSharpRegular';
+            src: url('path/to/SamsungSharpRegular.woff2') format('woff2'),
+                 url('path/to/SamsungSharpRegular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'SamsungSharpRegular', Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
             padding: 20px;
+            background-color: #f0f0f0;
+            color: #333;
         }
+
         #qr-code-container {
             text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        #qr-code {
-            margin: 20px 0;
-        }
+
         #settings {
             margin-bottom: 20px;
+        }
+
+        #settings input[type="text"],
+        #settings input[type="number"],
+        #settings input[type="color"],
+        #settings select,
+        #settings button {
+            font-family: 'SamsungSharpRegular', Arial, sans-serif;
+            margin: 5px 0;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #settings input[type="file"] {
+            margin: 10px 0;
+        }
+
+        #settings button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #settings button:hover {
+            background-color: #0056b3;
+        }
+
+        #qr-code {
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        #download-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #007bff;
+            text-decoration: none;
+            border: 1px solid #007bff;
+            border-radius: 4px;
+        }
+
+        #download-link:hover {
+            background-color: #007bff;
+            color: #fff;
         }
     </style>
 </head>

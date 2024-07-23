@@ -7,6 +7,20 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-direction: column;
+}
+
+#popup-message {
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
+
+#allow-popups-button {
+    font-size: 1em;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
 }
 
 #main-message {

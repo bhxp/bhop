@@ -34,3 +34,27 @@ body {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#main-message {
+    font-size: 4em;
+    color: red;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    animation: flash 1s infinite;
+}
+
+@keyframes flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+

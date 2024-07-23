@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom QR Code Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        #qr-code-container {
+            text-align: center;
+        }
+        #qr-code {
+            margin: 20px 0;
+        }
+        #settings {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="qr-code-container">
+        <div id="settings">
+            <input type="text" id="text-input" placeholder="Enter URL or text" size="30">
+            <br>
+            <label for="size">Size:</label>
+            <input type="number" id="size" value="300">
+            <br>
+            <label for="level">Error Correction Level:</label>
+            <select id="level">
+                <option value="L">L (Low)</option>
+                <option value="M">M (Medium)</option>
+                <option value="Q">Q (Quartile)</option>
+                <option value="H">H (High)</option>
+            </select>
+            <br>
+            <label for="foreground">Foreground Color:</label>
+            <input type="color" id="foreground" value="#000000">
+            <br>
+            <label for="background">Background Color:</label>
+            <input type="color" id="background" value="#FFFFFF">
+            <br>
+            <input type="file" id="logo-upload" accept="image/*">
+            <br>
+            <button onclick="generateQRCode()">Generate QR Code</button>
+        </div>
+        <canvas id="qr-code"></canvas>
+        <br>
+        <a id="download-link" download="qr-code.png">Download QR Code</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
+    <script>
+        function generateQRCode() {
 

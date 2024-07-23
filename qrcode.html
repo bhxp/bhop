@@ -55,17 +55,6 @@
             <!-- Logo Upload -->
             <input type="file" id="logo-upload" accept="image/*">
             <br>
-            <!-- Custom Seed Options -->
-            <input type="checkbox" id="use-custom-seed">
-            <label for="use-custom-seed">Use Custom Seed</label>
-            <br>
-            <div id="seed-settings" style="display: none;">
-                <!-- Seed Input -->
-                <label for="seed">Seed:</label>
-                <input type="text" id="seed" placeholder="Enter seed number">
-                <button onclick="generateRandomSeed()">Generate Random Seed</button>
-            </div>
-            <br>
             <!-- Generate QR Code Button -->
             <button onclick="generateQRCode()">Generate QR Code</button>
         </div>
@@ -78,17 +67,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
     <script>
-        // Toggle seed settings visibility based on checkbox
-        document.getElementById('use-custom-seed').addEventListener('change', function() {
-            document.getElementById('seed-settings').style.display = this.checked ? 'block' : 'none';
-        });
-
-        // Generate a random seed number
-        function generateRandomSeed() {
-            document.getElementById('seed').value = Math.floor(Math.random() * 1000000);
-        }
-
-        // Generate the QR code based on user settings
         function generateQRCode() {
             const textInput = document.getElementById('text-input').value;
             const qrCodeElement = document.getElementById('qr-code');
@@ -97,21 +75,17 @@
             const foreground = document.getElementById('foreground').value;
             const background = document.getElementById('background').value;
             const logoUpload = document.getElementById('logo-upload').files[0];
-            const useCustomSeed = document.getElementById('use-custom-seed').checked;
-            const seed = useCustomSeed ? parseInt(document.getElementById('seed').value, 10) : null;
 
+            // Generate the QR code
             const qr = new QRious({
                 element: qrCodeElement,
                 value: textInput,
                 size: size,
                 level: level,
                 foreground: foreground,
-                background: background,
-                // Seed-based generation (conceptual)
-                seed: seed
+                background: background
             });
 
-            // Handle logo placement if uploaded
             if (logoUpload) {
                 const logoURL = URL.createObjectURL(logoUpload);
                 const logoImage = new Image();

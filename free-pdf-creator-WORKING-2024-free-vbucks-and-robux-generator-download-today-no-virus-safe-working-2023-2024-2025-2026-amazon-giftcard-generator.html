@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional PDF Creator</title>
+    <link rel="stylesheet" href="/style/pdf.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Professional PDF Creator</h1>
+        <textarea id="pdfContent" placeholder="Enter your content here..."></textarea><br>
+        <button id="generateButton">Generate PDF</button>
+    </div>
+
+    <script>
+        document.getElementById('generateButton').addEventListener('click', function() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            // Get the text from the textarea
+            const text = document.getElementById('pdfContent').value;
+
+            // Add the text to the PDF
+            doc.text(text, 10, 10);
+
+            // Save the PDF
+            doc.save('document.pdf');
+        });
+    </script>
+</body>
+</html>

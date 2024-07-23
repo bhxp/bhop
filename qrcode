@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom QR Code Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #qr-code-container {
+            text-align: center;
+        }
+        #qr-code {
+            margin: 20px 0;
+        }
+        #upload-logo {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="qr-code-container">
+        <input type="text" id="text-input" placeholder="Enter URL or text" size="30">
+        <button onclick="generateQRCode()">Generate QR Code</button>
+        <br>
+        <input type="file" id="logo-upload" accept="image/*">
+        <br>
+        <canvas id="qr-code"></canvas>
+        <br>
+        <a id="download-link" download="qr-code.png">Download QR Code</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
+    <script>
+        function generateQRCode() {
+            const textInput = document.getElementById('text-input').value;
+            const qrCodeElement = document.getElementById('qr-code');
+            const qr = new QRious({
+                element: qrCodeElement,
+                value: textInput,
+                size: 300,
+                level: 'H'
+            });
+
+            const logoUpload = document.getElementById('logo-upload').files[0];
+            if (logoUpload) {
+                const logoURL = URL.createObjectURL(logoUpload);
+                const logoImage = new Image();
+                logoImage.src = logoURL;
+                logoImage.onload = () => {
+                    const ctx = qrCodeElement.getContext('2d');
+                    const qrSize = qrCodeElement.width;
+                    const logoSize = qrSize / 5; // Adjust size as needed
+
+                    ctx.drawImage(logoImage, qrSize / 2 - logoSize / 2, qrSize / 2 - logoSize / 2, logoSize, logoSize);
+                    document.getElementById('download-link').href = qrCodeElement.toDataURL('image/png');
+                };
+            } else {
+                document.getElementById('download-link').href = qrCodeElement.toDataURL('image/png');
+            }
+        }
+    </script>
+</body>
+</html>

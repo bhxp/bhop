@@ -12,6 +12,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            padding: 20px;
         }
         #qr-code-container {
             text-align: center;
@@ -19,37 +20,62 @@
         #qr-code {
             margin: 20px 0;
         }
-        #upload-logo {
-            margin: 20px 0;
+        #settings {
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <div id="qr-code-container">
-        <input type="text" id="text-input" placeholder="Enter URL or text" size="30">
-        <button onclick="generateQRCode()">Generate QR Code</button>
-        <br>
-        <input type="file" id="logo-upload" accept="image/*">
-        <br>
+        <div id="settings">
+            <input type="text" id="text-input" placeholder="Enter URL or text" size="30">
+            <br>
+            <label for="size">Size:</label>
+            <input type="number" id="size" value="300">
+            <br>
+            <label for="level">Error Correction Level:</label>
+            <select id="level">
+                <option value="L">L (Low)</option>
+                <option value="M">M (Medium)</option>
+                <option value="Q">Q (Quartile)</option>
+                <option value="H">H (High)</option>
+            </select>
+            <br>
+            <label for="foreground">Foreground Color:</label>
+            <input type="color" id="foreground" value="#000000">
+            <br>
+            <label for="background">Background Color:</label>
+            <input type="color" id="background" value="#FFFFFF">
+            <br>
+            <input type="file" id="logo-upload" accept="image/*">
+            <br>
+            <button onclick="generateQRCode()">Generate QR Code</button>
+        </div>
         <canvas id="qr-code"></canvas>
         <br>
         <a id="download-link" download="qr-code.png">Download QR Code</a>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
     <script>
         function generateQRCode() {
             const textInput = document.getElementById('text-input').value;
             const qrCodeElement = document.getElementById('qr-code');
+            const size = parseInt(document.getElementById('size').value, 10);
+            const level = document.getElementById('level').value;
+            const foreground = document.getElementById('foreground').value;
+            const background = document.getElementById('background').value;
+            const logoUpload = document.getElementById('logo-upload').files[0];
+
             const qr = new QRious({
                 element: qrCodeElement,
                 value: textInput,
-                size: 300,
-                level: 'H'
+                size: size,
+                level: level,
+                foreground: foreground,
+                background: background
             });
 
-            const logoUpload = document.getElementById('logo-upload').files[0];
             if (logoUpload) {
                 const logoURL = URL.createObjectURL(logoUpload);
                 const logoImage = new Image();
@@ -57,7 +83,7 @@
                 logoImage.onload = () => {
                     const ctx = qrCodeElement.getContext('2d');
                     const qrSize = qrCodeElement.width;
-                    const logoSize = qrSize / 5; // Adjust size as needed
+                    const logoSize = qrSize / 5; // Adjust this to resize the logo proportionally
 
                     ctx.drawImage(logoImage, qrSize / 2 - logoSize / 2, qrSize / 2 - logoSize / 2, logoSize, logoSize);
                     document.getElementById('download-link').href = qrCodeElement.toDataURL('image/png');

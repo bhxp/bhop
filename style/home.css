@@ -50,12 +50,13 @@ body {
     font-family: SamsungSharpSans;
     height: 72px;
     width: 96px;
-    border-radius: 24px;
+    border-radius: 12px;
     float: left;
     margin: 12px;
     text-align: center;
     vertical-align: middle;
     line-height: 72px;
+    font-size: 48px;
 }
 
 .navbar-item:hover {

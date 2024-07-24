@@ -16,7 +16,7 @@ const appendItem = (item) => appendItemElem(createItemElem(item));
 var items = [];
 
 $(document).ready(() => {
-    fetch("/tango_store.json")
+    fetch("/config/tango_store.json")
     .then(response => response.json())
     .then(data => {
         items = data;

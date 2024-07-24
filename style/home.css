@@ -21,7 +21,7 @@ body {
     background-repeat: no-repeat;
     overflow: hidden;
     background-color: #2d4b76;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(96px);
 }
 
 #navbar {
@@ -45,7 +45,7 @@ body {
     margin: 12px;
 }
 
-#navbar-button {
+.navbar-button {
     color: #fff;
     font-family: SamsungSharpSans;
     height: 72px;
@@ -53,6 +53,6 @@ body {
     border-radius: 24px;
 }
 
-#navbar-button:hover {
+.navbar-button:hover {
     backdrop-filter: brightness(130%);
 }

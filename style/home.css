@@ -41,5 +41,6 @@ body {
     height: 72px;
     width: 72px;
     border-radius: 9999px;
-
+    position: relative;
+    margin: 12px;
 }

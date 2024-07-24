@@ -44,3 +44,15 @@ body {
     position: relative;
     margin: 12px;
 }
+
+#navbar-button {
+    color: #fff;
+    font-family: SamsungSharpSans;
+    height: 72px;
+    width: 96px;
+    border-radius: 24px;
+}
+
+#navbar-button:hover {
+    backdrop-filter: brightness(130%);
+}

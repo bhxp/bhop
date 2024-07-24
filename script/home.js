@@ -24,8 +24,8 @@ $(document).ready ((e) => {
                     let dropdown = $("<div class='dropdown' style='display: hidden;'></div>")
                     item.pages.forEach(page => {
                         let elem = $ ("<div class='dropdown-item'></div>");
-                        element.text (page.page)
-                        element.attr ("onclick", `window.open ("${page.url}");`);
+                        elem.text (page.page)
+                        elem.attr ("onclick", `window.open ("${page.url}");`);
                         dropdown.append (elem);
                     })
                     navbar.append (element);

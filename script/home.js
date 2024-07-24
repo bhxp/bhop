@@ -10,7 +10,7 @@ $(document).ready ((e) => {
                 element.attr ("onclick", `window.open ("${item.url}");`);
                 navbar.append (element);
             });
-        });
+        })
         .catch (error => {
             console.error (error);
         });

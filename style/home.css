@@ -67,7 +67,7 @@ body {
 
 .dropdown {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 48px);
     left: 0px;
     font-size: 12px;
 }

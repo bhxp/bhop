@@ -64,3 +64,10 @@ body {
     background-color: rgba(255, 255, 255, 0.17);
     transition: all 0.2s ease-in-out;
 }
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    font-size: 12px;
+}

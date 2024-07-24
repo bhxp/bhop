@@ -1,7 +1,17 @@
 [
     {
+        "multiple": true,
         "text": "Bio",
-        "url": "/"
+        "pages": [
+            {
+                "text": "Bio",
+                "url": "/"
+            },
+            {
+                "text": "Bio",
+                "url": "/"
+            }
+        ]
     },
     {
         "text": "Tango",

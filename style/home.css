@@ -48,8 +48,9 @@ body {
 .navbar-item {
     color: #fff;
     font-family: SamsungSharpSans;
-    height: 72px;
+    height: 48px;
     width: fit-content;
+    padding: 12px 12px;
     border-radius: 12px;
     float: left;
     margin: 12px 36px;

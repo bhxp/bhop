@@ -21,6 +21,7 @@ body {
     background-repeat: no-repeat;
     overflow: hidden;
     background-color: #2d4b76;
+    backdrop-filter: blur(8px);
 }
 
 #navbar {
@@ -40,5 +41,5 @@ body {
     height: 72px;
     width: 72px;
     border-radius: 9999px;
-    
+
 }

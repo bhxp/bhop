@@ -126,6 +126,10 @@ title: QR Code
             <input type="checkbox" id="rounded" value="rounded">
             <label for="rounded">Use Rounded Style</label>
             <br>
+            <!-- Connected Rounded QR Code Option -->
+            <input type="checkbox" id="connected-rounded" value="connected-rounded">
+            <label for="connected-rounded">Use Connected Rounded Style</label>
+            <br>
             <!-- Generate QR Code Button -->
             <button onclick="generateQRCode()">Generate QR Code</button>
         </div>
@@ -173,6 +177,40 @@ title: QR Code
             }
         }
 
+        function drawConnectedRoundedQRCode(qr, canvas, foreground, background, logoUpload) {
+            const ctx = canvas.getContext('2d');
+            const moduleCount = qr.getModuleCount();
+            const tileW = canvas.width / moduleCount;
+            const tileH = canvas.height / moduleCount;
+
+            ctx.fillStyle = background;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = foreground;
+            for (let row = 0; row < moduleCount; row++) {
+                for (let col = 0; col < moduleCount; col++) {
+                    if (qr.isDark(row, col)) {
+                        ctx.beginPath();
+                        ctx.roundRect(col * tileW, row * tileH, tileW, tileH, tileW / 4);
+                        ctx.fill();
+                    }
+                }
+            }
+
+            if (logoUpload) {
+                const logoURL = URL.createObjectURL(logoUpload);
+                const logoImage = new Image();
+                logoImage.src = logoURL;
+                logoImage.onload = () => {
+                    const logoSize = canvas.width / 5;
+                    ctx.drawImage(logoImage, canvas.width / 2 - logoSize / 2, canvas.height / 2 - logoSize / 2, logoSize, logoSize);
+                    document.getElementById('download-link').href = canvas.toDataURL('image/png');
+                };
+            } else {
+                document.getElementById('download-link').href = canvas.toDataURL('image/png');
+            }
+        }
+
         function generateQRCode() {
             const textInput = document.getElementById('text-input').value;
             const size = parseInt(document.getElementById('size').value, 10);
@@ -181,6 +219,7 @@ title: QR Code
             const background = document.getElementById('background').value;
             const logoUpload = document.getElementById('logo-upload').files[0];
             const rounded = document.getElementById('rounded').checked;
+            const connectedRounded = document.getElementById('connected-rounded').checked;
 
             const qr = qrcode(0, level);
             qr.addData(textInput);
@@ -190,7 +229,9 @@ title: QR Code
             canvas.width = size;
             canvas.height = size;
 
-            if (rounded) {
+            if (connectedRounded) {
+                drawConnectedRoundedQRCode(qr, canvas, foreground, background, logoUpload);
+            } else if (rounded) {
                 drawRoundedQRCode(qr, canvas, foreground, background, logoUpload);
             } else {
                 const ctx = canvas.getContext('2d');
@@ -223,6 +264,19 @@ title: QR Code
                     document.getElementById('download-link').href = canvas.toDataURL('image/png');
                 }
             }
+        }
+
+        CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
+            if (w < 2 * r) r = w / 2;
+            if (h < 2 * r) r = h / 2;
+            this.beginPath();
+            this.moveTo(x + r, y);
+            this.arcTo(x + w, y, x + w, y + h, r);
+            this.arcTo(x + w, y + h, x, y + h, r);
+            this.arcTo(x, y + h, x, y, r);
+            this.arcTo(x, y, x + w, y, r);
+            this.closePath();
+            return this;
         }
     </script>
 </body>

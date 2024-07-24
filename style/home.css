@@ -51,9 +51,10 @@ body {
     height: 72px;
     width: 96px;
     border-radius: 24px;
+    float: left;
+    margin: 12px;
 }
 
 .navbar-item:hover {
     backdrop-filter: brightness(130%);
 }
-/**/

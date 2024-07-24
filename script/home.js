@@ -17,6 +17,7 @@ $(document).ready ((e) => {
             navbarItems = items;
             items.forEach (item => {
                 if (item.multiple) {
+                    console.log("multiple items")
                     let element = $ ("<div class='navbar-item'></div>");
                     element.text (item.text)
                     element.attr ("onclick", `openDropdown(${items.indexOf(item)})`);

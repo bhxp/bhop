@@ -34,3 +34,11 @@ body {
     height: 96px;
     width: 75vw;
 }
+
+#navbar-logo {
+    float: left;
+    height: 72px;
+    width: 72px;
+    border-radius: 9999px;
+    
+}

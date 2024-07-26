@@ -131,8 +131,8 @@ title: QR Code
             <label for="connected-rounded">Use Connected Rounded Style</label>
             <br>
             <!-- Alternative Connected Rounded QR Code Option -->
-            <input type="checkbox" id="alt-connected-rounded" value="alt-connected-rounded">
-            <label for="alt-connected-rounded">Use Alternative Connected Rounded Style</label>
+            <input type="checkbox" id="alt-connected-rounded-broken-1" value="alt-connected-rounded-broken-1">
+            <label for="alt-connected-rounded-broken-1">Use (Also Broken) Alternative Connected Rounded Style</label>
             <br>
             <!-- Alternative Connected Rounded QR Code Option -->
             <input type="checkbox" id="alt-connected-rounded-broken" value="alt-connected-rounded-broken">
@@ -153,6 +153,85 @@ title: QR Code
     <script>
 
 function drawAltConnectedRoundedQRCode(qr, canvas, foreground, background, logoUpload) {
+    const ctx = canvas.getContext('2d');
+    const moduleCount = qr.getModuleCount();
+    const tileW = canvas.width / moduleCount;
+    const tileH = canvas.height / moduleCount;
+
+    ctx.fillStyle = background;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = foreground;
+
+    for (let row = 0; row < moduleCount; row++) {
+        for (let col = 0; col < moduleCount; col++) {
+            if (qr.isDark(row, col)) {
+                const x = col * tileW;
+                const y = row * tileH;
+
+                const neighbors = {
+                    top: row > 0 && qr.isDark(row - 1, col),
+                    bottom: row < moduleCount - 1 && qr.isDark(row + 1, col),
+                    left: col > 0 && qr.isDark(row, col - 1),
+                    right: col < moduleCount - 1 && qr.isDark(row, col + 1)
+                };
+
+                ctx.beginPath();
+
+                // Top-left corner
+                if (neighbors.top && neighbors.left) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.moveTo(x + tileW / 2, y);
+                    ctx.arcTo(x, y, x, y + tileH / 2, tileW / 2);
+                }
+
+                // Top-right corner
+                if (neighbors.top && neighbors.right) {
+                    ctx.lineTo(x + tileW, y);
+                } else {
+                    ctx.lineTo(x + tileW, y);
+                    ctx.arcTo(x + tileW, y, x + tileW, y + tileH / 2, tileW / 2);
+                }
+
+                // Bottom-right corner
+                if (neighbors.bottom && neighbors.right) {
+                    ctx.lineTo(x + tileW, y + tileH);
+                } else {
+                    ctx.lineTo(x + tileW, y + tileH);
+                    ctx.arcTo(x + tileW, y + tileH, x + tileW / 2, y + tileH, tileW / 2);
+                }
+
+                // Bottom-left corner
+                if (neighbors.bottom && neighbors.left) {
+                    ctx.lineTo(x, y + tileH);
+                } else {
+                    ctx.lineTo(x, y + tileH);
+                    ctx.arcTo(x, y + tileH, x, y + tileH / 2, tileW / 2);
+                }
+
+                ctx.closePath();
+                ctx.fill();
+            }
+        }
+    }
+
+    if (logoUpload) {
+        const logoURL = URL.createObjectURL(logoUpload);
+        const logoImage = new Image();
+        logoImage.src = logoURL;
+        logoImage.onload = () => {
+            const logoSize = canvas.width / 5;
+            ctx.drawImage(logoImage, canvas.width / 2 - logoSize / 2, canvas.height / 2 - logoSize / 2, logoSize, logoSize);
+            document.getElementById('download-link').href = canvas.toDataURL('image/png');
+        };
+    } else {
+        document.getElementById('download-link').href = canvas.toDataURL('image/png');
+    }
+}
+
+
+function drawAltConnectedRoundedQRCodeBroken1(qr, canvas, foreground, background, logoUpload) {
     const ctx = canvas.getContext('2d');
     const moduleCount = qr.getModuleCount();
     const tileW = canvas.width / moduleCount;
@@ -390,6 +469,7 @@ function drawAltConnectedRoundedQRCode(qr, canvas, foreground, background, logoU
             const useConnectedRounded = document.getElementById('connected-rounded').checked;
             const useAltConnectedRounded = document.getElementById('alt-connected-rounded').checked;
             const useAltConnectedRoundedBroken = document.getElementById('alt-connected-rounded-broken').checked;
+            const useAltConnectedRoundedBroken1 = document.getElementById('alt-connected-rounded-broken-1').checked;
 
             const qr = qrcode(0, level);
             qr.addData(text);
@@ -407,6 +487,8 @@ function drawAltConnectedRoundedQRCode(qr, canvas, foreground, background, logoU
                 drawRoundedQRCode(qr, canvas, foreground, background, logoUpload);
             } else if (useAltConnectedRoundedBroken) {
                 drawAltConnectedRoundedQRCodeBroken(qr, canvas, foreground, background, logoUpload);
+            } else if (useAltConnectedRoundedBroken1) {
+                drawAltConnectedRoundedQRCodeBroken1(qr, canvas, foreground, background, logoUpload);
             } else {
                 drawStandardQRCode(qr, canvas, foreground, background, logoUpload);
             }

@@ -149,6 +149,8 @@ hr {
 #cart-total {
   width: 100%;
   height: fit-content;
+  margin-bottom: 1px;
+  display: block;
 }
 
 #cart-total * {
@@ -159,6 +161,7 @@ hr {
 #shipping-taxes {
   color: rgba(255,255,255,0.5);
   font-family: SamsungSharpSans;
+  display: block;
 }
 
 #total {

@@ -7,36 +7,102 @@ title: QR Code
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom QR Code Generator</title>
+    <title>bhop's qr code gen</title>
     <style>
+        @font-face {
+            font-family: 'SamsungSharpRegular';
+            src: url('path/to/SamsungSharpRegular.woff2') format('woff2'),
+                 url('path/to/SamsungSharpRegular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'SamsungSharpRegular', Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
             padding: 20px;
+            background-color: #f0f0f0;
+            color: #333;
         }
+
         #qr-code-container {
             text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        #qr-code {
-            margin: 20px 0;
-        }
+
         #settings {
             margin-bottom: 20px;
+        }
+
+        #settings input[type="text"],
+        #settings input[type="number"],
+        #settings input[type="color"],
+        #settings select,
+        #settings button {
+            font-family: 'SamsungSharpRegular', Arial, sans-serif;
+            margin: 5px 0;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #settings input[type="file"] {
+            margin: 10px 0;
+        }
+
+        #settings button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #settings button:hover {
+            background-color: #0056b3;
+        }
+
+        #qr-code {
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        #download-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #007bff;
+            text-decoration: none;
+            border: 1px solid #007bff;
+            border-radius: 4px;
+        }
+
+        #download-link:hover {
+            background-color: #007bff;
+            color: #fff;
         }
     </style>
 </head>
 <body>
     <div id="qr-code-container">
         <div id="settings">
+            <!-- Text Input for QR Code Data -->
             <input type="text" id="text-input" placeholder="Enter URL or text" size="30">
             <br>
+            <!-- Size Input -->
             <label for="size">Size:</label>
             <input type="number" id="size" value="300">
             <br>
+            <!-- Error Correction Level Selector -->
             <label for="level">Error Correction Level:</label>
             <select id="level">
                 <option value="L">L (Low)</option>
@@ -45,22 +111,267 @@ title: QR Code
                 <option value="H">H (High)</option>
             </select>
             <br>
+            <!-- Foreground Color Picker -->
             <label for="foreground">Foreground Color:</label>
             <input type="color" id="foreground" value="#000000">
             <br>
+            <!-- Background Color Picker -->
             <label for="background">Background Color:</label>
             <input type="color" id="background" value="#FFFFFF">
             <br>
+            <!-- Logo Upload -->
             <input type="file" id="logo-upload" accept="image/*">
             <br>
+            <!-- Rounded QR Code Option -->
+            <input type="checkbox" id="rounded" value="rounded">
+            <label for="rounded">Use Rounded Style</label>
+            <br>
+            <!-- Connected Rounded QR Code Option -->
+            <input type="checkbox" id="connected-rounded" value="connected-rounded">
+            <label for="connected-rounded">Use Connected Rounded Style</label>
+            <br>
+            <!-- Alternative Connected Rounded QR Code Option -->
+            <input type="checkbox" id="alt-connected-rounded" value="alt-connected-rounded">
+            <label for="alt-connected-rounded">Use Alternative Connected Rounded Style</label>
+            <br>
+            <!-- Generate QR Code Button -->
             <button onclick="generateQRCode()">Generate QR Code</button>
         </div>
+        <!-- QR Code Canvas -->
         <canvas id="qr-code"></canvas>
         <br>
+        <!-- Download Link -->
         <a id="download-link" download="qr-code.png">Download QR Code</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.js"></script>
     <script>
+
+        f
+
+        function drawRoundedQRCode(qr, canvas, foreground, background, logoUpload) {
+            const ctx = canvas.getContext('2d');
+            const moduleCount = qr.getModuleCount();
+            const tileW = canvas.width / moduleCount;
+            const tileH = canvas.height / moduleCount;
+
+            ctx.fillStyle = background;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = foreground;
+            for (let row = 0; row < moduleCount; row++) {
+                for (let col = 0; col < moduleCount; col++) {
+                    if (qr.isDark(row, col)) {
+                        ctx.beginPath();
+                        ctx.arc((col + 0.5) * tileW, (row + 0.5) * tileH, tileW / 2, 0, 2 * Math.PI);
+                        ctx.fill();
+                    }
+                }
+            }
+
+            if (logoUpload) {
+                const logoURL = URL.createObjectURL(logoUpload);
+                const logoImage = new Image();
+                logoImage.src = logoURL;
+                logoImage.onload = () => {
+                    const logoSize = canvas.width / 5;
+                    ctx.drawImage(logoImage, canvas.width / 2 - logoSize / 2, canvas.height / 2 - logoSize / 2, logoSize, logoSize);
+                    document.getElementById('download-link').href = canvas.toDataURL('image/png');
+                };
+            } else {
+                document.getElementById('download-link').href = canvas.toDataURL('image/png');
+            }
+        }
+
+        function drawConnectedRoundedQRCode(qr, canvas, foreground, background, logoUpload) {
+            const ctx = canvas.getContext('2d');
+            const moduleCount = qr.getModuleCount();
+            const tileW = canvas.width / moduleCount;
+            const tileH = canvas.height / moduleCount;
+
+            ctx.fillStyle = background;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = foreground;
+            for (let row = 0; row < moduleCount; row++) {
+                for (let col = 0; col < moduleCount; col++) {
+                    if (qr.isDark(row, col)) {
+                        ctx.beginPath();
+                        ctx.roundRect(col * tileW, row * tileH, tileW, tileH, tileW / 4);
+                        ctx.fill();
+                    }
+                }
+            }
+
+            if (logoUpload) {
+                const logoURL = URL.createObjectURL(logoUpload);
+                const logoImage = new Image();
+                logoImage.src = logoURL;
+                logoImage.onload = () => {
+                    const logoSize = canvas.width / 5;
+                    ctx.drawImage(logoImage, canvas.width / 2 - logoSize / 2, canvas.height / 2 - logoSize / 2, logoSize, logoSize);
+                    document.getElementById('download-link').href = canvas.toDataURL('image/png');
+                };
+            } else {
+                document.getElementById('download-link').href = canvas.toDataURL('image/png');
+            }
+        }
+
+        function drawAltConnectedRoundedQRCode(qr, canvas, foreground, background, logoUpload) {
+    const ctx = canvas.getContext('2d');
+    const moduleCount = qr.getModuleCount();
+    const tileW = canvas.width / moduleCount;
+    const tileH = canvas.height / moduleCount;
+
+    ctx.fillStyle = background;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = foreground;
+
+    for (let row = 0; row < moduleCount; row++) {
+        for (let col = 0; col < moduleCount; col++) {
+            if (qr.isDark(row, col)) {
+                const x = col * tileW;
+                const y = row * tileH;
+
+                const neighbors = [
+                    row > 0 && qr.isDark(row - 1, col),
+                    row < moduleCount - 1 && qr.isDark(row + 1, col),
+                    col > 0 && qr.isDark(row, col - 1),
+                    col < moduleCount - 1 && qr.isDark(row, col + 1)
+                ];
+
+                ctx.beginPath();
+
+                // Top-left corner
+                if (neighbors[0] && neighbors[2]) {
+                    ctx.moveTo(x, y + tileH / 2);
+                    ctx.quadraticCurveTo(x, y, x + tileW / 2, y);
+                } else {
+                    ctx.arc(x + tileW / 2, y + tileH / 2, tileW / 2, Math.PI, 1.5 * Math.PI);
+                }
+
+                // Top-right corner
+                if (neighbors[0] && neighbors[3]) {
+                    ctx.lineTo(x + tileW, y);
+                    ctx.quadraticCurveTo(x + tileW, y, x + tileW, y + tileH / 2);
+                } else {
+                    ctx.arc(x + tileW / 2, y + tileH / 2, tileW / 2, 1.5 * Math.PI, 2 * Math.PI);
+                }
+
+                // Bottom-right corner
+                if (neighbors[1] && neighbors[3]) {
+                    ctx.lineTo(x + tileW, y + tileH);
+                    ctx.quadraticCurveTo(x + tileW, y + tileH, x + tileW / 2, y + tileH);
+                } else {
+                    ctx.arc(x + tileW / 2, y + tileH / 2, tileW / 2, 0, 0.5 * Math.PI);
+                }
+
+                // Bottom-left corner
+                if (neighbors[1] && neighbors[2]) {
+                    ctx.lineTo(x, y + tileH);
+                    ctx.quadraticCurveTo(x, y + tileH, x, y + tileH / 2);
+                } else {
+                    ctx.arc(x + tileW / 2, y + tileH / 2, tileW / 2, 0.5 * Math.PI, Math.PI);
+                }
+
+                ctx.closePath();
+                ctx.fill();
+            }
+        }
+    }
+
+    if (logoUpload) {
+        const logoURL = URL.createObjectURL(logoUpload);
+        const logoImage = new Image();
+        logoImage.src = logoURL;
+        logoImage.onload = () => {
+            const logoSize = canvas.width / 5;
+            ctx.drawImage(logoImage, canvas.width / 2 - logoSize / 2, canvas.height / 2 - logoSize / 2, logoSize, logoSize);
+            document.getElementById('download-link').href = canvas.toDataURL('image/png');
+        };
+    } else {
+        document.getElementById('download-link').href = canvas.toDataURL('image/png');
+    }
+}
+
+
         function generateQRCode() {
+            const text = document.getElementById('text-input').value;
+            const size = parseInt(document.getElementById('size').value) || 300;
+            const level = document.getElementById('level').value;
+            const foreground = document.getElementById('foreground').value;
+            const background = document.getElementById('background').value;
+            const logoUpload = document.getElementById('logo-upload').files[0];
+            const useRounded = document.getElementById('rounded').checked;
+            const useConnectedRounded = document.getElementById('connected-rounded').checked;
+            const useAltConnectedRounded = document.getElementById('alt-connected-rounded').checked;
+
+            const qr = qrcode(0, level);
+            qr.addData(text);
+            qr.make();
+
+            const canvas = document.getElementById('qr-code');
+            canvas.width = size;
+            canvas.height = size;
+
+            if (useAltConnectedRounded) {
+                drawAltConnectedRoundedQRCode(qr, canvas, foreground, background, logoUpload);
+            } else if (useConnectedRounded) {
+                drawConnectedRoundedQRCode(qr, canvas, foreground, background, logoUpload);
+            } else if (useRounded) {
+                drawRoundedQRCode(qr, canvas, foreground, background, logoUpload);
+            } else {
+                drawStandardQRCode(qr, canvas, foreground, background, logoUpload);
+            }
+        }
+
+        function drawStandardQRCode(qr, canvas, foreground, background, logoUpload) {
+            const ctx = canvas.getContext('2d');
+            const moduleCount = qr.getModuleCount();
+            const tileW = canvas.width / moduleCount;
+            const tileH = canvas.height / moduleCount;
+
+            ctx.fillStyle = background;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = foreground;
+            for (let row = 0; row < moduleCount; row++) {
+                for (let col = 0; col < moduleCount; col++) {
+                    if (qr.isDark(row, col)) {
+                        ctx.fillRect(col * tileW, row * tileH, tileW, tileH);
+                    }
+                }
+            }
+
+            if (logoUpload) {
+                const logoURL = URL.createObjectURL(logoUpload);
+                const logoImage = new Image();
+                logoImage.src = logoURL;
+                logoImage.onload = () => {
+                    const logoSize = canvas.width / 5;
+                    ctx.drawImage(logoImage, canvas.width / 2 - logoSize / 2, canvas.height / 2 - logoSize / 2, logoSize, logoSize);
+                    document.getElementById('download-link').href = canvas.toDataURL('image/png');
+                };
+            } else {
+                document.getElementById('download-link').href = canvas.toDataURL('image/png');
+            }
+        }
+
+        CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
+            if (w < 2 * r) r = w / 2;
+            if (h < 2 * r) r = h / 2;
+            this.beginPath();
+            this.moveTo(x + r, y);
+            this.arcTo(x + w, y, x + w, y + h, r);
+            this.arcTo(x + w, y + h, x, y + h, r);
+            this.arcTo(x, y + h, x, y, r);
+            this.arcTo(x, y, x + w, y, r);
+            this.closePath();
+            return this;
+        }
+    </script>
+</body>
+</html>
 

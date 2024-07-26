@@ -26,3 +26,10 @@ $(document).ready(() => {
         });
     });
 });
+
+const localStorage = window.localStorage;
+
+function addToCart(name) {
+    let cartContents = JSON.parse(localStorage.getItem("cart")) || {};
+    cartContents[name] = (cartContents[name] + 1) || 1;
+}

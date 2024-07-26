@@ -132,6 +132,8 @@ body {
 #checkout h1 {
   font-size: 48px;
   margin: 0px !important;
+  width: fit-content;
+  float: left;
 }
 
 hr {
@@ -157,4 +159,11 @@ hr {
 #shipping-taxes {
   color: rgba(255,255,255,0.5);
   font-family: SamsungSharpSans;
+}
+
+#total {
+  float: right;
+  font-size: 36px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
 }

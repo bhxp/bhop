@@ -119,18 +119,27 @@ body {
   position: fixed;
   right: 48px;
   top: 48px;
-  height: calc(100vh - 264px);
+  height: calc(100vh - 312px);
   width: calc(30vw - 192px);
   padding: 96px;
+  padding-top: 144px;
   background-color: rgba(0,0,0,0.4);
   border-radius: 32px;
   border: solid 1px rgba(255,255,255,0.4);
+}
+
+#checkout h1 {
+  font-size: 48px;
 }
 
 hr {
   border: 1px solid #414141;
   border-radius: 9999px;
   width: 100%;
+}
+
+#checkout hr {
+  margin-bottom: 48px;
 }
 
 #total {

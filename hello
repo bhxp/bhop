@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello</title>
+    <script>
+        function getClientExtendedInfo() {
+            // Get browser information
+            const browserInfo = navigator.userAgent;
+            const browserName = navigator.appName;
+            const browserVersion = navigator.appVersion;
+
+            // Get screen information
+            const screenWidth = screen.width;
+            const screenHeight = screen.height;
+            const colorDepth = screen.colorDepth;
+            const screenOrientation = screen.orientation ? screen.orientation.type : 'Not available';
+            const devicePixelRatio = window.devicePixelRatio || 'Not available';
+
+            // Get language and timezone
+            const language = navigator.language || navigator.userLanguage;
+            const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+            // Get device memory
+            const deviceMemory = navigator.deviceMemory || 'Not available';
+
+            // Get network information
+            const connection = navigator.connection || navigator.mozConnection || navigator.msConnection || navigator.webkitConnection;
+            const networkType = connection ? connection.effectiveType : 'Not available';
+            const roundTripTime = connection ? connection.rtt : 'Not available';
+
+            // Get performance metrics
+            const performanceMetrics = window.performance ? {
+                navigationStart: performance.timing.navigationStart,
+                loadEventEnd: performance.timing.loadEventEnd
+            } : 'Not available';
+
+            // Check if cookies are enabled
+            const cookiesEnabled = navigator.cookieEnabled;
+
+            // Local Storage Data (example)
+            const localStorageData = localStorage.getItem('exampleKey') || 'No data';
+
+            // Display information
+            document.getElementById('browser-info').textContent = `Browser Info: ${browserInfo}`;
+            document.getElementById('browser-name').textContent = `Browser Name: ${browserName}`;
+            document.getElementById('browser-version').textContent = `Browser Version: ${browserVersion}`;
+            document.getElementById('screen-info').textContent = `Screen Resolution: ${screenWidth}x${screenHeight}, Color Depth: ${colorDepth}-bit`;
+            document.getElementById('orientation-info').textContent = `Screen Orientation: ${screenOrientation}`;
+            document.getElementById('pixel-ratio-info').textContent = `Device Pixel Ratio: ${devicePixelRatio}`;
+            document.getElementById('language-info').textContent = `Language: ${language}`;
+            document.getElementById('timezone-info').textContent = `Timezone: ${timezone}`;
+            document.getElementById('memory-info').textContent = `Device Memory: ${deviceMemory}`;
+            document.getElementById('network-info').textContent = `Network Type: ${networkType}, Round Trip Time: ${roundTripTime}`;
+            document.getElementById('performance-info').textContent = `Performance Metrics: Navigation Start ${performanceMetrics.navigationStart}, Load Event End ${performanceMetrics.loadEventEnd}`;
+            document.getElementById('cookies-info').textContent = `Cookies Enabled: ${cookiesEnabled}`;
+            document.getElementById('local-storage-info').textContent = `Local Storage Data (exampleKey): ${localStorageData}`;
+
+            // Example of how to use geolocation (requires user permission)
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    document.getElementById('location-info').textContent = `Location: Latitude ${latitude}, Longitude ${longitude}`;
+                }, error => {
+                    document.getElementById('location-info').textContent = `Location: Not available`;
+                });
+            } else {
+                document.getElementById('location-info').textContent = `Location: Geolocation not supported`;
+            }
+        }
+
+        window.onload = getClientExtendedInfo;
+    </script>
+</head>
+<body>
+    <h1>Extended Client Information</h1>
+    <p id="browser-info"></p>
+    <p id="browser-name"></p>
+    <p id="browser-version"></p>
+    <p id="screen-info"></p>
+    <p id="orientation-info"></p>
+    <p id="pixel-ratio-info"></p>
+    <p id="language-info"></p>
+    <p id="timezone-info"></p>
+    <p id="memory-info"></p>
+    <p id="network-info"></p>
+    <p id="performance-info"></p>
+    <p id="cookies-info"></p>
+    <p id="local-storage-info"></p>
+    <p id="location-info"></p>
+</body>
+</html>

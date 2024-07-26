@@ -235,45 +235,45 @@ title: QR Code
                 const x = col * tileW;
                 const y = row * tileH;
 
-                const neighbors = [
-                    row > 0 && qr.isDark(row - 1, col),
-                    row < moduleCount - 1 && qr.isDark(row + 1, col),
-                    col > 0 && qr.isDark(row, col - 1),
-                    col < moduleCount - 1 && qr.isDark(row, col + 1)
-                ];
+                const neighbors = {
+                    top: row > 0 && qr.isDark(row - 1, col),
+                    bottom: row < moduleCount - 1 && qr.isDark(row + 1, col),
+                    left: col > 0 && qr.isDark(row, col - 1),
+                    right: col < moduleCount - 1 && qr.isDark(row, col + 1)
+                };
 
                 ctx.beginPath();
 
                 // Top-left corner
-                if (neighbors[0] && neighbors[2]) {
-                    ctx.moveTo(x, y + tileH / 2);
-                    ctx.quadraticCurveTo(x, y, x + tileW / 2, y);
+                if (!neighbors.top && !neighbors.left) {
+                    ctx.moveTo(x + tileW / 2, y);
+                    ctx.arcTo(x, y, x, y + tileH / 2, tileW / 2);
                 } else {
-                    ctx.arc(x + tileW / 2, y + tileH / 2, tileW / 2, Math.PI, 1.5 * Math.PI);
+                    ctx.moveTo(x, y);
                 }
 
                 // Top-right corner
-                if (neighbors[0] && neighbors[3]) {
+                if (!neighbors.top && !neighbors.right) {
                     ctx.lineTo(x + tileW, y);
-                    ctx.quadraticCurveTo(x + tileW, y, x + tileW, y + tileH / 2);
+                    ctx.arcTo(x + tileW, y, x + tileW, y + tileH / 2, tileW / 2);
                 } else {
-                    ctx.arc(x + tileW / 2, y + tileH / 2, tileW / 2, 1.5 * Math.PI, 2 * Math.PI);
+                    ctx.lineTo(x + tileW, y);
                 }
 
                 // Bottom-right corner
-                if (neighbors[1] && neighbors[3]) {
+                if (!neighbors.bottom && !neighbors.right) {
                     ctx.lineTo(x + tileW, y + tileH);
-                    ctx.quadraticCurveTo(x + tileW, y + tileH, x + tileW / 2, y + tileH);
+                    ctx.arcTo(x + tileW, y + tileH, x + tileW / 2, y + tileH, tileW / 2);
                 } else {
-                    ctx.arc(x + tileW / 2, y + tileH / 2, tileW / 2, 0, 0.5 * Math.PI);
+                    ctx.lineTo(x + tileW, y + tileH);
                 }
 
                 // Bottom-left corner
-                if (neighbors[1] && neighbors[2]) {
+                if (!neighbors.bottom && !neighbors.left) {
                     ctx.lineTo(x, y + tileH);
-                    ctx.quadraticCurveTo(x, y + tileH, x, y + tileH / 2);
+                    ctx.arcTo(x, y + tileH, x, y + tileH / 2, tileW / 2);
                 } else {
-                    ctx.arc(x + tileW / 2, y + tileH / 2, tileW / 2, 0.5 * Math.PI, Math.PI);
+                    ctx.lineTo(x, y + tileH);
                 }
 
                 ctx.closePath();
@@ -295,6 +295,7 @@ title: QR Code
         document.getElementById('download-link').href = canvas.toDataURL('image/png');
     }
 }
+
 
 
         function generateQRCode() {

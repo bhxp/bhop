@@ -3,7 +3,7 @@ function createItemElem(item) {
         <img src="/images/tango/${item.image}" class="item-img" />
         <div class="item-name">${item.name}</div>
         <div class="item-price">$${item.price}</div>
-        <button class="add-to-cart" onclick='addToCart("${item.name}")'><img src="/images/cart_black.svg" />Add to Cart</button>
+        <button class="add-to-cart" onclick='addToCartHandler("${item.name}");'><img src="/images/cart_black.svg" />Add to Cart</button>
     </div>`;
 }
 
@@ -27,6 +27,7 @@ $(document).ready(() => {
     });
 });
 
+
 const localStorage = window.localStorage;
 
 function addToCart(name) {
@@ -35,4 +36,9 @@ function addToCart(name) {
     const cartContentString = JSON.stringify(cartContents);
     localStorage.setItem("cart", cartContentString);
     console.log(`"${name}" was added to the cart.`);
+}
+
+function addToCartHandler(name) {
+    addToCart(name);
+    window.open("/cart", "_self");
 }

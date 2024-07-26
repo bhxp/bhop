@@ -130,6 +130,7 @@ body {
 
 #checkout h1 {
   font-size: 48px;
+  margin: 0px !important;
 }
 
 hr {

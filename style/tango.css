@@ -126,6 +126,7 @@ body {
   background-color: rgba(0,0,0,0.4);
   border-radius: 32px;
   border: solid 1px rgba(255,255,255,0.4);
+  margin-bottom: 12px;
 }
 
 #checkout h1 {
@@ -143,12 +144,12 @@ hr {
   margin-bottom: 48px;
 }
 
-#total {
+#cart-total {
   width: 100%;
   height: fit-content;
 }
 
-#total * {
+#cart-total * {
   font-family: SamsungSharpSans;
   color: #fff;
 }

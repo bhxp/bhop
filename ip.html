@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IP</title>
+    <title>ip</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -39,27 +39,21 @@
             }
         }
 
-        // Function to display IP address on the page
-        async function displayIpAddress() {
+        // Function to display IP address on the page and copy to clipboard
+        async function initializePage() {
             const ipAddressElement = document.getElementById('ip-address');
             const ip = await fetchIpAddress();
             ipAddressElement.textContent = ip;
-        }
-
-        // Function to copy IP address to clipboard
-        function copyToClipboard() {
-            const ipAddress = document.getElementById('ip-address').textContent;
-            navigator.clipboard.writeText(ipAddress)
-                .then(() => {
-                    alert('IP address copied to clipboard!');
-                })
+            
+            // Copy IP address to clipboard
+            navigator.clipboard.writeText(ip)
                 .catch(err => {
                     console.error('Error copying IP address:', err);
                 });
         }
 
-        // Initialize the IP address display when the page loads
-        window.onload = displayIpAddress;
+        // Initialize the IP address display and copy to clipboard when the page loads
+        window.onload = initializePage;
     </script>
 </body>
 </html>

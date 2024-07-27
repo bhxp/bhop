@@ -77,4 +77,6 @@ body {
     left: 50vw;
     bottom: 0px;
     transform: TranslateX(-50%);
+    height: 66.66vh;
+    width: auto;
 }

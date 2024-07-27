@@ -168,6 +168,5 @@ hr {
   font-size: 36px;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.8);
-  height: 50vh;
-  width: auto;
+  height: 100%;
 }

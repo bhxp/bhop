@@ -7,39 +7,39 @@ $(document).on("mousedown", e => {
 });
 
 function openDropdown(index) {
-    console.log(navbar.find("div.dropdown"))
-    $("#navbar div.dropdown")[index].css("display", "block");
+    let dropdowns = $("#navbar .dropdown");
+    dropdowns.hide();  // Hide all dropdowns
+    $(dropdowns[index]).css("display", "block");  // Show the clicked dropdown
 }
 
-$(document).ready ((e) => {
-    fetch ("/config/home_navbar.json")
-        .then (response => response.json())
-        .then (items => {
-            navbarItems = items;
-            items.forEach (item => {
+$(document).ready((e) => {
+    fetch("/config/home_navbar.json")
+        .then(response => response.json())
+        .then(items => {
+            let navbar = $("#navbar");
+            items.forEach((item, index) => {
                 if (item.multiple) {
-                    console.log("multiple items")
-                    let element = $ ("<div class='navbar-item'></div>");
-                    element.text (item.text)
-                    element.attr ("onclick", `openDropdown(${items.indexOf(item)})`);
-                    let dropdown = $("<div class='dropdown' style='display: hidden;'></div>")
+                    let element = $("<div class='navbar-item'></div>");
+                    element.text(item.text);
+                    element.on("click", () => openDropdown(index));
+                    let dropdown = $("<div class='dropdown'></div>");
                     item.pages.forEach(page => {
-                        let elem = $ ("<div class='dropdown-item'></div>");
-                        elem.text (page.page)
-                        elem.attr ("onclick", `window.open ("${page.url}");`);
-                        dropdown.append (elem);
-                    })
-                    navbar.append (element);
+                        let elem = $("<div class='dropdown-item'></div>");
+                        elem.text(page.page);
+                        elem.on("click", () => window.open(page.url));
+                        dropdown.append(elem);
+                    });
+                    element.append(dropdown);
+                    navbar.append(element);
                 } else {
-                    let element = $ ("<div>");
-                    element.addClass ("navbar-item");
-                    element.text (item.text)
-                    element.attr ("onclick", `window.open ("${item.url}");`);
-                    navbar.append (element);
+                    let element = $("<div class='navbar-item'></div>");
+                    element.text(item.text);
+                    element.on("click", () => window.open(item.url));
+                    navbar.append(element);
                 }
             });
         })
-        .catch (error => {
-            console.error (error);
+        .catch(error => {
+            console.error(error);
         });
 });

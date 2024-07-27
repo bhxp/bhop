@@ -71,3 +71,10 @@ body {
     left: 0px;
     font-size: 12px;
 }
+
+#hi {
+    position: fixed;
+    left: 50vw;
+    bottom: 0px;
+    transform: TranslateX(-50%);
+}

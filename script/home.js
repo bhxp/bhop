@@ -24,10 +24,13 @@ $(document).ready ((e) => {
                     element.attr ("onclick", `openDropdown(${items.indexOf(item)})`);
                     let dropdown = $("<div class='dropdown' style='display: hidden;'></div>")
                     item.pages.forEach(page => {
-                        let elem = $(`<div class='dropdown-item'>${page.page}</div>`);
-                        elem.attr ("onclick", `window.open ("${page.url}");`);
-                        dropdown.append (elem);
+                        let elem = $ ("<div>");
+                    elem.addClass ("navbar-item");
+                    elem.text (page.text)
+                    elem.attr ("onclick", `window.open ("${page.url}");`);
+                    dropdown.append (elem);
                     })
+                    element.append(dropdown);
                     navbar.append (element);
                 } else {
                     let element = $ ("<div>");

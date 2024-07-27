@@ -7,7 +7,8 @@ $(document).on("mousedown", e => {
 });
 
 function openDropdown(index) {
-    navbar.find("div.dropdown")[index].css("display", "block");
+    console.log(navbar.find("div.dropdown"))
+    $("#navbar div.dropdown")[index].css("display", "block");
 }
 
 $(document).ready ((e) => {

@@ -7,13 +7,15 @@
   color: rgba(0, 0, 0, 0.5);
   font-weight: 400;
   justify-content: center;
+  height: 100vh; /* Ensure the section takes full viewport height */
+  overflow: hidden; /* Prevent scroll bars */
 }
 
 .server-container {
   display: flex;
   flex-direction: column;
   position: relative;
-  min-height: 1080px;
+  height: 100%; /* Adjust to fill full height */
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -34,6 +36,7 @@
   background-color: rgba(0, 0, 0, 0.12);
   backdrop-filter: blur(10px);
   display: flex;
+  flex-direction: column; /* Changed to column for better button placement */
   width: 100%;
   max-width: 1765px;
   align-items: center;
@@ -44,9 +47,6 @@
 
 .logo-container {
   display: flex;
-  margin-top: 155px;
-  width: 961px;
-  max-width: 100%;
   flex-direction: column;
   align-items: center;
 }
@@ -64,18 +64,39 @@
   object-fit: auto;
   object-position: center;
   width: 403px;
-  margin-top: 167px;
+  margin-top: 20px; /* Reduced margin for better spacing */
   max-width: 100%;
 }
 
 .server-address {
   font-family: QuinqueFive, sans-serif;
-  margin-top: 103px;
+  margin-top: 20px; /* Reduced margin for better spacing */
+}
+
+/* Button Styles */
+.download-button {
+  background-image: url('/images/download-darkened.png');
+  width: 200px;
+  height: 50px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px; /* Space between elements */
+}
+
+.download-button:hover {
+  background-image: url('/images/download-hovered.png');
+}
+
+.download-button:active {
+  background-image: url('/images/download-pressed.png');
 }
 
 @media (max-width: 991px) {
   .minecraft-section {
     white-space: initial;
+    height: 100%; /* Adjust for smaller screens */
   }
 
   .server-container {
@@ -118,6 +139,7 @@
         <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/ad4ce552ff9b78d198015fa5084fb408e7ac54c0df0f8014ab7234d29e111c5d?apiKey=0a1cf12aad834ad593bbc2e8cea50934&&apiKey=0a1cf12aad834ad593bbc2e8cea50934" class="main-logo" alt="Minecraft server main logo" />
         <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/04245484e68c95e4a3c87cbe1ad8827d781721c6860ee11cb1e8ed27fb12426d?apiKey=0a1cf12aad834ad593bbc2e8cea50934&&apiKey=0a1cf12aad834ad593bbc2e8cea50934" class="secondary-logo" alt="Minecraft server secondary logo" />
         <p class="server-address">tangomc.feathermc.gg</p>
+        <button class="download-button"></button>
       </div>
     </div>
   </div>

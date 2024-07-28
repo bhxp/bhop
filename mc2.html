@@ -1,0 +1,124 @@
+<style>
+.minecraft-section {
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+  justify-content: center;
+}
+
+.server-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 1080px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 65px 60px;
+}
+
+.background-image {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.content-wrapper {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(10px);
+  display: flex;
+  width: 100%;
+  max-width: 1765px;
+  align-items: center;
+  justify-content: center;
+  padding: 69px 60px;
+  border: 4px solid rgba(255, 255, 255, 0.49);
+}
+
+.logo-container {
+  display: flex;
+  margin-top: 155px;
+  width: 961px;
+  max-width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-logo {
+  aspect-ratio: 3.33;
+  object-fit: auto;
+  object-position: center;
+  width: 100%;
+  align-self: stretch;
+}
+
+.secondary-logo {
+  aspect-ratio: 5.26;
+  object-fit: auto;
+  object-position: center;
+  width: 403px;
+  margin-top: 167px;
+  max-width: 100%;
+}
+
+.server-address {
+  font-family: QuinqueFive, sans-serif;
+  margin-top: 103px;
+}
+
+@media (max-width: 991px) {
+  .minecraft-section {
+    white-space: initial;
+  }
+
+  .server-container {
+    max-width: 100%;
+    white-space: initial;
+    padding: 0 20px;
+  }
+
+  .content-wrapper {
+    max-width: 100%;
+    white-space: initial;
+    padding: 0 20px;
+  }
+
+  .logo-container {
+    margin-top: 40px;
+    white-space: initial;
+  }
+
+  .main-logo {
+    max-width: 100%;
+  }
+
+  .secondary-logo {
+    margin-top: 40px;
+  }
+
+  .server-address {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+}
+</style>
+
+<section class="minecraft-section">
+  <div class="server-container">
+    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/7643725c7424e9406c6bf93ee56dbccc3ed94519ec0343ec089c0cc5abdfea62?apiKey=0a1cf12aad834ad593bbc2e8cea50934&&apiKey=0a1cf12aad834ad593bbc2e8cea50934" class="background-image" alt="" />
+    <div class="content-wrapper">
+      <div class="logo-container">
+        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/ad4ce552ff9b78d198015fa5084fb408e7ac54c0df0f8014ab7234d29e111c5d?apiKey=0a1cf12aad834ad593bbc2e8cea50934&&apiKey=0a1cf12aad834ad593bbc2e8cea50934" class="main-logo" alt="Minecraft server main logo" />
+        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/04245484e68c95e4a3c87cbe1ad8827d781721c6860ee11cb1e8ed27fb12426d?apiKey=0a1cf12aad834ad593bbc2e8cea50934&&apiKey=0a1cf12aad834ad593bbc2e8cea50934" class="secondary-logo" alt="Minecraft server secondary logo" />
+        <p class="server-address">tangomc.feathermc.gg</p>
+      </div>
+    </div>
+  </div>
+</section>

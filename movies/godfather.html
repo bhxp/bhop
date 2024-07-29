@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>godfather</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+        .video-container {
+            display: none;
+            width: 30%;
+            height: 100%;
+            background-color: black;
+        }
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            transition: width 0.5s;
+        }
+        .small-iframe iframe {
+            width: 70%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="video-container">
+            <video src="/images/mcparkour" controls></video>
+        </div>
+        <iframe src="https://www.example.com/video" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'p' || event.key === 'P') {
+                const container = document.querySelector('.container');
+                const videoContainer = document.querySelector('.video-container');
+                if (videoContainer.style.display === 'none') {
+                    videoContainer.style.display = 'block';
+                    container.classList.add('small-iframe');
+                } else {
+                    videoContainer.style.display = 'none';
+                    container.classList.remove('small-iframe');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

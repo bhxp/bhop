@@ -58,8 +58,10 @@
 
     <script>
         window.addEventListener('keydown', function(event) {
+            console.log(`Key pressed: ${event.key}`); // Debugging line to check key press
             if (event.key.toLowerCase() === 'p') {
                 event.preventDefault();
+                console.log('Toggling video container'); // Debugging line to confirm toggle action
                 const container = document.querySelector('.container');
                 container.classList.toggle('small-iframe');
             }

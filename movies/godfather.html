@@ -58,12 +58,12 @@
 
     <script>
         window.addEventListener('keydown', function(event) {
-            if (event.key === 'p' || event.key === 'P') {
+            if (event.key.toLowerCase() === 'p') {
                 event.preventDefault();
                 const container = document.querySelector('.container');
                 container.classList.toggle('small-iframe');
             }
-        });
+        }, true);
     </script>
 </body>
 </html>

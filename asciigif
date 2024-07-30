@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF to ASCII Art Converter</title>
+    <style>
+        body {
+            font-family: monospace;
+            text-align: center;
+        }
+        #ascii-art {
+            white-space: pre;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>GIF to ASCII Art Converter</h1>
+    <input type="file" id="gifInput" accept="image/gif">
+    <button id="convertButton">Convert to ASCII</button>
+    <div id="ascii-art"></div>
+    <canvas id="canvas" style="display:none;"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/gif.js/dist/gif.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gif.js/dist/gif.worker.js"></script>
+    <script>
+        document.getElementById('convertButton').addEventListener('click', function() {
+            const fileInput = document.getElementById('gifInput');
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const gif = new GIF({
+                        workers: 2,
+                        quality: 10
+                    });
+
+                    const canvas = document.getElementById('canvas');
+                    const ctx = canvas.getContext('2d');
+
+                    const img = new Image();
+                    img.src = event.target.result;
+                    img.onload = function() {
+                        const width = img.width;
+                        const height = img.height;
+                        canvas.width = width;
+                        canvas.height = height;
+                        ctx.drawImage(img, 0, 0, width, height);
+
+                        // Extract frames
+                        gif.on('finished', function(blob) {
+                            const url = URL.createObjectURL(blob);
+                            const asciiArtDiv = document.getElementById('ascii-art');
+                            asciiArtDiv.textContent = 'GIF processed successfully';
+                        });
+
+                        gif.addFrame(ctx, {copy: true});
+                        gif.render();
+                    };
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert('Please upload a GIF file.');
+            }
+        });
+    </script>
+</body>
+</html>

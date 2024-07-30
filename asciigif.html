@@ -13,6 +13,23 @@
             white-space: pre;
             font-family: monospace;
         }
+        #progress-container {
+            width: 100%;
+            background-color: #ddd;
+        }
+        #progress-bar {
+            width: 0%;
+            height: 30px;
+            background-color: #4caf50;
+        }
+        #log {
+            border: 1px solid #ddd;
+            padding: 10px;
+            height: 100px;
+            overflow-y: scroll;
+            text-align: left;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -20,11 +37,21 @@
     <input type="file" id="gifInput" accept="image/gif">
     <button id="convertButton">Convert to ASCII</button>
     <div id="ascii-art"></div>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+    <div id="log"></div>
     <canvas id="canvas" style="display:none;"></canvas>
 
     <script src="https://cdn.jsdelivr.net/npm/gif.js/dist/gif.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gif.js/dist/gif.worker.js"></script>
     <script>
+        function logMessage(message) {
+            const logDiv = document.getElementById('log');
+            logDiv.textContent += message + '\n';
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+
         document.getElementById('convertButton').addEventListener('click', function() {
             const fileInput = document.getElementById('gifInput');
             const file = fileInput.files[0];
@@ -49,20 +76,39 @@
                         canvas.height = height;
                         ctx.drawImage(img, 0, 0, width, height);
 
-                        // Extract frames
+                        logMessage('GIF loaded and drawn to canvas.');
+
+                        gif.on('progress', function(p) {
+                            const progressBar = document.getElementById('progress-bar');
+                            progressBar.style.width = (p * 100) + '%';
+                            logMessage(`Progress: ${(p * 100).toFixed(2)}%`);
+                        });
+
                         gif.on('finished', function(blob) {
                             const url = URL.createObjectURL(blob);
                             const asciiArtDiv = document.getElementById('ascii-art');
                             asciiArtDiv.textContent = 'GIF processed successfully';
+                            logMessage('GIF processing finished.');
+
+                            // Create ASCII Art - Simplified Example
+                            // This is where you would process each frame and convert to ASCII
+                            // For demonstration, just output the text 'ASCII Art'
+                            asciiArtDiv.textContent = 'ASCII Art\n\n' + url;
+                        });
+
+                        gif.on('error', function(error) {
+                            logMessage(`Error: ${error.message}`);
                         });
 
                         gif.addFrame(ctx, {copy: true});
                         gif.render();
+                        logMessage('GIF processing started.');
                     };
                 };
                 reader.readAsDataURL(file);
+                logMessage('File loaded and read as Data URL.');
             } else {
-                alert('Please upload a GIF file.');
+                logMessage('Please upload a GIF file.');
             }
         });
     </script>

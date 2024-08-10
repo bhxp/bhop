@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Average Temperature Calculator</title>
+    <link rel="stylesheet" href="/style/pctemp.css">
+</head>
+<body>
+    <div class="container">
+        <h1>PC Average Temperature Calculator</h1>
+        <form id="temperatureForm">
+            <label for="cpuTemp">CPU Temperature (°C):</label>
+            <input type="number" id="cpuTemp" name="cpuTemp" required>
+
+            <label for="gpuTemp">GPU Temperature (°C):</label>
+            <input type="number" id="gpuTemp" name="gpuTemp" required>
+
+            <label for="extraTemp1">Optional Component 1 Temperature (°C):</label>
+            <input type="number" id="extraTemp1" name="extraTemp1">
+
+            <label for="extraTemp2">Optional Component 2 Temperature (°C):</label>
+            <input type="number" id="extraTemp2" name="extraTemp2">
+
+            <button type="submit">Calculate Average Temperature</button>
+        </form>
+
+        <div id="result">
+            <h2>Average Temperature: <span id="averageTemp">--</span> °C</h2>
+        </div>
+    </div>
+
+    <script src="/script/pctemp.js"></script>
+</body>
+</html>

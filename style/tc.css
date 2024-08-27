@@ -2,11 +2,12 @@ body {
     margin: 0;
     font-family: 'Samsung Sharp Sans', sans-serif;
     overflow-x: hidden;
+    color: white; /* Set default text color to white */
 }
 
 .background {
-    background-image: url('https://i.imgur.com/tM04LYz.png'); /* Background link */
-    background-attachment: fixed; /* For parallax effect */
+    background-image: url('https://i.imgur.com/qeLjlch.png');
+    background-attachment: fixed;
     background-size: cover;
     background-position: center;
     position: relative;

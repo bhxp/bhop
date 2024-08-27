@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    font-family: 'Samsung Sharp Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+.background {
+    background-image: url('background-image.jpg'); /* Background link */
+    background-attachment: fixed; /* For parallax effect */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.content {
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    width: 80%;
+    max-width: 1200px;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 4rem;
+    margin: 0;
+}
+
+header img {
+    width: 50%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.features {
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+}
+
+footer {
+    margin-top: 40px;
+}
+
+.download-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.download-btn:hover {
+    background-color: #0056b3;
+}

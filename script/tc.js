@@ -1,5 +1,5 @@
 document.addEventListener('mousemove', (e) => {
-    const x = e.clientX / window.innerWidth;
-    const y = e.clientY / window.innerHeight;
-    document.querySelector('.background').style.transform = `translate(-${x * 10}px, -${y * 10}px)`;
+    const x = (e.clientX / window.innerWidth) * 20 - 10;
+    const y = (e.clientY / window.innerHeight) * 20 - 10;
+    document.querySelector('.background').style.transform = `translate(${x}px, ${y}px)`;
 });

@@ -12,8 +12,8 @@ body {
     background-size: cover;
     background-position: center;
     position: fixed;
-    width: 110%; /* Make background 10% wider than the viewport */
-    height: 110%; /* Make background 10% taller than the viewport */
+    width: 200%; /* Make background 10% wider than the viewport */
+    height: 200%; /* Make background 10% taller than the viewport */
     top: -5%; /* Offset the background */
     left: -5%; /* Offset the background */
     z-index: -1; /* Ensure background is behind other content */

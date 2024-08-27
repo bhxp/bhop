@@ -12,10 +12,10 @@ body {
     background-size: cover;
     background-position: center;
     position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+    width: 110%; /* Make background 10% wider than the viewport */
+    height: 110%; /* Make background 10% taller than the viewport */
+    top: -5%; /* Offset the background */
+    left: -5%; /* Offset the background */
     z-index: -1; /* Ensure background is behind other content */
 }
 
@@ -25,24 +25,24 @@ body {
     border-radius: 20px;
     padding: 20px;
     width: 80%;
-    max-width: 1200px;
+    max-width: 1000px; /* Adjust max-width for better image sizing */
     margin: 0 auto; /* Center content horizontally */
     position: relative; /* Ensure it is positioned relative to the viewport */
-    top: 20%; /* Adjust vertical position */
+    top: 15%; /* Adjust vertical position */
 }
 
 header {
-    margin-bottom: 40px;
+    margin-bottom: 20px; /* Add spacing between title and image */
 }
 
 header h1 {
-    font-size: 4rem;
+    font-size: 3rem; /* Adjust font size if needed */
     margin: 0;
 }
 
 header img {
-    width: 50%;
-    max-width: 500px;
+    width: 40%; /* Make image smaller */
+    max-width: 400px; /* Set maximum width */
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -53,7 +53,7 @@ header img {
 }
 
 footer {
-    margin-top: 40px;
+    margin-top: 60px; /* Move the button further down */
 }
 
 .download-btn {

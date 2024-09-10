@@ -1,5 +1,5 @@
 ---
-title: Bio
+title: Bio2
 ---
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ title: Bio
 
 <body>
 
-  <!-- <video src="https://www.guilded.gg/Calypso-Lemonade/groups/Do84QB6d/channels/2f47a647-a88a-41b6-be95-e613a010b2d4/chat?messageId=5180e957-45bc-448c-b699-ddf4d34deabf" autoplay id="background"></video> -->
+<video src="https://cdn.gilcdn.com/ContentMediaGenericFiles/3d05b0ab771a18218b1616f94e9b83b5-Full.mp4?w=1920&h=1080&ia=1&Expires=1725959108&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZ2lsY2RuLmNvbS8qIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzI1OTU5MTA4fX19XX0_&Signature=wpK6cM-Oz-KOcTO9yLhtpAfXss1sbIppc1idAzhcREyj6k5U8H47tECnokvB-xfWmuZ%7E6lrews7scFXvl6jpdlC0E38ILuC%7E3FqA1f3SYsIaXobKbFxwhgc-6b-ANfQJgcbo90KZe-17uw764re%7ECs5HflUsuaPjV6EfiRiL8t9xIeUX-kIx1SMsMyx3Cm9wznP4HpCUtBcYGq39G1iu54qSaAxd8ZI%7Eqb2pbzGXhTEZU4wEly%7EQ-z0TpD9e%7EUhUn8EHkioX70yBYvY7WZktIE-bkKwCBAcZC8ZijGgdKiu5nN6onuv7lWAvfNA7bJPES-Te63NWDBruNB0t-kEWKg__&Key-Pair-Id=K1FFKFZRWAZSB" autoplay id="background"></video>
 
   <canvas id="effect"></canvas>
 
@@ -43,7 +43,7 @@ title: Bio
       <img class="link-img" src="images/spotify.png" />
     </a>
   </div>
-
+s
   <div id="views"><img src="images/eye.png" /><span id="view-count">0</span></div>
 
   <a id="home-button" onclick="javascript: window.open('/home', '_blank');">
@@ -62,6 +62,17 @@ title: Bio
 
     <script>
         // Create an audio element and set its source
-        var audio = new Audio('/images/xtac.mp3');
+        var audio = new Audio('/images/xtacsssssfe.mp3');
 
         // Add an event listener to the document body to play the audio on click
+        document.body.onclick = function() {
+            console.log('Body clicked'); // Debug log
+            audio.play().catch(function(error) {
+                console.error('Error playing audio:', error); // Log any playback errors
+            });
+        };
+    </script>
+
+    <script type="text/javascript" src="/script/cursor.js"></script>
+
+</html>

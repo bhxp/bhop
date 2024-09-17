@@ -6,7 +6,14 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 var mouseX = 0;
 var mouseY = 0;
+var mouseXMiddle = 0;
 var catX = 0;
+
+$(document).on("mousemove", e => {
+  mouseX = e.pageX;
+  mouseY = e.pageY;
+  mouseXMiddle = mouseX - (canvas.width / 2);
+});
 
 var localStorage = window.localStorage;
 
@@ -23,24 +30,24 @@ $(document).ready(function() {
   var interval = 100; // Interval between letter changes in milliseconds
 
   function animateText() {
-      // Clear previous text
-      $('#animatedText').empty();
+    // Clear previous text
+    $('#animatedText').empty();
 
-      // Loop through each letter
-      for (var i = 0; i < textLength; i++) {
-          var letter = $('<span>').addClass('char').text(text.charAt(i));
-          if (i === currentIndex) {
-              // Apply CSS for the current character
-              letter.css('text-shadow', '0px 0px 8px rgba(255, 255, 255, 1)');
-          }
-          $('#animatedText').append(letter);
+    // Loop through each letter
+    for (var i = 0; i < textLength; i++) {
+      var letter = $('<span>').addClass('char').text(text.charAt(i));
+      if (i === currentIndex) {
+        // Apply CSS for the current character
+        letter.css('text-shadow', '0px 0px 8px rgba(255, 255, 255, 1)');
       }
+      $('#animatedText').append(letter);
+    }
 
-      // Move to the next letter sequence
-      currentIndex = (currentIndex + 1) % textLength;
+    // Move to the next letter sequence
+    currentIndex = (currentIndex + 1) % textLength;
 
-      // Repeat the animation
-      setTimeout(animateText, interval);
+    // Repeat the animation
+    setTimeout(animateText, interval);
   }
 
   // Start the animation
@@ -76,6 +83,7 @@ class Particle {
   move() {
     this.x += Math.cos(this.dir) * 2;
     this.y += Math.sin(this.dir) * 2;
+    this.x += mouseXMiddle / canvas.width * 10;
   }
 }
 function randomAngleDownwards() {

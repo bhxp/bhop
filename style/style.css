@@ -156,7 +156,7 @@ body {
 }
 
 .link-button {
-  background-color: #343227;
+  background-color: var(--accent-background-brighter);
   box-shadow: var(--accent-background) 0px 0px 12px;
   border-radius: 12px;
   padding: 12px;
@@ -171,7 +171,7 @@ body {
 
 .link-button:hover {
   padding: 20px;
-  background-color: var(--accent-background-brighter);
+  background-color: #4f4f4f;
   box-shadow: var(--accent-background-brighter) 0px 0px 12px;
   background-color: #29292988;
 }

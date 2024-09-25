@@ -27,7 +27,7 @@
   --box-shadow: 0px 0px 12px 12px var(--background-color);
   --pfp-size: 120px;
   --accent-background: #121212;
-  --accent-background-brighter: #292929;
+  --accent-background-brighter: #29292988;
 }
 
 html,
@@ -158,7 +158,7 @@ body {
 .link-button {
   
   background-color: var(--accent-background-brighter);
-  box-shadow: var(--accent-background) 0px 0px 12px;
+  box-shadow: var(--accent-background-brighter) 0px 0px 12px;
   border-radius: 12px;
   padding: 12px;
   width: 60px;
@@ -175,7 +175,6 @@ body {
   background-color: #4f4f4f88;
   padding: 20px;
   box-shadow: var(--accent-background-brighter) 0px 0px 12px;
-  background-color: #29292988;
 }
 
 #links {

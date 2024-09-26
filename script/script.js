@@ -1,7 +1,7 @@
 var canvas = document.getElementById("effect");
 var ctx = canvas.getContext("2d");
 var particles = [];
-var particleCount = 250;
+var particleCount = 150;
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 var mouseX = 0;
@@ -74,9 +74,8 @@ $("#cover").click(function() {
 
 class Particle {
   constructor() {
-    this.y = 0;
-    this.x = 0;
-    this.reset();
+    this.y = Math.random() * canvas.height;
+    this.x = Math.random() * canvas.width
     this.dir = randomAngleDownwards()
     this.size = Math.random() * 3 + 1;
   }

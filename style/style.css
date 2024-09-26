@@ -35,7 +35,7 @@ body {
   height: 100vh;
   width: 100vw;
   backdrop-filter: blue(var(--background-blur));
-  background-color: #1f150f;
+  background-color: #050505;
   background-image: url("/images/background.png");
   background-size: cover;
   margin: 0px;

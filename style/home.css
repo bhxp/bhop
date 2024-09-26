@@ -75,12 +75,12 @@ body {
     border: 8px solid #1A1A1C;
     display: block;
     border-radius: 9999px;
-    opacity: 0;
+    opacity: 1;
 }
 
 .dropdown.hidden {
     display: hidden;
-    opacity: 1;
+    opacity: 0;
     top: calc(100% + 24px);
 }
 

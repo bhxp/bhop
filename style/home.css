@@ -68,7 +68,7 @@ body {
 .dropdown {
     transition: all 0.2s ease-in-out;
     position: absolute;
-    top: 0px;
+    top: calc(100% + 24px);
     left: 0px;
     font-size: 12px;
     background-color: #000;
@@ -81,7 +81,7 @@ body {
 .dropdown.hidden {
     display: hidden;
     opacity: 0;
-    top: calc(100% + 24px);
+    top: 0px;
 }
 
 #hi {

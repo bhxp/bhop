@@ -1,7 +1,5 @@
 const navbar = $("#navbar");
-
 var navbarItems = null;
-
 var cancelNavbarHide = true;
 
 $(document).on("mousedown", e => {

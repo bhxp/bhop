@@ -1,7 +1,7 @@
 var canvas = document.getElementById("effect");
 var ctx = canvas.getContext("2d");
 var particles = [];
-var particleCount = 150;
+var particleCount = 250;
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 var mouseX = 0;
@@ -74,10 +74,34 @@ $("#cover").click(function() {
 
 class Particle {
   constructor() {
-    this.x = Math.random() * canvas.width;
     this.y = 0;
+    this.x = 0;
+    this.reset();
     this.dir = randomAngleDownwards()
     this.size = Math.random() * 3 + 1;
+  }
+
+  reset() {
+    const random = Math.random() * (canvas.width + canvas.height * 2)
+    let x;
+    let y;
+    if (random <= canvas.height) {
+      x = 0;
+      y = random;
+    } else if (random >= canvas.height && random <= canvas.width + canvas.height) {
+      x = random - canvas.height;
+      y = 0;
+    } else if (random >= canvas.width + canvas.height) {
+      x = canvas.width;
+      y = random - canvas.width - canvas.height;
+    } else {
+      x = 0;
+      y = 0;
+      console.warn("Conditions for snow particle reset failed; Defaulting to top left (0, 0).")
+    }
+    this.x = x;
+    this.y = y;
+    return [x, y];
   }
 
   move() {
@@ -100,7 +124,7 @@ function createParticle() {
 
 for (let i = 0; i < particleCount; i++) {
   let particle = createParticle();
-  particle.y = Math.random() * canvas.width / 2;
+  particle.reset();
   particles.push(particle);
 }
 

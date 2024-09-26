@@ -2,11 +2,21 @@ const navbar = $("#navbar");
 
 var navbarItems = null;
 
+var cancelNavbarHide = false;
+
 $(document).on("mousedown", e => {
-    $("#navbar div.dropdown").addClass("hidden");
+    setTimeout(() => {
+        if (!cancelNavbarHide) {
+            $("#navbar div.dropdown").addClass("hidden");
+        } else {
+            cancelNavbarHide = false;
+        }
+    }, 10);
+    
 });
 
 function openDropdown(index) {
+    cancelNavbarHide = true;
     console.log(navbar.find("div.dropdown"))
     $("#navbar div.dropdown")[index].classList.remove("hidden")
 }

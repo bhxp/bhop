@@ -82,7 +82,8 @@ class Particle {
   }
 
   reset() {
-    const random = (Math.random() * (canvas.width + canvas.height)) + (canvas.height / canvas.width * mouseXMiddle)
+    //const random = (Math.random() * (canvas.width + canvas.height)) + (canvas.height / canvas.width * mouseXMiddle)
+    const random = (Math.random() * (canvas.width + canvas.height * 2))
     let x;
     let y;
     if (random <= canvas.height) {

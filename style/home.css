@@ -78,11 +78,18 @@ body {
     opacity: 1;
 }
 
-.dropdown.hidden {
-    display: none;
-    opacity: 0;
-    top: 0px;
-}
+
+  
+  .hidden {
+    opacity: 0; /* Set opacity to 0 for fade-out */
+    visibility: hidden; /* Make it hidden at the end */
+    transition: opacity 0.2s ease-in-out, visibility 0s 0.2s; /* Delay visibility change until after opacity transition */
+  }
+  
+  /* Additional styles to handle display: none */
+  .hidden.fade {
+    display: none; /* Optional: Hide element when hidden class is applied */
+  }
 
 #hi {
     position: fixed;

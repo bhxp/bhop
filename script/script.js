@@ -122,11 +122,7 @@ function createParticle() {
   return new Particle();
 }
 
-for (let i = 0; i < particleCount; i++) {
-  let particle = createParticle();
-  particle.reset();
-  particles.push(particle);
-}
+
 
 var tango = new Image("tango.png");
 
@@ -143,8 +139,7 @@ function render() {
     ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
     ctx.fill();
     if (particle.y > canvas.height) {
-      particles.splice(i, 1);
-      particles.push(createParticle());
+      particle.reset();
     }
   }
   if (catX < canvas.width) {
@@ -153,4 +148,13 @@ function render() {
   requestAnimationFrame(render);
 }
 
-requestAnimationFrame(render)
+
+$(document).ready((e) => {
+  for (let i = 0; i < particleCount; i++) {
+    let particle = createParticle();
+    particle.reset();
+    particles.push(particle);
+  }
+  requestAnimationFrame(render)
+
+})

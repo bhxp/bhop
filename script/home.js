@@ -3,7 +3,7 @@ const navbar = $("#navbar");
 var navbarItems = null;
 
 $(document).on("mousedown", e => {
-    $("#navbar div.dropdown")[index].classList.add("hidden");
+    $("#navbar div.dropdown").addClass("hidden");
 });
 
 function openDropdown(index) {

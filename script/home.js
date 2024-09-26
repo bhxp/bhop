@@ -25,7 +25,7 @@ function openDropdown(index) {
     }
 
     console.log(navbar.find("div.dropdown"));
-    $("#navbar .navbar-item")[index].getElementsByClassName("dropdown").classList.remove("hidden");
+    $("#navbar .navbar-item").eq(index).children(".dropdown").removeClass("hidden");
     console.log("dropdown shown");
 
     // Reset cancelNavbarHide after a short delay to avoid conflict with hide logic

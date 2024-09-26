@@ -5,6 +5,7 @@ var cancelNavbarHide = true;
 
 $(document).on("mousedown", e => {
     setTimeout(() => {
+        console.log("dropdown hidden");
         if (!cancelNavbarHide) {
             $("#navbar div.dropdown").addClass("hidden");
         } else {
@@ -17,6 +18,7 @@ function openDropdown(index) {
     cancelNavbarHide = true;
     console.log(navbar.find("div.dropdown"))
     $("#navbar div.dropdown")[index].classList.remove("hidden")
+    console.log("dropdown shown")
 }
 
 $(document).ready ((e) => {

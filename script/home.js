@@ -2,6 +2,7 @@ const navbar = $("#navbar");
 var navbarItems = null;
 var cancelNavbarHide = true;
 
+
 $(document).on("mousedown", e => {
     setTimeout(() => {
         if (!cancelNavbarHide) {
@@ -9,7 +10,7 @@ $(document).on("mousedown", e => {
         } else {
             cancelNavbarHide = false;
         }
-    }, 10);
+    }, 50);
 });
 
 function openDropdown(index) {

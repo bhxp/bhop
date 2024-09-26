@@ -159,7 +159,7 @@ body {
 .link-button {
   
   background-color: var(--accent-background-brighter);
-  box-shadow: var(--accent-background-brighter) 0px 0px 12px;
+  box-shadow: var(--accent-background-brighter) 0px 0px 24px;
   border-radius: 12px;
   padding: 12px;
   width: 60px;
@@ -172,10 +172,9 @@ body {
 }
 
 .link-button:hover {
-  
   background-color: #4f4f4f88;
   padding: 20px;
-  box-shadow: var(--accent-background-brighter) 0px 0px 12px;
+  box-shadow: #4f4f4f88 0px 0px 24px;
 }
 
 #links {
@@ -263,8 +262,7 @@ body {
 }
 
 #home-button {
-  background-color: var(--accent-background-brighter);
-  box-shadow: var(--accent-background-brighter) 0px 0px 12px;
+  
   border-radius: 12px;
   padding: 12px;
   width: 60px;
@@ -278,8 +276,6 @@ body {
 
 #home-button:hover {
   padding: 20px;
-  background-color: #4f4f4f88;
-  box-shadow: var(--accent-background-brighter) 0px 0px 12px;
   background-color: #29292988;
 }
 

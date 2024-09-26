@@ -79,7 +79,7 @@ body {
 }
 
 .dropdown.hidden {
-    display: hidden;
+    display: none;
     opacity: 0;
     top: 0px;
 }

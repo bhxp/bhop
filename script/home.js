@@ -2,7 +2,7 @@ const navbar = $("#navbar");
 
 var navbarItems = null;
 
-var cancelNavbarHide = false;
+var cancelNavbarHide = true;
 
 $(document).on("mousedown", e => {
     setTimeout(() => {
@@ -12,7 +12,6 @@ $(document).on("mousedown", e => {
             cancelNavbarHide = false;
         }
     }, 10);
-    
 });
 
 function openDropdown(index) {
@@ -32,7 +31,7 @@ $(document).ready ((e) => {
                     let element = $ ("<div class='navbar-item'></div>");
                     element.text (item.text)
                     element.attr ("onclick", `openDropdown(${items.indexOf(item)})`);
-                    let dropdown = $("<div class='dropdown' style='display: hidden;'></div>")
+                    let dropdown = $("<div class='dropdown'></div>")
                     item.pages.forEach(page => {
                         let elem = $ ("<div>");
                     elem.addClass ("navbar-item");

@@ -138,7 +138,7 @@ function render() {
     ctx.fillStyle = "#fff";
     ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
     ctx.fill();
-    if (particle.y > canvas.height) {
+    if (particle.y > canvas.height || particle.x < 0 || particle.x > canvas.width) {
       particle.reset();
     }
   }

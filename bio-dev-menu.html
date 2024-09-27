@@ -76,7 +76,9 @@ title: Bio
 
 
 
-
+<script>
+// BELOW IS DEV MENU CODE
+</script>
 
 
 
@@ -98,6 +100,12 @@ title: Bio
     devMenu.style.padding = '10px';
     devMenu.style.boxShadow = '0 0 10px rgba(0,0,0,0.2)';
     devMenu.style.fontSize = '12px';
+    devMenu.style.cursor = 'default'; // Set default cursor
+
+    // Show default cursor when hovering over the dev menu
+    devMenu.onmouseenter = () => {
+        devMenu.style.cursor = 'default';
+    };
 
     document.body.appendChild(devMenu);
 
@@ -134,7 +142,7 @@ title: Bio
 
         // Label for the property
         const label = document.createElement('label');
-        label.textContent = property;
+        label.textContent = `${element.tagName.toLowerCase()} - ${property}`;
         container.appendChild(label);
 
         // Slider for adjusting the property
@@ -142,7 +150,7 @@ title: Bio
         slider.type = 'range';
         slider.style.width = '70%';
         slider.min = 0;
-        slider.max = 1000;
+        slider.max = 1000; // Adjust max value as needed
         slider.value = parseFloat(value) || 0;
 
         // Input field for precise value
@@ -153,7 +161,6 @@ title: Bio
 
         container.appendChild(slider);
         container.appendChild(input);
-
         devMenu.appendChild(container);
 
         // Event listeners to update the element's style
@@ -187,6 +194,7 @@ title: Bio
 
 })();
 </script>
+
 
 </body>
 <script src="script/script.js"></script>

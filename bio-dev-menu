@@ -1,0 +1,210 @@
+---
+title: Bio
+---
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <title>bhop</title>
+  <link rel="stylesheet" href="style/style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <!-- <video src="https://r2.guns.lol/3df88f90-0bc2-42bd-b0f8-c02a5569b9b3.mp4" autoplay id="background"></video> -->
+
+  <canvas id="effect"></canvas>
+
+  <div id="container">
+    <div id="name-container">
+      <img src="images/pfp.png" id="pfp" />
+      <img id="sparkles" src="images/sparkle_white.gif" />
+      <h1 id="name">Bhop</h1>
+      <div id="bio">professional skid</div>
+    </div>
+  </div>
+
+  <div id="links">
+    <a class="link-button" onclick="javascript: window.open('https://youtube.com/@Bhoppings', '_blank');">
+      <img class="link-img" src="images/youtube.png" />
+    </a>
+    <a class="link-button" onclick="javascript: window.open('https://www.tiktok.com/@bhoppingz', '_blank');">
+      <img class="link-img" src="images/tiktok.png" />
+    </a>
+    <a class="link-button" onclick="javascript: window.open('https://github.com/bhxp', '_blank');">
+      <img class="link-img" src="images/github.png" />
+    </a>
+    <a class="link-button" onclick="javascript: window.open('https://open.spotify.com/user/31zvux3kw6otgrc6czgj5544ddkm?si=70e7ce28ac034cc2', '_blank');">
+      <img class="link-img" src="images/spotify.png" />
+    </a>
+  </div>
+
+  <div id="views"><img src="images/eye.png" /><span id="view-count">0</span></div>
+
+  <a id="home-button" onclick="javascript: window.open('/home', '_blank');" class="link-button">
+    <img src="images/home.svg" />
+  </a>
+
+  <div id="cover">
+    <div id="cover-title">
+      <div id="animatedText">Click to enter...</div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    // Create the dev menu container
+    const devMenu = document.createElement('div');
+    devMenu.id = 'devMenu';
+    devMenu.style.position = 'fixed';
+    devMenu.style.top = '10px';
+    devMenu.style.right = '10px';
+    devMenu.style.width = '300px';
+    devMenu.style.maxHeight = '400px';
+    devMenu.style.overflowY = 'scroll';
+    devMenu.style.backgroundColor = 'white';
+    devMenu.style.border = '1px solid #ccc';
+    devMenu.style.zIndex = '99999';
+    devMenu.style.padding = '10px';
+    devMenu.style.boxShadow = '0 0 10px rgba(0,0,0,0.2)';
+    devMenu.style.fontSize = '12px';
+
+    document.body.appendChild(devMenu);
+
+    // Create a drag bar to move the dev menu
+    const dragBar = document.createElement('div');
+    dragBar.style.width = '100%';
+    dragBar.style.height = '20px';
+    dragBar.style.backgroundColor = '#333';
+    dragBar.style.color = 'white';
+    dragBar.style.textAlign = 'center';
+    dragBar.style.cursor = 'move';
+    dragBar.textContent = 'Dev Menu';
+    devMenu.appendChild(dragBar);
+
+    // Make the dev menu draggable
+    let offsetX = 0, offsetY = 0;
+    dragBar.onmousedown = function(e) {
+        offsetX = e.clientX - devMenu.offsetLeft;
+        offsetY = e.clientY - devMenu.offsetTop;
+        document.onmousemove = function(e) {
+            devMenu.style.left = `${e.clientX - offsetX}px`;
+            devMenu.style.top = `${e.clientY - offsetY}px`;
+        };
+        document.onmouseup = function() {
+            document.onmousemove = null;
+            document.onmouseup = null;
+        };
+    };
+
+    // Function to create sliders and inputs for a given element's properties
+    function createControl(element, property, value) {
+        const container = document.createElement('div');
+        container.style.marginBottom = '10px';
+
+        // Label for the property
+        const label = document.createElement('label');
+        label.textContent = property;
+        container.appendChild(label);
+
+        // Slider for adjusting the property
+        const slider = document.createElement('input');
+        slider.type = 'range';
+        slider.style.width = '70%';
+        slider.min = 0;
+        slider.max = 1000;
+        slider.value = parseFloat(value) || 0;
+
+        // Input field for precise value
+        const input = document.createElement('input');
+        input.type = 'number';
+        input.style.width = '25%';
+        input.value = parseFloat(value) || 0;
+
+        container.appendChild(slider);
+        container.appendChild(input);
+
+        devMenu.appendChild(container);
+
+        // Event listeners to update the element's style
+        slider.oninput = function() {
+            input.value = slider.value;
+            element.style[property] = slider.value + 'px';
+        };
+
+        input.oninput = function() {
+            slider.value = input.value;
+            element.style[property] = input.value + 'px';
+        };
+    }
+
+    // Function to scan all elements and add controls
+    function scanElements() {
+        const elements = document.querySelectorAll('*');
+        elements.forEach(element => {
+            const computedStyle = getComputedStyle(element);
+            ['width', 'height', 'fontSize', 'padding', 'margin', 'top', 'left', 'right', 'bottom'].forEach(prop => {
+                const value = computedStyle[prop];
+                if (value && value !== 'auto' && value.includes('px')) {
+                    createControl(element, prop, value);
+                }
+            });
+        });
+    }
+
+    // Scan all elements on the page
+    scanElements();
+
+})();
+</script>
+
+</body>
+<script src="script/script.js"></script>
+
+
+    <script>
+        // Create an audio element and set its source
+        var audio = new Audio('/images/xtac.mp3');
+
+        // Add an event listener to the document body to play the audio on click
+        document.body.onclick = function() {
+            console.log('Body clicked'); // Debug log
+            audio.play().catch(function(error) {
+                console.error('Error playing audio:', error); // Log any playback errors
+            });
+        };
+    </script>
+
+    <script type="text/javascript" src="/script/cursor.js"></script>
+<!-- bio created by ChezLinkZ -->
+</html>

@@ -19,6 +19,8 @@ $(document).on("mousedown", e => {
 function openDropdown(index) {
     cancelNavbarHide = true;
 
+    $(".dropdown").addClass("hidden");
+
     // Clear the hide timeout if the dropdown is opened
     if (hideTimeout) {
         clearTimeout(hideTimeout);

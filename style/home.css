@@ -16,8 +16,8 @@ body {
 }
 
 body {
-    background: rgb(2,0,36);
-    background: linear-gradient(71deg, rgba(2,0,36,1) 0%, rgba(97,92,72,1) 100%); 
+    background: #000;
+    background: linear-gradient(346deg, rgba(0,58,120,1) 0%, rgba(59,4,43,1) 51%, rgba(97,92,72,1) 100%); 
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
     overflow: hidden;
@@ -104,6 +104,7 @@ body {
     transform: TranslateX(-50%);
     height: 66.66vh;
     width: auto;
+    border-radius: 32px 32px 0px 0px;
     -webkit-box-shadow: 0px 0px 96px 31px rgba(255,255,255,1);
 -moz-box-shadow: 0px 0px 96px 31px rgba(255,255,255,1);
 box-shadow: 0px 0px 96px 31px rgba(255,255,255,1);

@@ -25,8 +25,8 @@ function openDropdown(index) {
     }
 
     console.log(navbar.find("div.dropdown"));
-    $("#navbar .navbar-item").eq(index).children(".dropdown").removeClass("hidden");
-    console.log($("#navbar .navbar-item").eq(index).children(".dropdown"))
+    $("#navbar .navbar-item-top").eq(index).children(".dropdown").removeClass("hidden");
+    console.log($("#navbar .navbar-item-top").eq(index).children(".dropdown"))
     console.log("dropdown shown");
 
     // Reset cancelNavbarHide after a short delay to avoid conflict with hide logic
@@ -43,7 +43,7 @@ $(document).ready((e) => {
             items.forEach(item => {
                 if (item.multiple) {
                     console.log("multiple items");
-                    let element = $("<div class='navbar-item'></div>");
+                    let element = $("<div class='navbar-item navbar-item-top'></div>");
                     element.text(item.text);
                     element.attr("onclick", `openDropdown(${items.indexOf(item)})`);
                     let dropdown = $("<div class='dropdown hidden'></div>");
@@ -58,7 +58,7 @@ $(document).ready((e) => {
                     navbar.append(element);
                 } else {
                     let element = $("<div>");
-                    element.addClass("navbar-item");
+                    element.addClass("navbar-item navbar-item-top");
                     element.text(item.text);
                     element.attr("onclick", `window.open("${item.url}");`);
                     navbar.append(element);

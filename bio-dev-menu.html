@@ -100,12 +100,7 @@ title: Bio
     devMenu.style.padding = '10px';
     devMenu.style.boxShadow = '0 0 10px rgba(0,0,0,0.2)';
     devMenu.style.fontSize = '12px';
-    devMenu.style.cursor = 'default'; // Set default cursor
-
-    // Show default cursor when hovering over the dev menu
-    devMenu.onmouseenter = () => {
-        devMenu.style.cursor = 'default';
-    };
+    devMenu.style.cursor = 'default'; // Force default cursor for the entire dev menu
 
     document.body.appendChild(devMenu);
 
@@ -194,6 +189,7 @@ title: Bio
 
 })();
 </script>
+
 
 
 </body>

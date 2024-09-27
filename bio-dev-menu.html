@@ -12,6 +12,19 @@ title: Bio
   <title>bhop</title>
   <link rel="stylesheet" href="style/style.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+
+
+  <script>
+// Force cursor visibility
+function forceCursor() {
+    document.body.style.cursor = 'auto'; // Set cursor to auto
+    requestAnimationFrame(forceCursor);   // Repeat to maintain visibility
+}
+
+forceCursor(); // Start the function
+</script>
 </head>
 
 <body>

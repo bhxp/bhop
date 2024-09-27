@@ -16,8 +16,8 @@ body {
 }
 
 body {
-    background: #000;
-    background: linear-gradient(346deg, rgba(0,58,120,1) 0%, rgba(59,4,43,1) 51%, rgba(97,92,72,1) 100%); 
+    background: rgb(0,35,72);
+background: linear-gradient(63deg, rgba(0,35,72,1) 0%, rgba(35,2,25,1) 51%, rgba(97,92,72,1) 100%);
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
     overflow: hidden;

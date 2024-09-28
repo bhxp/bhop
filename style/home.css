@@ -20,15 +20,15 @@ html, body {
 .gradient-text {
     background: #D185FF;
     background: linear-gradient(to right, #D185FF 8%, #51CBFF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     font-family: 'Instrument Sans';
     
 }
 
 #navbar .gradient-text {
     display: inline-flex;
-    align-content: center;
+    align-content: center !important;
     flex-direction: row;
     float: left;
     height: 96px;

@@ -28,9 +28,8 @@ html, body {
 
 #navbar .gradient-text {
     display: inline-flex;
-    align-content: flex-start;
+    align-content: center;
     flex-direction: row;
-    justify-content: flex-start;
     float: left;
     height: 96px;
     margin: 0px;

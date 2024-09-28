@@ -1,111 +1,31 @@
-@font-face {
-    font-family: SamsungOne;
-    src: url(../fonts/SamsungOne-400.ttf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
 
-@font-face {
-    font-family: SamsungSharpSans;
-    src: url(../fonts/samsungsharpsans.otf);
-}
-
-html,   
-body {
-    margin: 0px;
+html, body {
     height: 100vh;
     width: 100vw;
-}
-
-body {
-    background: rgb(0,18,37);
-background: linear-gradient(63deg, rgba(0,18,37,1) 0%, rgba(25,1,17,1) 51%, rgba(97,92,72,1) 100%);
-    background-size: 100vw 100vh;
-    background-repeat: no-repeat;
-    overflow: hidden;
-    background-color: #2d4b76;
+    margin: 0px !important;
+    background: rgb(34,34,34);
+    background: linear-gradient(18deg, rgba(34,34,34,1) 0%, rgba(0,0,0,1) 100%);
 }
 
 #navbar {
-    position: absolute;
-    top: 36px;
-    left: 50vw;
-    transform: TranslateX(-50%);
-    background-color: #03030C66;
-    backdrop-filter: blue(8px);
-    border: 8px solid #1A1A1C;
-    border-radius: 9999px;
-    height: 96px;
-    width: 75vw;
-}
-
-#navbar-logo {
-    float: left;
-    height: 72px;
-    width: 72px;
-    border-radius: 9999px;
-    position: relative;
-    margin: 12px;
-}
-
-.navbar-item {
-    color: #fff;
-    font-family: SamsungSharpSans;
-    height: 48px;
-    width: fit-content;
-    padding: 12px 18px;
-    border-radius: 24px;
-    float: left;
-    margin: 12px 18px;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 48px;
-    font-size: 24px;
-    transition: all 0.3s ease-in-out;
-}
-
-.navbar-item:hover {
-    background-color: rgba(255, 255, 255, 0.17);
-}
-
-.navbar-item-top:focus {
-    background-color: rgba(255, 255, 255, 0.17);
-}
-
-.dropdown {
-    transition: all 0.2s ease-in-out;
-    position: absolute;
-    top: calc(100% + 24px);
-    left: 0px;
-    font-size: 12px;
-    background-color: #03030C66;
-    backdrop-filter: blur(8px);
-    border: 8px solid #1A1A1C;
-    display: block;
-    border-radius: 9999px;
-    opacity: 1;
-}
-
-
-  
-  .hidden {
-    opacity: 0; /* Set opacity to 0 for fade-out */
-    visibility: hidden; /* Make it hidden at the end */
-    transition: opacity 0.2s ease-in-out, visibility 0s 0.2s; /* Delay visibility change until after opacity transition */
-  }
-  
-  /* Additional styles to handle display: none */
-  .hidden.fade {
-    display: none; /* Optional: Hide element when hidden class is applied */
-  }
-
-#hi {
+    height: 144px;
+    width: calc(100vw - 48px);
     position: fixed;
-    left: 50vw;
-    bottom: 0px;
-    transform: TranslateX(-50%);
-    height: 66.66vh;
-    width: auto;
-    border-radius: 24px 24px 0px 0px;
-    -webkit-box-shadow: 0px 0px 96px 31px rgba(255,255,255,1);
--moz-box-shadow: 0px 0px 96px 31px rgba(255,255,255,1);
-box-shadow: 0px 0px 96px 31px rgba(255,255,255,1);
+    left: 24px;
+    top: 0px;
+    border-bottom: solid 2px rgba(255, 255, 255, 64);
+}
+
+.gradient-text {
+    background: #D185FF;
+    background: linear-gradient(to right, #D185FF 8%, #51CBFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Instrument Sans';
+}
+
+#navbar .gradient-text {
+    float: left;
+    font-size: 96px;
 }

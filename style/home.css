@@ -23,6 +23,14 @@ html, body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: 'Instrument Sans';
+    display: inline-flex;
+    align-content: flex-start;
+    flex-direction: row;
+    justify-content: flex-start;
+    float: left;
+    height: 96px;
+    margin: 0px;
+    margin-right: 18px;
 }
 
 #navbar .gradient-text {

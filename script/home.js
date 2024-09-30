@@ -49,10 +49,10 @@ $(document).ready((e) => {
             items.forEach(item => {
                 if (item.multiple) {
                     console.log("multiple items");
-                    let element = $("<div class='navbar-item navbar-item-top' style='display: none;'></div>");
+                    let element = $("<div class='navbar-item navbar-item-top'></div>");
                     element.text(item.text);
                     element.attr("onclick", `openDropdown(${items.indexOf(item)})`);
-                    let dropdown = $("<div class='dropdown hidden'></div>");
+                    let dropdown = $("<div class='dropdown hidden' style='display: none;'></div>");
                     item.pages.forEach(page => {
                         let elem = $("<div>");
                         elem.addClass("navbar-item");

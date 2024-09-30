@@ -67,6 +67,7 @@ html, body {
 
 
 .dropdown {
+    transition: top 0.4s ease-in-out;
     position: absolute;
     display: none;
     top: 72px;

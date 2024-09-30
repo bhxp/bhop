@@ -49,7 +49,7 @@ $(document).ready((e) => {
             items.forEach(item => {
                 if (item.multiple) {
                     console.log("multiple items");
-                    let element = $("<div class='navbar-item navbar-item-top'></div>");
+                    let element = $("<div class='navbar-item navbar-item-top' style='display: none;'></div>");
                     element.text(item.text);
                     element.attr("onclick", `openDropdown(${items.indexOf(item)})`);
                     let dropdown = $("<div class='dropdown hidden'></div>");

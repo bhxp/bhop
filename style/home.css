@@ -9,6 +9,19 @@ html, body {
     cursor: default !important;
 }
 
+@keyframes hide {
+    0% {
+        display: flex;
+    }
+    99% {
+        display: flex;
+    }
+    100% {
+        display: none;
+    }
+    
+}
+
 #navbar {
     display: flex;
     align-items: flex-start;
@@ -69,7 +82,7 @@ html, body {
 .dropdown {
     transition: top 0.4s ease-in-out;
     position: absolute;
-    display: none;
+    display: hidden;
     top: 72px;
     left: 50%;
     transform: TranslateX(-50%);
@@ -100,4 +113,5 @@ html, body {
 
 .dropdown.hidden {
     top: 0px;
+    animation: hide 0.1s linear 0.4s;
 }

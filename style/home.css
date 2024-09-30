@@ -9,6 +9,9 @@ html, body {
 }
 
 #navbar {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
     height: 96px;
     width: calc(100vw - 48px);
     position: fixed;
@@ -27,7 +30,7 @@ html, body {
 }
 
 #navbar .gradient-text {
-    display: inline-flex;
+    display: flex;
     align-content: center !important;
     flex-direction: row;
     float: left;
@@ -42,6 +45,7 @@ html, body {
 
 .navbar-item-top {
     font-family: 'Instrument Sans';
+    display: flex;
     font-weight: 500;
     color: #fff;
     display: inline-flex;

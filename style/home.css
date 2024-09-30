@@ -68,12 +68,13 @@ html, body {
 .dropdown {
     position: absolute;
     display: none;
-    top: 48px;
-    left: 0px;
-    padding: 0px 12px 0px 12px;
+    top: 72px;
+    left: 50%;
+    transform: TranslateX(-50%);
+    padding: 0px 12px 4px 12px;
     border-radius: 16px;
     backdrop-filter: blur(8px);
-    background-color: rgba(120, 120, 125, 0.2);
+    background-color: rgba(120, 120, 125, 0.1);
 }
 
 .navbar-item:not(.navbar-item-top) {

@@ -61,6 +61,7 @@ html, body {
     line-height: 96px;
     height: 96px;
     align-content: center !important;
+    position: relative;
 }
 
 
@@ -69,7 +70,7 @@ html, body {
     display: none;
     top: 48px;
     left: 0px;
-    padding: 16px;
+    padding: 0px 12px 0px 12px;
     border-radius: 16px;
     backdrop-filter: blur(8px);
     background-color: rgba(120, 120, 125, 0.2);

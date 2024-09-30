@@ -6,6 +6,7 @@ html, body {
     margin: 0px !important;
     background: rgb(34,34,34);
     background: linear-gradient(18deg, rgba(34,34,34,1) 0%, rgba(0,0,0,1) 100%);
+    cursor: default !important;
 }
 
 #navbar {
@@ -33,20 +34,21 @@ html, body {
     display: flex;
     align-content: center !important;
     flex-direction: row;
-    float: left;
     height: 96px;
     margin: 0px;
     margin-right: 18px;
     float: left;
-    font-size: 48px;
+    font-size: 36px;
     margin: 0px 18px 0px 0px;
     display: block;
+    font-weight: 600;
 }
 
 .navbar-item-top {
     font-family: 'Instrument Sans';
     display: flex;
     font-weight: 500;
+    font-size: 24px;
     color: #fff;
     display: inline-flex;
     align-content: flex-start;
@@ -54,13 +56,17 @@ html, body {
     justify-content: flex-start;
     float: left;
     height: 48px;
-    margin: 18px 18px 18px 0px;
+    margin: 0px;
+    margin-right: 18px;
     line-height: 48px;
+    height: 96px;
+    align-content: center !important;
 }
 
 
 .dropdown {
     position: absolute;
+    display: none;
     top: 48px;
     left: 0px;
 }

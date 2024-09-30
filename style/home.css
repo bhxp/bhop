@@ -69,4 +69,12 @@ html, body {
     display: none;
     top: 48px;
     left: 0px;
+    padding: 16px;
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    background-color: rgba(120, 120, 125, 0.2);
+}
+
+.navbar-item:not(.navbar-item-top) {
+    line-height: 48px;
 }

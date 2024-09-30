@@ -2,6 +2,7 @@ const navbar = $("#navbar");
 var navbarItems = null;
 var cancelNavbarHide = true;
 var hideTimeout = null; // track the hide timeout
+var dropdownIndexes = [];
 
 $(document).on("mousedown", e => {
     if (hideTimeout) {
@@ -19,9 +20,9 @@ $(document).on("mousedown", e => {
 
 function openDropdown(index) {
     cancelNavbarHide = true;
-
-    $(".dropdown").removeClass("hidden");
-    $(".dropdown").fadeIn();
+    
+    $(".dropdown").eq(dropdownIndexes.indexOf(index)).removeClass("hidden");
+    $(".dropdown").eq(dropdownIndexes.indexOf(index)).fadeIn();
 
     // Clear the hide timeout if the dropdown is opened
     if (hideTimeout) {
@@ -44,6 +45,7 @@ $(document).ready((e) => {
         .then(response => response.json())
         .then(items => {
             navbarItems = items;
+            let i = 0;
             items.forEach(item => {
                 if (item.multiple) {
                     console.log("multiple items");
@@ -60,6 +62,7 @@ $(document).ready((e) => {
                     });
                     element.append(dropdown);
                     navbar.append(element);
+                    dropdownIndexes.push(i);
                 } else {
                     let element = $("<div>");
                     element.addClass("navbar-item navbar-item-top");
@@ -67,6 +70,7 @@ $(document).ready((e) => {
                     element.attr("onclick", `window.open("${item.url}");`);
                     navbar.append(element);
                 }
+                i ++;
             });
         })
         .catch(error => {

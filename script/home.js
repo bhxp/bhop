@@ -21,7 +21,7 @@ function openDropdown(index) {
     cancelNavbarHide = true;
 
     $(".dropdown").removeClass("hidden");
-    $(".dropdown").fadeOut();
+    $(".dropdown").fadeIn();
 
     // Clear the hide timeout if the dropdown is opened
     if (hideTimeout) {

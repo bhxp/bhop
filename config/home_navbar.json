@@ -1,40 +1,40 @@
 [
     {
         "multiple": true,
-        "text": "Bio",
+        "text": "bio",
         "pages": [
             {
-                "text": "Bhop",
+                "text": "bhop",
                 "url": "/"
             },
             {
-                "text": "ChezLinkZ",
+                "text": "chezlinkz",
                 "url": "/chezlinkz.html"
             }
         ]
     },
     {
-        "text": "Tango",
+        "text": "tango",
         "url": "/tango"
     },
     {
-        "text": "Poop",
+        "text": "poop",
         "url": "/poop"
     },
     {
         "multiple": true,
-        "text": "Generators",
+        "text": "generators",
         "pages": [
             {
-                "text": "Autism",
+                "text": "autism",
                 "url": "/testing"
             },
             {
-                "text": "QR Code",
+                "text": "qr code",
                 "url": "/qrcode"
             },
             {
-                "text": "PDF",
+                "text": "pdf",
                 "url": "/free-pdf-creator-WORKING-2024-free-vbucks-and-robux-generator-download-today-no-virus-safe-working-2023-2024-2025-2026-amazon-giftcard-generator"
             }
         ]

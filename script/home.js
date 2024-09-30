@@ -22,7 +22,10 @@ function openDropdown(index) {
     const dropdown = $("#navbar .navbar-item-top").eq(index).children(".dropdown");
     cancelNavbarHide = true;
     
-    dropdown.removeClass("hidden");
+    setTimeout(400, () => {
+        dropdown.removeClass("hidden");
+    });
+
     dropdown.fadeIn();
 
     // Clear the hide timeout if the dropdown is opened

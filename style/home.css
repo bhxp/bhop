@@ -92,3 +92,11 @@ html, body {
     left: 42px;
     transform: TranslateY(-50%);
 }
+
+#center .gradient-text {
+    font-size: 72px;
+}
+
+.dropdown.hidden {
+    top: 0px;
+}

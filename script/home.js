@@ -12,8 +12,9 @@ $(document).on("mousedown", e => {
     hideTimeout = setTimeout(() => {
         console.log("dropdown hidden");
         if (!cancelNavbarHide) {
-            $("#navbar div.dropdown").addClass("hidden");
-            $("#navbar div.dropdown").fadeOut();
+            $("#navbar div.dropdown").fadeOut().then(() => {
+                $("#navbar div.dropdown").addClass("hidden");
+            });
         }
     }, 50);
 });

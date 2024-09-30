@@ -101,6 +101,6 @@ html, body {
 
 .dropdown.hidden {
     top: 0px;
-    display: hidden;
+    display: none;
     z-index: -1;
 }

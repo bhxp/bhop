@@ -27,7 +27,7 @@ html, body {
     background-clip: text;
     color: transparent;
     font-family: 'Instrument Sans';
-    
+    text-shadow: 0px 0px 20px rgba(81,203,255,0.87);
 }
 
 #navbar .gradient-text {
@@ -36,12 +36,13 @@ html, body {
     flex-direction: row;
     height: 96px;
     margin: 0px;
-    margin-right: 18px;
+    margin-right: 24px;
     float: left;
     font-size: 36px;
     margin: 0px 18px 0px 0px;
     display: block;
     font-weight: 600;
+    margin-left: 24px;
 }
 
 .navbar-item-top {
@@ -72,11 +73,22 @@ html, body {
     left: 50%;
     transform: TranslateX(-50%);
     padding: 0px 12px 4px 12px;
-    border-radius: 16px;
+    border-radius: 12px;
     backdrop-filter: blur(8px);
     background-color: rgba(120, 120, 125, 0.1);
 }
 
 .navbar-item:not(.navbar-item-top) {
     line-height: 48px;
+}
+
+.navbar-item {
+    text-shadow: 0px 0px 6px #fff;
+}
+
+#center {
+    position: fixed;
+    top: 50%;
+    left: 42px;
+    transform: TranslateY(-50%);
 }

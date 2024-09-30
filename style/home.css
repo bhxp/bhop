@@ -47,7 +47,7 @@ html, body {
 .navbar-item-top {
     font-family: 'Instrument Sans';
     display: flex;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 24px;
     color: #fff;
     display: inline-flex;
@@ -57,7 +57,7 @@ html, body {
     float: left;
     height: 48px;
     margin: 0px;
-    margin-right: 18px;
+    margin-right: 24px;
     line-height: 48px;
     height: 96px;
     align-content: center !important;

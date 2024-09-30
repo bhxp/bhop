@@ -19,10 +19,11 @@ $(document).on("mousedown", e => {
 });
 
 function openDropdown(index) {
+    const dropdown = $("#navbar .navbar-item-top").eq(index).children(".dropdown");
     cancelNavbarHide = true;
     
-    $(".dropdown").eq(dropdownIndexes.indexOf(index)).removeClass("hidden");
-    $(".dropdown").eq(dropdownIndexes.indexOf(index)).fadeIn();
+    dropdown.removeClass("hidden");
+    dropdown.fadeIn();
 
     // Clear the hide timeout if the dropdown is opened
     if (hideTimeout) {
@@ -30,7 +31,6 @@ function openDropdown(index) {
     }
 
     console.log(navbar.find("div.dropdown"));
-    $("#navbar .navbar-item-top").eq(index).children(".dropdown").removeClass("hidden");
     console.log($("#navbar .navbar-item-top").eq(index).children(".dropdown"))
     console.log("dropdown shown");
 

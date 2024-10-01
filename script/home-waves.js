@@ -6,6 +6,7 @@ const wavePoints = [];
 const numWaves = 5; // Number of wave points
 const numPoints = 100; // Total points
 var gravityStrength = 2; // Strength of the pull towards wave points
+var waveSpeed = 0.01
 
 // Initialize wave points randomly across the canvas
 for (let i = 0; i < numWaves; i++) {
@@ -48,7 +49,7 @@ function draw() {
                 nearestDistance = distance;
                 nearestWave = wave;
             }
-            wave.wave += 0.1;
+            wave.wave += waveSpeed;
         });
 
         // Calculate the pull towards the nearest wave point

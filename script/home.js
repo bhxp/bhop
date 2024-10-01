@@ -13,7 +13,6 @@ $(document).on("mousedown", e => {
         console.log("dropdown hidden");
         if (!cancelNavbarHide) {
             $("#navbar div.dropdown").addClass("hidden");
-            $("#navbar div.dropdown").fadeOut();
         }
     }, 50);
 });
@@ -22,7 +21,6 @@ function openDropdown(index) {
     const dropdown = $("#navbar .navbar-item-top").eq(index).children(".dropdown");
     cancelNavbarHide = true;
     dropdown.removeClass("hidden");
-    dropdown.fadeIn();
 
     // Clear the hide timeout if the dropdown is opened
     if (hideTimeout) {

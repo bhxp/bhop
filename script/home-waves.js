@@ -6,8 +6,8 @@ const ctx = canvas.getContext('2d');
 
 const points = [];
 const wavePoints = [];
-const numWaves = 5; // Number of wave points
-const rows = 38;
+const numWaves = 15; // Number of wave points
+const rows = 80;
 const xScale = canvas.width * 1.1 / rows;
 const columns = Math.round(canvas.height / xScale);
 const yScale = canvas.height / columns;
@@ -122,7 +122,7 @@ function draw() {
     ctx.fillStyle = '#14161d';
     points.forEach(point => {
         ctx.beginPath();
-        ctx.arc(point.x, point.y, 4, 0, Math.PI * 2);
+        ctx.arc(point.x, point.y, 2, 0, Math.PI * 2);
         ctx.fill();
     });
 

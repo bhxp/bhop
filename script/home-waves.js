@@ -11,8 +11,8 @@ const rows = 38;
 const xScale = canvas.width / rows;
 const columns = Math.round(canvas.height / xScale);
 const yScale = canvas.height / columns;
-var gravityStrength = 10; // Strength of the pull towards wave points
-var waveSpeed = 0.00005
+var gravityStrength = 20; // Strength of the pull towards wave points
+var waveSpeed = 0.000009;
 
 
 
@@ -106,6 +106,8 @@ function draw() {
         
     });
 
+
+    /*
     // Draw wave points
     ctx.fillStyle = 'red';
     wavePoints.forEach(wave => {
@@ -114,8 +116,10 @@ function draw() {
         ctx.fill();
     });
 
+    */
+
     // Draw points
-    ctx.fillStyle = 'blue';
+    ctx.fillStyle = '#14161d';
     points.forEach(point => {
         ctx.beginPath();
         ctx.arc(point.x, point.y, 4, 0, Math.PI * 2);

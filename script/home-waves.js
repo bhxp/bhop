@@ -5,13 +5,15 @@ const points = [];
 const wavePoints = [];
 const numWaves = 5; // Number of wave points
 const numPoints = 100; // Total points
-const gravityStrength = 0.1; // Strength of the pull towards wave points
+var gravityStrength = 2; // Strength of the pull towards wave points
 
 // Initialize wave points randomly across the canvas
 for (let i = 0; i < numWaves; i++) {
     wavePoints.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
+        amplitude: Math.random() * 20 + 5,
+        wave: 0
     });
 }
 
@@ -21,6 +23,7 @@ for (let i = 0; i < numPoints; i++) {
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         originalY: Math.random() * canvas.height, // Store original Y for reference
+        originalX: Math.random() * canvas.width
     });
 }
 
@@ -30,6 +33,7 @@ function draw() {
     // Reset points to their original positions
     points.forEach(point => {
         point.y = point.originalY; // Reset to original Y position
+        point.x = point.originalX;
     });
 
     // Apply gravity towards wave points
@@ -44,6 +48,7 @@ function draw() {
                 nearestDistance = distance;
                 nearestWave = wave;
             }
+            wave.wave += 0.1;
         });
 
         // Calculate the pull towards the nearest wave point
@@ -58,8 +63,8 @@ function draw() {
             const normY = dy / distanceToWave;
 
             // Move the point towards the wave point based on gravity
-            point.x += normX * gravityStrength;
-            point.y += normY * gravityStrength;
+            point.x += normX * gravityStrength * Math.sin(nearestWave.wave);
+            point.y += normY * gravityStrength * Math.sin(nearestWave.wave);
         }
     });
 

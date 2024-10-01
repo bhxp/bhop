@@ -1,5 +1,8 @@
 const canvas = document.getElementById('waveCanvas');
 const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
 
 const points = [];
 const wavePoints = [];
@@ -8,16 +11,41 @@ const rows = 20;
 const columns = 20;
 const xScale = canvas.width / rows;
 const yScale = canvas.height / columns;
-var gravityStrength = 2; // Strength of the pull towards wave points
-var waveSpeed = 0.01
+var gravityStrength = 10; // Strength of the pull towards wave points
+var waveSpeed = 0.00005
 
-function setCanvasSize(canvas) {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+
+
+function distributePoints(numPoints, width, height) {
+    const points = [];
+    const cols = Math.ceil(Math.sqrt(numPoints)); // Calculate number of columns
+    const rows = Math.ceil(numPoints / cols); // Calculate number of rows
+
+    const spacingX = width / cols; // Calculate horizontal spacing
+    const spacingY = height / rows; // Calculate vertical spacing
+
+    for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+            if (points.length < numPoints) { // Check if we've added enough points
+                const x = col * spacingX + spacingX / 2; // Center the point in the cell
+                const y = row * spacingY + spacingY / 2; // Center the point in the cell
+                points.push({ x, y });
+            }
+        }
+    }
+    return points;
 }
 
-// Set initial canvas size
-setCanvasSize(canvas);
+// Example usage:
+const numPoints = 10; // Number of points to distribute
+const width = 800;    // Width of the area
+const height = 400;   // Height of the area
+
+const distributedPoints = distributePoints(numPoints, width, height);
+console.log(distributedPoints);
+
+
+const pointPositions = distributePoints(numWaves, canvas.width, canvas.height)
 
 // Initialize wave points randomly across the canvas
 for (let i = 0; i < numWaves; i++) {

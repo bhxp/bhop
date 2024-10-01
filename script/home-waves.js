@@ -4,9 +4,20 @@ const ctx = canvas.getContext('2d');
 const points = [];
 const wavePoints = [];
 const numWaves = 5; // Number of wave points
-const numPoints = 100; // Total points
+const rows = 50;
+const columns = 50;
+const xScale = canvas.width / rows;
+const yScale = canvas.height / columns;
 var gravityStrength = 2; // Strength of the pull towards wave points
 var waveSpeed = 0.01
+
+function setCanvasSize(canvas) {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+// Set initial canvas size
+setCanvasSize(canvas);
 
 // Initialize wave points randomly across the canvas
 for (let i = 0; i < numWaves; i++) {
@@ -18,14 +29,15 @@ for (let i = 0; i < numWaves; i++) {
     });
 }
 
-// Initialize points randomly across the canvas
-for (let i = 0; i < numPoints; i++) {
-    points.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        originalY: Math.random() * canvas.height, // Store original Y for reference
-        originalX: Math.random() * canvas.width
-    });
+for (let x = 0; x < rows; x ++) {
+    for (let y = 0; y < columns; y ++) {
+        points.push({
+            x: x * xScale,
+            y: y * yScale,
+            originalY: y * yScale,
+            originalX: x * xScale
+        })
+    }
 }
 
 function draw() {
@@ -64,8 +76,8 @@ function draw() {
             const normY = dy / distanceToWave;
 
             // Move the point towards the wave point based on gravity
-            point.x += normX * gravityStrength * Math.sin(nearestWave.wave);
-            point.y += normY * gravityStrength * Math.sin(nearestWave.wave);
+            point.x += normX * gravityStrength * Math.sin(nearestWave.wave) * -1;
+            point.y += normY * gravityStrength * Math.sin(nearestWave.wave) * -1;
         }
     });
 

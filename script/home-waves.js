@@ -55,7 +55,7 @@ for (let i = 0; i < numWaves; i++) {
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         amplitude: Math.random() * 20 + 5,
-        wave: 0
+        wave: Math.random() * 40 + 10
     });
 }
 

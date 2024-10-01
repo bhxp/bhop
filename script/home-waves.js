@@ -5,7 +5,6 @@ const points = [];
 const wavePoints = [];
 const numWaves = 5; // Number of wave points
 const numPoints = 100; // Total points
-const spacing = 10; // Spacing for points
 const gravityStrength = 0.1; // Strength of the pull towards wave points
 
 // Initialize wave points randomly across the canvas
@@ -16,7 +15,7 @@ for (let i = 0; i < numWaves; i++) {
     });
 }
 
-// Initialize points in a grid pattern
+// Initialize points randomly across the canvas
 for (let i = 0; i < numPoints; i++) {
     points.push({
         x: Math.random() * canvas.width,
@@ -48,12 +47,20 @@ function draw() {
         });
 
         // Calculate the pull towards the nearest wave point
-        const dx = nearestWave.x - point.x;
-        const dy = nearestWave.y - point.y;
+        const dx = nearestWave.x - point.x; // Change in x
+        const dy = nearestWave.y - point.y; // Change in y
 
-        // Move the point towards the wave point based on gravity
-        point.x += dx * gravityStrength;
-        point.y += dy * gravityStrength;
+        // Normalize the direction vector to ensure consistent speed
+        const distanceToWave = Math.hypot(dx, dy);
+        if (distanceToWave > 0) {
+            // Calculate normalized direction
+            const normX = dx / distanceToWave;
+            const normY = dy / distanceToWave;
+
+            // Move the point towards the wave point based on gravity
+            point.x += normX * gravityStrength;
+            point.y += normY * gravityStrength;
+        }
     });
 
     // Draw wave points

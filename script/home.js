@@ -3,6 +3,9 @@ var navbarItems = null;
 var cancelNavbarHide = true;
 var hideTimeout = null; // track the hide timeout
 var dropdownIndexes = [];
+var waves = [];
+var canvas = $("#background-canvas").get(0);
+var ctx = canvas.getContext("2d");
 
 $(document).on("mousedown", e => {
     if (hideTimeout) {
@@ -74,3 +77,37 @@ $(document).ready((e) => {
             console.error(error);
         });
 });
+
+for (let i = 0; i < waveCount; i ++) {
+    waves.push()
+}
+
+class Wave {
+    constructor(x = Math.random() * canvas.width, y = Math.random() * canvas.height) {
+        this.x = x;
+        this.y = y;
+        this.amplitude = Math.random() * 360;
+        this.frequency = Math.random() * 540 + 120;
+        this.curPhase = 0;
+        this.weight = 0;
+    }
+
+    update() {
+        this.curPhase += 1;
+        if (this.curPhase > this.frequency * 2) {
+            this.curPhase = 0;
+        }
+        this.weight = Math.sin(this.curPhase / this.frequency * 25.12)
+        console.log(this.weight);
+    }
+}
+
+
+class Particle {
+    constructor(x = 0, y = 0) {
+        this.x = x;
+        this.y = y;
+        this.transX = this.x;
+        this.transY = this.y;
+    }
+}

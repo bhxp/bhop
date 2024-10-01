@@ -88,10 +88,6 @@ html, body {
     text-shadow: 0px 0px 6px rgba(255, 255, 255, 0);
 }
 
-.navbar-item:focus, .navbar-item:hover {
-    text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
-}
-
 #center {
     position: fixed;
     top: 50%;
@@ -102,6 +98,7 @@ html, body {
 #center .gradient-text {
     font-size: 72px;
     font-weight: 700;
+    margin-bottom: 12px;
 }
 
 .dropdown.hidden {

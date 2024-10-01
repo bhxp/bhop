@@ -73,7 +73,6 @@ html, body {
     top: 72px;
     transform: TranslateY(+0px);
     left: 50%;
-    transform: TranslateX(-50%);
     padding: 0px 12px 4px 12px;
     border-radius: 12px;
     backdrop-filter: blur(8px);

@@ -10,11 +10,11 @@ const points = [];
 const wavePoints = [];
 const numWaves = 15; // Number of wave points
 const rows = 80;
-const xScale = canvas.width * 1.5 / rows;
+const xScale = canvas.width * 3 / rows;
 const columns = Math.round(canvas.height / xScale);
 const yScale = canvas.height / columns;
 var gravityStrength = 20; // Strength of the pull towards wave points
-var waveSpeed = 0.000009;
+var waveSpeed = 0.000005;
 
 
 

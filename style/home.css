@@ -5,7 +5,7 @@ html, body {
     width: 100vw;
     margin: 0px !important;
     background: rgb(34,34,34);
-    background: linear-gradient(18deg, rgba(34,34,34,1) 0%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(0deg, #12151c 0%, rgba(0,0,0,1) 100%);
     cursor: default !important;
 }
 
@@ -67,7 +67,7 @@ html, body {
 
 
 .dropdown {
-    transition: top 0.4s ease-in-out, display 0s linear 0.4s;
+    transition: top 0.4s ease-in-out 1ms, display 0s linear 0.4s;
     position: absolute;
     display: block;
     top: 72px;

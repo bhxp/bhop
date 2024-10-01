@@ -51,22 +51,16 @@ function draw() {
 
     // Apply gravity towards wave points
     points.forEach(point => {
-        let nearestWave = wavePoints[0];
-        let nearestDistance = Infinity;
+        
 
         // Find the nearest wave point
         wavePoints.forEach(wave => {
             const distance = Math.hypot(wave.x - point.x, wave.y - point.y);
-            if (distance < nearestDistance) {
-                nearestDistance = distance;
-                nearestWave = wave;
-            }
             wave.wave += waveSpeed;
-        });
 
-        // Calculate the pull towards the nearest wave point
-        const dx = nearestWave.x - point.x; // Change in x
-        const dy = nearestWave.y - point.y; // Change in y
+            // Calculate the pull towards the nearest wave point
+        const dx = wave.x - point.x; // Change in x
+        const dy = wave.y - point.y; // Change in y
 
         // Normalize the direction vector to ensure consistent speed
         const distanceToWave = Math.hypot(dx, dy);
@@ -76,9 +70,12 @@ function draw() {
             const normY = dy / distanceToWave;
 
             // Move the point towards the wave point based on gravity
-            point.x += normX * gravityStrength * Math.sin(nearestWave.wave) * -1;
-            point.y += normY * gravityStrength * Math.sin(nearestWave.wave) * -1;
+            point.x += normX * gravityStrength * Math.sin(wave.wave) * -1;
+            point.y += normY * gravityStrength * Math.sin(wave.wave) * -1;
         }
+        });
+
+        
     });
 
     // Draw wave points

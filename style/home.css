@@ -72,7 +72,7 @@ html, body {
     display: block;
     top: 72px;
     transform: TranslateY(+0px);
-    left: 50%;
+    left: 0px;
     padding: 0px 12px 4px 12px;
     border-radius: 12px;
     backdrop-filter: blur(8px);

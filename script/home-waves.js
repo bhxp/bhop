@@ -12,8 +12,8 @@ const numWaves = 15; // Number of wave points
 const rows = 80;
 const xScale = canvas.width * 1.5 / rows;
 const columns = Math.round(canvas.height / xScale);
-const yScale = canvas.height / columns * 2;
-var gravityStrength = 20; // Strength of the pull towards wave points
+const yScale = canvas.height / columns * 1.5;
+var gravityStrength = 10; // Strength of the pull towards wave points
 var waveSpeed = 0.000005;
 
 

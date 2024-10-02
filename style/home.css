@@ -115,8 +115,7 @@ html, body {
     display: block;
 }
 
-.dropdown::before {
-    content: url("/images/dropdown-notch.svg");
+.dropdown .notch {
     position: absolute;
     left: 0px;
     top: 0px;

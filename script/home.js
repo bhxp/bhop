@@ -49,7 +49,7 @@ $(document).ready((e) => {
                     let element = $("<div class='navbar-item navbar-item-top'></div>");
                     element.text(item.text);
                     element.attr("onclick", `openDropdown(${items.indexOf(item)})`);
-                    let dropdown = $("<div class='dropdown hidden'></div>");
+                    let dropdown = $("<div class='dropdown hidden'><img class='notch' src='/images/dropdown-notch.svg' /></div>");
                     item.pages.forEach(page => {
                         let elem = $("<div>");
                         elem.addClass("navbar-item");

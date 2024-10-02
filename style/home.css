@@ -116,7 +116,7 @@ html, body {
 }
 
 .dropdown::before {
-    content: "<img src='/images/dropdown-notch.svg' />";
+    content: url("/images/dropdown-notch.svg");
     position: absolute;
     left: 0px;
     top: 0px;

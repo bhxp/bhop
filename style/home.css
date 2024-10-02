@@ -116,13 +116,9 @@ html, body {
 }
 
 .dropdown::before {
-	content: '';
-	position: absolute;
-	top: -18px;
-	left: 48px;
-	transform: translateX(-50%);
-	width: 36px;
-	height: 18px;
-	background-color: lightblue;
-	border-radius: 24px 24px 0px 0px;
+    content: "<img src='/images/dropdown-notch.svg' />";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 24px;
 }

@@ -75,8 +75,8 @@ html, body {
 	left: -28px;
 	padding: 0px 12px 4px 12px;
 	border-radius: 12px;
-	backdrop-filter: blur(24px);
-	background-color: rgba(0, 0, 0, 0.66);
+	backdrop-filter: blur(1.5px);
+	background-color: rgba(0, 0, 0, 0.2);
 	opacity: 1;
 	border: solid 1px #2F2F2F;
 	width: max-content;

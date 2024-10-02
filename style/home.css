@@ -102,7 +102,7 @@ html, body {
 }
 
 .dropdown.hidden {
-    transform: TranslateX(-50%) translateY(calc(-100% - 48px));
+    transform: TranslateX(-50%) translateY(calc(-100% - 96px));
     opacity: 0;
 }
 

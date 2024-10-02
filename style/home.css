@@ -79,6 +79,8 @@ html, body {
 	background-color: rgba(0, 0, 0, 0.66);
 	opacity: 1;
 	border: solid 1px #2F2F2F;
+    width: fit-content;
+    min-width: 120px;
 }
 
 .navbar-item:not(.navbar-item-top) {

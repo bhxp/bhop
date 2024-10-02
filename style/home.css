@@ -71,13 +71,14 @@ html, body {
     position: absolute;
     display: block;
     top: 72px;
-    transform: TranslateY(+0px) TranslateX(-50%);
-    left: 50%;
+    transform: TranslateY(+0px);
+    left: 0px;
     padding: 0px 12px 4px 12px;
     border-radius: 12px;
-    backdrop-filter: blur(8px);
-    background-color: rgba(120, 120, 125, 0.1);
+    backdrop-filter: blur(24px);
+    background-color: rgba(0, 0, 0, 0.66);
     opacity: 1;
+    border: solid 1px #2F2F2F;
 }
 
 .navbar-item:not(.navbar-item-top) {
@@ -102,7 +103,7 @@ html, body {
 }
 
 .dropdown.hidden {
-    transform: TranslateX(-50%) translateY(calc(-100% - 96px));
+    transform: translateY(calc(-100% - 96px));
     opacity: 0;
 }
 
@@ -112,4 +113,16 @@ html, body {
     font-size: 24px;
     color: #fff;
     display: block;
+}
+
+.dropdown::before {
+	content: '';
+	position: absolute;
+	top: -18px;
+	left: 48px;
+	transform: translateX(-50%);
+	width: 36px;
+	height: 18px;
+	background-color: lightblue;
+	border-radius: 24px 24px 0px 0px;
 }

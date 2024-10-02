@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
 
+* {
+    user-select: none;
+}
+
 html, body {
     height: 100vh;
     width: 100vw;
@@ -43,6 +47,7 @@ html, body {
     display: block;
     font-weight: 600;
     margin-left: 24px;
+    text-shadow: none;
 }
 
 .navbar-item-top {
@@ -63,6 +68,8 @@ html, body {
     height: 96px;
     align-content: center !important;
     position: relative;
+    text-shadow: none;
+    transition: text-shadow 0.4s ease-in-out;
 }
 
 
@@ -85,6 +92,10 @@ html, body {
 
 .navbar-item:not(.navbar-item-top) {
     line-height: 48px;
+}
+
+.navbar-item-top:has(.dropdown:not(hidden)) {
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
 }
 
 .navbar-item {

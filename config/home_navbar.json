@@ -14,10 +14,6 @@
         ]
     },
     {
-        "text": "tango",
-        "url": "/tango"
-    },
-    {
         "multiple": true,
         "text": "simulations",
         "pages": [
@@ -26,10 +22,6 @@
                 "url": "/poop"
             }
         ]
-    },
-    {
-        "text": "poop",
-        "url": "/poop"
     },
     {
         "multiple": true,
@@ -86,5 +78,9 @@
                 "url": "/movies/list-movies"
             }
         ]
+    },
+    {
+        "text": "tango",
+        "url": "/tango"
     }
 ]

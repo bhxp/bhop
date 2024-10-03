@@ -23,6 +23,20 @@
     },
     {
         "multiple": true,
+        "text": "simulations",
+        "pages": [
+            {
+                "text": "poop",
+                "url": "/poop"
+            }
+        ]
+    },
+    {
+        "text": "poop",
+        "url": "/poop"
+    },
+    {
+        "multiple": true,
         "text": "generators",
         "pages": [
             {

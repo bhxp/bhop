@@ -11,6 +11,7 @@ html, body {
     background: rgb(34,34,34);
     background: linear-gradient(0deg, #12151c 0%, rgba(0,0,0,1) 100%);
     cursor: default !important;
+    overflow: hidden;
 }
 
 #navbar {

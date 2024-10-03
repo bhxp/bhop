@@ -18,10 +18,6 @@
         "url": "/tango"
     },
     {
-        "text": "poop",
-        "url": "/poop"
-    },
-    {
         "multiple": true,
         "text": "simulations",
         "pages": [

@@ -28,7 +28,7 @@ html, body {
 
 .gradient-text {
     background: #D185FF;
-    background: linear-gradient(to right, #D185FF 8%, #51CBFF 100%);
+    background: linear-gradient(to right, #D185FF 0%, #51CBFF 100%);
     background-clip: text;
     color: transparent;
     font-family: 'Instrument Sans';
@@ -70,7 +70,6 @@ html, body {
     align-content: center !important;
     position: relative;
     text-shadow: none;
-    transition: text-shadow 0.4s ease-in-out;
 }
 
 
@@ -91,8 +90,14 @@ html, body {
 	min-width: 120px;
 }
 
-.navbar-item:not(.navbar-item-top) {
+.navbar-item {
+    transition: text-shadow 0.4s ease-in-out;
+    text-shadow: 0px 0px 0px #000000;
+}
+
+.dropdown .navbar-item:not(.navbar-item-top) {
     line-height: 48px;
+    text-shadow: 0px 0px 2px #FFFFFF;
 }
 
 #center {

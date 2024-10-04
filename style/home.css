@@ -95,14 +95,6 @@ html, body {
     line-height: 48px;
 }
 
-.navbar-item-top:has(.dropdown:not(.hidden)) {
-    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
-}
-
-.navbar-item {
-    text-shadow: 0px 0px 6px rgba(255, 255, 255, 0);
-}
-
 #center {
     position: fixed;
     top: 50%;

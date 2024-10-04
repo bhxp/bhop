@@ -16,6 +16,7 @@ styleElem.innerHTML = `
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9999;
+  display: block;
 }`
 
 document.getElementsByTagName("head")[0].appendChild(styleElem);
@@ -27,3 +28,11 @@ document.addEventListener('mousemove', e => {
     mouseX = e.pageX;
     mouseY = e.pageY;
   });
+
+  $(document).mouseleave(function() {
+    $(".custom-cursor").css("display", "none");
+});
+
+$(document).mouseenter(function() {
+    $(".custom-cursor").css("display", "block")
+});

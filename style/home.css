@@ -137,16 +137,20 @@ html, body {
 }
 
 .navbar-item-top hr {
-    position: absolute;
-    left: 50%;
-    top: calc(50% + 36px);
-    transform: TranslateX(-50%);
-    border: solid 8px #fff;
-    width: 0px;
-    border-radius: 1000px;
-    transition: width 0.3s ease-in-out;
+	position: absolute;
+	left: 50%;
+	top: calc(50% + 4px);
+	transform: TranslateX(-50%);
+	border: solid 2px #fff;
+	width: 0px;
+	border-radius: 1000px;
+	transition: width 0.2s ease-in-out, opacity 0.2s ease-in-out;
+	opacity: 0;
+	display: block;
+	width: 0px;
 }
 
 .navbar-item-top:hover hr {
-    width: 48px;
+	width: 48px;
+	opacity: 0.7;
 }

@@ -37,19 +37,20 @@ html, body {
 }
 
 #navbar .gradient-text {
-    display: flex;
-    align-content: center !important;
-    flex-direction: row;
-    height: 96px;
-    margin: 0px;
-    margin-right: 24px;
-    float: left;
-    font-size: 36px;
-    margin: 0px 18px 0px 0px;
-    display: block;
-    font-weight: 600;
-    margin-left: 24px;
-    text-shadow: none;
+	display: flex;
+	align-content: center !important;
+	flex-direction: row;
+	height: 96px;
+	margin: 0px;
+	margin-right: 24px;
+	float: left;
+	font-size: 36px;
+	margin: 0px 18px 0px 0px;
+	display: block;
+	font-weight: 600;
+	margin-left: 24px;
+	text-shadow: none;
+	transform: TranslateY(-2.5px);
 }
 
 .navbar-item-top {

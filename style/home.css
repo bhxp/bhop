@@ -97,6 +97,9 @@ html, body {
 
 .dropdown .navbar-item:not(.navbar-item-top) {
     line-height: 48px;
+}
+
+.dropdown .navbar-item:not(.navbar-item-top):hover {
     text-shadow: 0px 0px 2px #FFFFFF;
 }
 

@@ -13,10 +13,27 @@ const rows = 80;
 const xScale = canvas.width * 1.5 / rows;
 const columns = Math.round(canvas.height / xScale);
 const yScale = xScale; //canvas.height / columns * 1.5;
+var fpsCompensation = 1;
+var fps = 0;
+var countingFps = true;
 var gravityStrength = 10; // Strength of the pull towards wave points
 var waveSpeed = 0.000005;
 
+function fpsIncrement() {
+    fps ++;
+    if (countingFps) {
+        requestAnimationFrame(fpsIncrement);
+    }
+}
 
+setTimeout(5000, () => {
+    requestAnimationFrame(fpsIncrement);
+    setTimeout(2000, () => {
+        countingFps = false;
+        fps /= 2;
+        fpsCompensation = 60 / fps;
+    })
+})
 
 function distributePoints(numPoints, width, height) {
     const points = [];
@@ -86,7 +103,7 @@ function draw() {
         // Find the nearest wave point
         wavePoints.forEach(wave => {
             const distance = Math.hypot(wave.x - point.x, wave.y - point.y);
-            wave.wave += waveSpeed;
+            wave.wave += waveSpeed * fpsCompensation;
 
             // Calculate the pull towards the nearest wave point
         const dx = wave.x - point.x; // Change in x

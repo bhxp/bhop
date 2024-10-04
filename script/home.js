@@ -44,6 +44,7 @@ $(document).ready((e) => {
             navbarItems = items;
             let i = 0;
             items.forEach(item => {
+                let hr = $("<hr />");
                 if (item.multiple) {
                     console.log("multiple items");
                     let element = $("<div class='navbar-item navbar-item-top'></div>");
@@ -58,13 +59,14 @@ $(document).ready((e) => {
                         dropdown.append(elem);
                     });
                     element.append(dropdown);
+                    element.append(hr);
                     navbar.append(element);
                     dropdownIndexes.push(i);
                 } else {
-                    let element = $("<div>");
-                    element.addClass("navbar-item navbar-item-top");
+                    let element = $("<div class='navbar-item navbar-item-top'></div>");
                     element.text(item.text);
                     element.attr("onclick", `window.open("${item.url}");`);
+                    element.append(hr);
                     navbar.append(element);
                 }
                 i ++;

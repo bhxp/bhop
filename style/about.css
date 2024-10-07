@@ -24,6 +24,8 @@
     border: solid 1px #2F2F2F;
     font-family: 'Instrument Sans';
     color: white;
+    transition: transform 0.3s ease-in-out;
+    transform: TranslateY(+0px);
 }
 
 .card:last-of-type {
@@ -55,4 +57,8 @@
     font-weight: 500;
     color: rgba(255, 255, 255, 0.8);
     font-size: 18px;
+}
+
+.card:hover {
+    transform: TranslateY(-48px);
 }

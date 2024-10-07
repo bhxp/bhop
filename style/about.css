@@ -39,7 +39,7 @@
 
 .card > h1 {
     position: absolute;
-    top: 96px;
+    top: 72px;
     left: 24px;
     width: fit-content;
     font-size: 36px;
@@ -47,7 +47,8 @@
 
 .card > span {
     position: absolute;
-    bottom: 24px;
+    top: 160px;
     left: 24px;
     width: calc(100% - 48px);
+    font-weight: 500;
 }

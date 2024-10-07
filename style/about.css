@@ -22,6 +22,8 @@
 	backdrop-filter: blur(1.5px);
 	background-color: rgba(0, 0, 0, 0.2);
     border: solid 1px #2F2F2F;
+    font-family: 'Instrument Sans';
+    color: white;
 }
 
 .card:last-of-type {
@@ -51,4 +53,6 @@
     left: 24px;
     width: calc(100% - 48px);
     font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 18px;
 }

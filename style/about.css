@@ -16,7 +16,7 @@
 
 .card {
     height: 100%;
-    width: calc(calc(33% - 84px));
+    width: 33%;
     margin-right: 42px;
     border-radius: 12px;
 	backdrop-filter: blur(1.5px);

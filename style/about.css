@@ -27,3 +27,27 @@
 .card:last-of-type {
     margin-right: 0px;
 }
+
+.card > img {
+    height: 48px;
+    width: auto;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    border-radius: 9999px;
+}
+
+.card > h1 {
+    position: absolute;
+    top: 96px;
+    left: 24px;
+    width: fit-content;
+    font-size: 36px;
+}
+
+.card > span {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    width: calc(100% - 48px);
+}

@@ -9,6 +9,9 @@
     padding: 42px;
     width: calc(100vw - 84px);
     height: 40vh;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
 }
 
 .card {

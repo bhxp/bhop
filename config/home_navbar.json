@@ -82,5 +82,9 @@
     {
         "text": "tango",
         "url": "/tango"
+    },
+    {
+        "text": "about",
+        "url": "/about"
     }
 ]

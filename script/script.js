@@ -62,6 +62,9 @@ document.addEventListener("keydown", e => {
   if (e.key == " ") {
     catX = 0;
   }
+  if (e.key == "h") {
+    window.open("/home", "_self");
+  }
 });
 
 

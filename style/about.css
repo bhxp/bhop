@@ -1,0 +1,22 @@
+#center {
+    top: 25%;
+}
+
+#card-container {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    padding: 42px;
+    width: calc(100vw - 84px);
+    height: 40vh;
+}
+
+.card {
+    height: 100%;
+    width: calc(calc(33% - 84px));
+    margin-right: 42px;
+    border-radius: 12px;
+	backdrop-filter: blur(1.5px);
+	background-color: rgba(0, 0, 0, 0.2);
+    border: solid 1px #2F2F2F;
+}

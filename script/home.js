@@ -75,5 +75,8 @@ $(document).ready((e) => {
         .catch(error => {
             console.error(error);
         });
+        $('#navbar .gradient-text').click(function() {
+            window.open('/home', '_self');
+        });
 });
 

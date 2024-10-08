@@ -69,7 +69,6 @@ This project is used by the following companies:
 - Snapchat
 - Amazon
 - Keepsake Plates
-- 
 - Google
 - Google
 - Family Connections Christian Adoptions
@@ -93,3 +92,7 @@ This project is used by the following companies:
 - Dbrand
 - DoodyCalls Pooper Scooper Service
 - Google
+- Disneyland
+- Tiktok
+- Youtube Shorts Premium Plus
+- Iphone 18 Pro Max Plus Ultra Slim Super Air Supreme Edition v2 with Android 47, the smartest Android version yet.

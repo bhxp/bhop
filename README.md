@@ -12,7 +12,7 @@ A super cool amazing website that is made without any flaws 100%
 ## Authors
 
 - [@bhxp](https://www.github.com/bhxp) - i do random stupid shit
-- [@ChezLinkZ](https://www.github.com/ChezLinkZ) - a retarded fucking "developer"
+- [@ChezLinkZ](https://www.github.com/ChezLinkZ) - developer
 
 
 ## Features
@@ -41,19 +41,16 @@ A: yes
 
 A: yes trust 🙏
 
-## Installation
+## Visiting
 
-How to install
+How to visit
 
-```bash
-  go to https://bhoppings.de
-  done!
-```
+go to https://bhoppings.de/home
+done!
     
 ## Roadmap
 
 - idk
-
 - idk
 
 
@@ -72,9 +69,27 @@ This project is used by the following companies:
 - Snapchat
 - Amazon
 - Keepsake Plates
+- 
 - Google
 - Google
 - Family Connections Christian Adoptions
 - Alive Avocado Research Laboratories
 - The ChezLinkZ Company
+- Google
+- Fruit Loops
+- La Crosse Technology
+- Vantage
+- Kurt's Pots and Pans
+- Google
+- Goodness Hot Pockets
+- SleepNumber 360 Smart bed
+- Tango
+- Netflix
+- Rosenthal Dinnerware
+- Google
+- Purina ONE Dog Food
+- Statefarm
+- Sony
+- Dbrand
+- DoodyCalls Pooper Scooper Service
 - Google

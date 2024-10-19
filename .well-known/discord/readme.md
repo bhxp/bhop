@@ -1,1 +1,0 @@
-just html dns record

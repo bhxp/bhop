@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Library</title>
+</head>
+<body>
+
+    <header>
+        <h1>CSS Library</h1>
+        <button id="toggle-dark-mode">Toggle Light/Dark Mode</button>
+    </header>
+
+    <main>
+        <!-- Hover Effects Section -->
+        <section id="hover-effects">
+            <h2>Hover Effects</h2>
+            <div class="effect-card">
+                <div class="preview hover-effect-1">Hover me</div>
+                <button class="copy-css" data-effect="hover-1">Copy CSS</button>
+            </div>
+
+            <div class="effect-card">
+                <div class="preview hover-effect-2">Hover me</div>
+                <button class="copy-css" data-effect="hover-2">Copy CSS</button>
+            </div>
+        </section>
+
+        <!-- Enter Effects Section -->
+        <section id="enter-effects">
+            <h2>Page Enter Effects</h2>
+            <div class="effect-card">
+                <div class="preview enter-effect-1">Enter Effect</div>
+                <button class="copy-css" data-effect="enter-1">Copy CSS</button>
+            </div>
+        </section>
+
+        <!-- Miscellaneous Effects -->
+        <section id="misc-effects">
+            <h2>Miscellaneous Effects</h2>
+            <div class="effect-card">
+                <button id="toggle-dark-mode-example">Toggle Dark Mode</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 CSS Library</p>
+    </footer>
+
+    <script>
+
+// JavaScript for toggling dark mode
+const toggleDarkModeBtn = document.getElementById('toggle-dark-mode');
+const body = document.body;
+
+toggleDarkModeBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+});
+
+// JavaScript for copying CSS
+document.querySelectorAll('.copy-css').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const effect = event.target.dataset.effect;
+        let cssCode = '';
+
+        // Based on the data-effect attribute, select the CSS
+        if (effect === 'hover-1') {
+            cssCode = `.hover-effect-1:hover {
+    background-color: #4CAF50;
+    color: white;
+    transform: scale(1.1);
+}`;
+        } else if (effect === 'hover-2') {
+            cssCode = `.hover-effect-2:hover {
+    background-color: #f44336;
+    color: white;
+    border-radius: 50px;
+}`;
+        } else if (effect === 'enter-1') {
+            cssCode = `.enter-effect-1 {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}`;
+        }
+
+        // Copy the CSS to clipboard
+        navigator.clipboard.writeText(cssCode).then(() => {
+            alert('CSS Copied to Clipboard');
+        });
+    });
+});
+
+
+
+      
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <style>
+
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.5s ease;
+}
+
+header {
+    padding: 20px;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+    padding: 10px 15px;
+    margin: 10px;
+}
+
+/* Layout for the effect cards */
+.effect-card {
+    display: inline-block;
+    text-align: center;
+    margin: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+}
+
+.preview {
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effects */
+.hover-effect-1:hover {
+    background-color: #4CAF50;
+    color: white;
+    transform: scale(1.1);
+}
+
+.hover-effect-2:hover {
+    background-color: #f44336;
+    color: white;
+    border-radius: 50px;
+}
+
+/* Page Enter Effects */
+.enter-effect-1 {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dark Mode Transition */
+body.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
+
+
+    
+  </style>
+</body>
+</html>

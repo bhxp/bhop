@@ -86,5 +86,19 @@
     {
         "text": "about",
         "url": "/about"
+    },
+    {
+        "multiple": true,
+        "text": "downloads",
+        "pages": [
+            {
+                "text": "tango clicker",
+                "url": "/tangoclicker"
+            },
+            {
+                "text": "modrinth",
+                "url": "downloads/Modrinth App_0.8.5_x64-setup.exe"
+            }
+        ]
     }
 ]

@@ -36,7 +36,7 @@ Composite.add(world, boundaries);
 
 // Function to create poop emoji shapes using an equilateral triangle body
 function createPoopEmoji(x, y) {
-    const scale = poopScale + (Math.random() / 2);
+    const scale = poopScale + (Math.random() / 20);
     const size = scale * 625; // Size of the triangle
     const poop = Bodies.polygon(x, y, 3, size, {
         render: {

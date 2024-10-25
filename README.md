@@ -10,8 +10,8 @@ A super cool amazing website that is made without any flaws 100%
 
 ## Authors
 
-- [@bhxp](https://www.github.com/bhxp) - i do random stupid shit
-- [@ChezLinkZ](https://www.github.com/ChezLinkZ) - developer
+- [@bhxp](https://www.github.com/bhxp) - i am better!
+- [@ChezLinkZ](https://www.github.com/ChezLinkZ) - "developer" (retard)
 
 
 ## Features

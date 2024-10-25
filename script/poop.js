@@ -2,7 +2,7 @@ const { Engine, Render, Runner, Bodies, Composite, MouseConstraint, Mouse, World
 
 const engine = Engine.create();
 const world = engine.world;
-var scale = 0.1;
+var poopScale = 0.1;
 var mousePos = { x: 0, y: 0 };
 
 // Canvas dimensions
@@ -36,6 +36,7 @@ Composite.add(world, boundaries);
 
 // Function to create poop emoji shapes using an equilateral triangle body
 function createPoopEmoji(x, y) {
+    const scale = poopScale + (Math.random() / 2);
     const size = scale * 625; // Size of the triangle
     const poop = Bodies.polygon(x, y, 3, size, {
         render: {

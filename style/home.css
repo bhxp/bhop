@@ -26,6 +26,7 @@ html, body {
     left: 24px;
     top: 0px;
     border-bottom: solid 2px rgb(64, 64, 64);
+    overflow-x: scroll;
 }
 
 .gradient-text {

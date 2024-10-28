@@ -1,52 +1,43 @@
-<style>
-.intro-section { background-color: #100f12; display: flex; width: 100%; flex-direction: column; align-items: start; padding: 80px 52px 36px; }
-.greeting { color: #fff; margin: 221px 0 0 67px; font: 500 64px Samsung Sharp Sans, -apple-system, Roboto, Helvetica, sans-serif; }
-.job-title { color: #fff; margin: 51px 0 0 67px; font: 700 36px Samsung Sharp Sans, -apple-system, Roboto, Helvetica, sans-serif; }
-.bio { color: #fff; width: 960px; margin: 28px 0 0 67px; font: 400 36px Samsung Sharp Sans, -apple-system, Roboto, Helvetica, sans-serif; }
-.content-wrapper { margin-top: 22px; width: 1027px; max-width: 100%; padding: 0 1px; }
-.two-column { gap: 20px; display: flex; }
-.left-column { display: flex; flex-direction: column; line-height: normal; width: 41%; margin-left: 0; }
-.profile-image { aspect-ratio: 0.65; object-fit: auto; object-position: center; width: 111px; stroke-width: 11px; stroke: #9868ff; border: 11px solid rgba(152, 104, 255, 1); align-self: flex-end; max-width: 100%; }
-.scroll-indicator { align-self: start; display: flex; margin-top: 203px; gap: 20px; }
-.scroll-icon { aspect-ratio: 0.63; object-fit: auto; object-position: center; width: 46px; }
-.scroll-text { font-family: Samsung Sharp Sans, -apple-system, Roboto, Helvetica, sans-serif; margin: auto 0; }
-.right-column { display: flex; flex-direction: column; line-height: normal; width: 59%; margin-left: 20px; }
-.avocado-container { display: flex; flex-direction: column; fill: #9868ff; stroke-width: 11px; stroke: #9868ff; overflow: hidden; border: 11px solid rgba(152, 104, 255, 1); position: relative; min-height: 132px; margin-top: 98px; font-size: 32px; color: #0f0f12; font-weight: 500; justify-content: center; padding: 19px 13px; }
-.avocado-image { position: absolute; inset: 0; height: 100%; width: 100%; object-fit: cover; object-position: center; }
-.avocado-text { position: relative; font-family: Samsung Sharp Sans, -apple-system, Roboto, Helvetica, sans-serif; border-radius: 89px; background-color: #9868ff; justify-content: center; padding: 31px 54px; }
+<!DOCTYPE html>
+<html>
 
-@media (max-width: 991px) {
-    .intro-section { max-width: 100%; padding: 0 20px; }
-    .greeting { max-width: 100%; margin-top: 40px; font-size: 40px; }
-    .job-title { margin: 40px 0 0 10px; }
-    .bio { max-width: 100%; }
-    .two-column { flex-direction: column; align-items: stretch; gap: 0; }
-    .left-column, .right-column { width: 100%; }
-    .scroll-indicator { margin-top: 40px; }
-    .avocado-container { max-width: 100%; margin-top: 40px; padding-right: 20px; }
-    .avocado-text { max-width: 100%; padding: 0 20px; }
-}
-</style>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="/style/chezlinkz.css" rel="stylesheet" type="text/css" />
+</head>
 
-<section class="intro-section">
-    <h1 class="greeting">👋 Hi, im CheeseLinks</h1>
-    <h2 class="job-title">Developer</h2>
-    <p class="bio">I am a professional clown, retard, and worthless human being.</p>
-    <div class="content-wrapper">
-        <div class="two-column">
-            <div class="left-column">
-                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/6a891ed3d9d34f61f8b5a6fbcdeef6318f089dca96d2f56797af5b055bcb84c0?apiKey=0a1cf12aad834ad593bbc2e8cea50934&" class="profile-image" alt="Profile picture of CheeseLinks" />
-                <div class="scroll-indicator">
-                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/20bc99856a25df6867cee7d89d8ec349bc8f604fec6bb81e5fe3b601a0261037?apiKey=0a1cf12aad834ad593bbc2e8cea50934&" class="scroll-icon" alt="" />
-                    <span class="scroll-text">Scroll Down</span>
-                </div>
-            </div>
-            <div class="right-column">
-                <div class="avocado-container">
-                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/a5268ccba7238b8d8cb9f71d78a9e09fa700af3f368f668748894f1edb85c3f7?apiKey=0a1cf12aad834ad593bbc2e8cea50934&" class="avocado-image" alt="Decorative avocado background" />
-                    <div class="avocado-text">Sorry, we meant avocado.</div>
-                </div>
-            </div>
-        </div>
+<body>
+
+  <img id="background" src="/images/chezlinkz-background.jpg" />
+  <div id="background-blur"></div>
+
+  <img id="pfp" src="/images/chezlinkz.png" />
+  <div id="center" class="glass">
+    <h1>SnezLinkZ</h1>
+    <span>random developer</span>
+  </div>
+
+  <div id="button-container">
+    <div class="glass" onclick="window.open('https://github.com/ChezLinkZ', '_blank')">
+      <div></div>
+      <img src="/images/chezlinkz-github.svg" />
+      <span>GitHub</span>
     </div>
-</section>
+    <div class="glass" onclick="window.open('https://www.youtube.com/@cheeselinks2006', '_blank')">
+      <div></div>
+      <img src="/images/chezlinkz-youtube.svg" />
+      <span>YouTube</span>
+    </div>
+    <div class="glass" onclick="window.open('https://www.tiktok.com/@chezlinkz', '_blank')">
+      <div></div>
+      <img src="/images/chezlinkz-tiktok.svg" />
+      <span>TikTok</span>
+    </div>
+  </div>
+
+  <script src="/script/chezlinkz.js"></script>
+</body>
+
+</html>

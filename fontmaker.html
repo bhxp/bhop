@@ -3,168 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Font Maker</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>SVG to Font Converter</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        #font-creator {
+            width: 100%;
+            max-width: 500px;
+        }
+        label {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
-    <h1>Custom Font Maker</h1>
+    <h1>Create Your Custom Font</h1>
     <div id="font-creator">
-        <h2>Upload SVG for each character</h2>
+        <h2>Upload SVG for Each Character</h2>
         <div id="character-upload-form">
-            <!-- Dynamically generate character upload fields in JavaScript -->
+            <!-- JavaScript will dynamically add upload fields here -->
         </div>
         <button id="generate-ttf">Export as TTF</button>
         <button id="generate-otf">Export as OTF</button>
     </div>
 
+    <!-- Include OpenType.js library for font generation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/opentype.js/1.3.3/opentype.min.js"></script>
+    <!-- SVG to TTF library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/svg2ttf/2.1.3/svg2ttf.min.js"></script>
+
     <script>
+        // JavaScript code
 
+        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-=_+[]{}|;:',.<>?";
+        const svgFiles = {};
 
+        document.addEventListener("DOMContentLoaded", () => {
+            const formContainer = document.getElementById("character-upload-form");
 
-      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-=_+[]{}|;:',.<>?";
-const svgFiles = {};
+            // Create upload fields for each character
+            characters.split("").forEach(char => {
+                const label = document.createElement("label");
+                label.textContent = `SVG for "${char}":`;
 
-document.addEventListener("DOMContentLoaded", () => {
-    const formContainer = document.getElementById("character-upload-form");
+                const input = document.createElement("input");
+                input.type = "file";
+                input.accept = "image/svg+xml";
+                input.dataset.char = char;
 
-    // Create upload fields for each character
-    characters.split("").forEach(char => {
-        const label = document.createElement("label");
-        label.textContent = `SVG for "${char}":`;
-        
-        const input = document.createElement("input");
-        input.type = "file";
-        input.accept = "image/svg+xml";
-        input.dataset.char = char;
+                // Handle SVG file upload and store it in svgFiles object
+                input.addEventListener("change", event => {
+                    const file = event.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            svgFiles[char] = e.target.result;
+                        };
+                        reader.readAsText(file);
+                    }
+                });
 
-        // Store SVG in svgFiles object when selected
-        input.addEventListener("change", event => {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    svgFiles[char] = e.target.result;
-                };
-                reader.readAsText(file);
-            }
+                label.appendChild(input);
+                formContainer.appendChild(label);
+                formContainer.appendChild(document.createElement("br"));
+            });
+
+            document.getElementById("generate-ttf").addEventListener("click", () => exportFont("ttf"));
+            document.getElementById("generate-otf").addEventListener("click", () => exportFont("otf"));
         });
 
-        label.appendChild(input);
-        formContainer.appendChild(label);
-        formContainer.appendChild(document.createElement("br"));
-    });
+        function exportFont(format) {
+            const fontGlyphs = [];
 
-    document.getElementById("generate-ttf").addEventListener("click", () => exportFont("ttf"));
-    document.getElementById("generate-otf").addEventListener("click", () => exportFont("otf"));
-});
+            Object.keys(svgFiles).forEach((char) => {
+                const svg = svgFiles[char];
+                if (svg) {
+                    const glyph = createGlyphFromSVG(char, svg);
+                    if (glyph) fontGlyphs.push(glyph);
+                }
+            });
 
-function exportFont(format) {
-    const fontGlyphs = [];
+            const font = new opentype.Font({
+                familyName: "CustomFont",
+                styleName: "Regular",
+                unitsPerEm: 1000,
+                ascender: 800,
+                descender: -200,
+                glyphs: fontGlyphs
+            });
 
-    Object.keys(svgFiles).forEach((char) => {
-        const svg = svgFiles[char];
-        if (svg) {
-            const glyph = createGlyphFromSVG(char, svg);
-            if (glyph) fontGlyphs.push(glyph);
+            // Generate the font binary based on chosen format
+            if (format === "ttf") {
+                const ttfData = font.toArrayBuffer();
+                downloadFile(ttfData, "CustomFont.ttf", "application/x-font-ttf");
+            } else if (format === "otf") {
+                const otfData = font.toArrayBuffer();
+                downloadFile(otfData, "CustomFont.otf", "application/x-font-opentype");
+            }
         }
-    });
 
-    const font = new opentype.Font({
-        familyName: "CustomFont",
-        styleName: "Regular",
-        unitsPerEm: 1000,
-        ascender: 800,
-        descender: -200,
-        glyphs: fontGlyphs
-    });
+        function createGlyphFromSVG(char, svg) {
+            // Parses the SVG and creates a glyph for OpenType.js
+            const parser = new DOMParser();
+            const svgDoc = parser.parseFromString(svg, "image/svg+xml");
+            const pathElement = svgDoc.querySelector("path");
+            if (!pathElement) {
+                console.error(`No path found for character: ${char}`);
+                return null;
+            }
+            const pathData = pathElement.getAttribute("d");
 
-    // Generate the font binary based on chosen format
-    if (format === "ttf") {
-        const ttfData = font.toArrayBuffer();
-        downloadFile(ttfData, "CustomFont.ttf", "application/x-font-ttf");
-    } else if (format === "otf") {
-        const otfData = font.toArrayBuffer();
-        downloadFile(otfData, "CustomFont.otf", "application/x-font-opentype");
-    }
-}
+            const path = new opentype.Path();
+            path.commands = opentype.Path.fromSVG(pathData).commands;
 
-function createGlyphFromSVG(char, svg) {
-    // Placeholder glyph creation logic
-    // Here, use opentype.js functions and svg2ttf for converting SVGs into glyphs
-    
-    return new opentype.Glyph({
-        name: char,
-        unicode: char.charCodeAt(0),
-        advanceWidth: 500,
-        path: new opentype.Path()
-        // Replace with actual SVG path parsing logic if available
-    });
-}
+            return new opentype.Glyph({
+                name: char,
+                unicode: char.charCodeAt(0),
+                advanceWidth: 500,
+                path: path
+            });
+        }
 
-function downloadFile(data, filename, mimeType) {
-    const blob = new Blob([data], { type: mimeType });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-}
+        function downloadFile(data, filename, mimeType) {
+            const blob = new Blob([data], { type: mimeType });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
     </script>
-
-
-
-
-
-
-
-
-
-
-
-  
-
-<style>
-
-
-  /* styles.css */
-
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
-#font-creator {
-    width: 100%;
-    max-width: 500px;
-}
-
-label {
-    display: flex;
-    justify-content: space-between;
-    margin: 8px 0;
-}
-
-button {
-    margin-top: 20px;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
-  
-</style>
 </body>
 </html>

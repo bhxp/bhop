@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTML Test Page</title>
+  <!-- Link to the BTML Parser Script -->
+  <script src="btml-parser.js"></script>
+</head>
+<body>
+  <!-- Content Section for BTML -->
+  <script type="text/btml">
+    <titletext>Welcome to the BTML Test Page</titletext>
+    <linebreak>
+    <text>This is normal BTML text.</text>
+    <linebreak>
+    <bt>This is bold BTML text.</bt>
+    <linebreak>
+    <ibt>This is bold and italic BTML text.</ibt>
+    <linebreak>
+    <img=https://example.com/image.png>
+    <linebreak>
+    <embed 640px, 480px>https://example.com</embed>
+  </script>
+
+  <!-- Display Area for Parsed Content -->
+  <div id="output"></div>
+</body>
+</html>

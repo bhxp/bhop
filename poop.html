@@ -1,7 +1,3 @@
----
-title: Poop
----
-
 <!DOCTYPE html>
 <html>
 
@@ -14,6 +10,18 @@ title: Poop
 </head>
 
 <body>
+  <div id="money">
+    <img id="icon" />
+    <span id="text-container">
+      <span id="label">Shitz</span>
+      <span id="money-count">$</span>
+    </span>
+
+    <button onclick="resetMoney()">[Debug] Reset Money</button></span>
+    <button onclick="deletePoops()">[Debug] Delete All</button></span>
+    <input type="number" id="skin" placeholder="Skin (0 - 19), 20 for Random" />
+    <button onclick="setSkin()">[Debug] Set Skin</button></span>
+  </div>
   <canvas id="world"></canvas>
 
 </body>

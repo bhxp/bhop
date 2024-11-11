@@ -1,11 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+
 body,
 html {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background: rgb(36, 44, 50);
+  background: linear-gradient(0deg, #151a1e 0%, #313c44 100%);
 }
 
 canvas {
   display: block;
+}
+
+#money {
+  position: fixed;
+  left: 24px;
+  top: 24px;
+  height: 72px;
+  background: rgb(70, 38, 1);
+  background: radial-gradient(circle at 13% 50%, rgba(70, 38, 1, 1) 0%, rgba(43, 43, 40, 1) 2%, rgba(36, 44, 50, 1) 100%);
+  display: flex;
+  flex-direction: row;
+  padding: 24px;
+  border-radius: 12px;
+  min-width: 760px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+#label,
+#money-count,
+#money button,
+#money input {
+  font-size: 20px;
+  font-family: "Instrument Sans";
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#money button {
+  aspect-ratio: 1;
+  background: rgba(0, 0, 0, 0);
+  border: none !important;
+  color: #9e9e9e;
+}
+
+#money input {
+  background: rgba(0, 0, 0, 0);
+  border: none !important;
+  color: #9e9e9e;
+}
+
+#label {
+  margin-right: 12px;
+  color: #9e9e9e;
+}
+
+#money-count {
+  font-size: 36px;
+  color: #fff;
+  min-width: 120px;
+}
+
+#text-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 24px;
+}
+
+#icon {
+  transform: rotate(90deg);
 }

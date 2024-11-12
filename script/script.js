@@ -161,3 +161,9 @@ $(document).ready((e) => {
   requestAnimationFrame(render)
 
 })
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === " ") {
+    window.open("/home", "_self");
+  }
+});

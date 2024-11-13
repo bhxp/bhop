@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PST Daylight Saving Time Reverser</title>
+  <title>PST Daylight Saving Time Converter</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -22,7 +22,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>PST Daylight Saving Time Reverser</h1>
+    <h1>PST Daylight Saving Time Converter</h1>
     <button onclick="convertPST()">Convert to Standard Time</button>
     <div id="result"></div>
   </div>
@@ -32,20 +32,23 @@
       const timezone = "America/Los_Angeles";
       const currentDate = new Date();
 
-      // Get the timezone offset in minutes for the current date
-      const offset = currentDate.getTimezoneOffset();
+      // Get the current timezone abbreviation for Pacific Time
+      const pacificTimeAbbreviation = new Intl.DateTimeFormat("en-US", {
+        timeZone: timezone,
+        timeZoneName: "short"
+      }).formatToParts(currentDate).find(part => part.type === "timeZoneName").value;
 
       let standardTimeMessage;
-      if (offset === 420) { // 420 minutes = UTC-7 (PDT)
-        // Currently in daylight saving time (PDT), so subtract 1 hour to get standard time
+      if (pacificTimeAbbreviation === "PDT") {
+        // If we're currently in PDT, calculate the standard time by subtracting 1 hour
         const standardTime = new Date(currentDate.getTime() - 60 * 60 * 1000);
         standardTimeMessage = `Currently in Daylight Saving Time (PDT). Standard time: ${standardTime.toLocaleTimeString("en-US", { timeZone: timezone })}`;
-      } else if (offset === 480) { // 480 minutes = UTC-8 (PST)
-        // Already in standard time (PST)
+      } else if (pacificTimeAbbreviation === "PST") {
+        // If we're already in PST, no adjustment is needed
         standardTimeMessage = "No daylight saving time adjustment needed; this is already standard time (PST).";
       } else {
-        // Fallback message if offset doesn't match expected values
-        standardTimeMessage = "Unable to determine if daylight saving time is active.";
+        // Fallback message if timezone name isn't recognized
+        standardTimeMessage = "Unable to determine daylight saving time status.";
       }
 
       // Display result

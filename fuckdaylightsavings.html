@@ -29,24 +29,23 @@
 
   <script>
     function convertPST() {
-      const timezone = "America/Los_Angeles"; // Fixed to Pacific Time Zone
+      const timezone = "America/Los_Angeles";
       const currentDate = new Date();
 
-      // Get the offset in minutes for Pacific Time Zone
-      const currentOffset = currentDate.toLocaleString("en-US", { timeZone: timezone, timeZoneName: "short" }).includes("PDT") ? -420 : -480;
+      // Get the timezone offset in minutes for the current date
+      const offset = currentDate.getTimezoneOffset();
 
-      // Convert minutes to hours for display
-      const offsetHours = currentOffset / 60;
-
-      // Check if the offset is -7 hours (PDT) or -8 hours (PST)
       let standardTimeMessage;
-      if (offsetHours === -7) {
-        // If PDT (UTC-7), calculate standard time by subtracting one hour
+      if (offset === 420) { // 420 minutes = UTC-7 (PDT)
+        // Currently in daylight saving time (PDT), so subtract 1 hour to get standard time
         const standardTime = new Date(currentDate.getTime() - 60 * 60 * 1000);
         standardTimeMessage = `Currently in Daylight Saving Time (PDT). Standard time: ${standardTime.toLocaleTimeString("en-US", { timeZone: timezone })}`;
-      } else {
-        // If already PST (UTC-8)
+      } else if (offset === 480) { // 480 minutes = UTC-8 (PST)
+        // Already in standard time (PST)
         standardTimeMessage = "No daylight saving time adjustment needed; this is already standard time (PST).";
+      } else {
+        // Fallback message if offset doesn't match expected values
+        standardTimeMessage = "Unable to determine if daylight saving time is active.";
       }
 
       // Display result

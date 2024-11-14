@@ -179,11 +179,11 @@ document.addEventListener("keydown", (e) => {
         const data = await response.json();
         let count = data.record.visitCount;
 
-        // Display current count
-  $("#view-count").text(count);
 
         // Increment the counter
         count += 1;
+        // Display current count
+        $("#view-count").text(count);
 
         // Update the count in JSONBin
         await fetch(`https://api.jsonbin.io/v3/b/${binId}`, {

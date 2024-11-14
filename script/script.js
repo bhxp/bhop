@@ -167,3 +167,42 @@ document.addEventListener("keydown", (e) => {
     window.open("/home", "_self");
   }
 });
+
+// JSONBin Bin ID and API Key
+    const binId = '67359ccaad19ca34f8c9de30'; // Replace with your actual bin ID
+    const apiKey = '$2a$10$PdE8DlpdPuENmEfETNioOOROSZ8bMS7wVMiNa7YN415QGW907Fwwm'; // Replace with your JSONBin API key
+
+    async function updateCounter() {
+      try {
+        // Fetch current count from JSONBin
+        const response = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
+          headers: {
+            'X-Master-Key': apiKey,
+          }
+        });
+        const data = await response.json();
+        let count = data.record.visitCount;
+
+        // Display current count
+        document.getElementById('count').innerText = count;
+
+        // Increment the counter
+        count += 1;
+
+        // Update the count in JSONBin
+        await fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Master-Key': apiKey,
+          },
+          body: JSON.stringify({ visitCount: count })
+        });
+
+      } catch (error) {
+        console.error('Error updating counter:', error);
+        document.getElementById('count').innerText = 'Error';
+      }
+    }
+
+    updateCounter();

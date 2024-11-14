@@ -19,10 +19,6 @@ var localStorage = window.localStorage;
 
 $(document).ready(function() {
 
-  let views = parseInt(localStorage.getItem("views"), 10) || 0;
-  views += 1;
-  localStorage.setItem("views", views);
-  $("#view-count").text(views);
 
   var text = "Click to enter...";
   var textLength = text.length;
@@ -184,7 +180,7 @@ document.addEventListener("keydown", (e) => {
         let count = data.record.visitCount;
 
         // Display current count
-        document.getElementById('count').innerText = count;
+  $("#view-count").text(count);
 
         // Increment the counter
         count += 1;

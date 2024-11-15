@@ -294,12 +294,12 @@ body {
   }
 
   #container {
-    top: 20vh;
+    top: 20vh !important;
   }
 
   #views {
     left: 50vw;
-    top: calc(50vh + var(--box-height) / 2);
+    top: calc(20vh + var(--box-height) + 12px);
     transform: TranslateX(-50%);
   }
 }

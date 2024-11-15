@@ -289,8 +289,12 @@ body {
 }
 
 @media (orientation: portrait) {
+  :root {
+    --box-height: 200px;
+    --box-width: 200px;
+  }
   #home-button {
-    display: none !important;
+    bottom: auto !important
   }
 
   #container {

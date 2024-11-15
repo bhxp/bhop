@@ -43,6 +43,7 @@ body {
   overflow: hidden;
   cursor: none !important;
   user-select: none;
+  overflow-y: hidden !important;
 }
 
 
@@ -290,6 +291,10 @@ body {
 @media (orientation: portrait) {
   #home-button {
     display: none !important;
+  }
+
+  #container {
+    top: 20vh;
   }
 
   #views {

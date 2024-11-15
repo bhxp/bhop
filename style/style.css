@@ -287,3 +287,14 @@ body {
   display: flex;
 }
 
+@media (orientation: portrait) {
+  #home-button {
+    display: none !important;
+  }
+
+  #views {
+    left: 50vw;
+    top: calc(50vh + var(--box-height) / 2);
+    transform: TranslateX(-50%);
+  }
+}

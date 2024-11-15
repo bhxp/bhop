@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS SCRAPER</title>
+</head>
+<body>
+    <h1>HTML & CSS Scraper</h1>
+    <input type="url" id="urlInput" placeholder="Enter a URL" />
+    <button id="fetchButton">Fetch Code</button>
+
+    <h2>HTML</h2>
+    <textarea id="htmlOutput" rows="10" cols="50" readonly></textarea>
+
+    <h2>CSS</h2>
+    <textarea id="cssOutput" rows="10" cols="50" readonly></textarea>
+
+    <script>
+        document.getElementById('fetchButton').addEventListener('click', async () => {
+            const url = document.getElementById('urlInput').value;
+            if (!url) {
+                alert("Please enter a valid URL.");
+                return;
+            }
+
+            try {
+                // Fetch HTML content
+                const response = await fetch(`https://cors-anywhere.herokuapp.com/${url}`); // Use a CORS proxy
+                const html = await response.text();
+
+                // Display HTML
+                document.getElementById('htmlOutput').value = html;
+
+                // Extract inline styles (basic demo)
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, "text/html");
+                const styles = Array.from(doc.querySelectorAll('style')).map(style => style.textContent).join("\n");
+
+                // Display inline CSS
+                document.getElementById('cssOutput').value = styles;
+            } catch (error) {
+                console.error("Error fetching the webpage:", error);
+                alert("Could not fetch the webpage. Check the URL or CORS restrictions.");
+            }
+        });
+    </script>
+</body>
+</html>
